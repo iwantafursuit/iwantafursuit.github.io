@@ -746,6 +746,90 @@
 
     </style>
 
+    <style>
+    /* Estilos básicos para el banner */
+    .cookie-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        padding: 20px;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        z-index: 9999;
+        text-align: center;
+        font-family: sans-serif;
+    }
+    
+    .cb-buttons, .cp-buttons {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Estilos para el panel modal */
+    .cookie-panel {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cp-content {
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 500px;
+        width: 90%;
+    }
+
+    /* Botones */
+    button { cursor: pointer; padding: 10px 20px; border: none; border-radius: 4px; font-weight: bold; }
+    .btn-accept { background: #4CAF50; color: white; }
+    .btn-reject { background: #f44336; color: white; }
+    .btn-manage { background: #eee; color: #333; }
+</style>
+
+    <div id="cookie-banner" class="cookie-banner" style="display: none;" aria-hidden="true">
+        <p>
+            Usamos cookies para mejorar tu experiencia y mostrar anuncios personalizados. 
+            ¿Aceptas las cookies de marketing?
+        </p>
+        <div class="cb-buttons">
+            <button id="cb-accept-all" class="btn-accept">Aceptar todas</button>
+            <button id="cb-reject-all" class="btn-reject">Rechazar</button>
+            <button id="cb-manage" class="btn-manage">Configurar</button>
+        </div>
+    </div>
+    
+    <div id="cookie-panel" class="cookie-panel" style="display: none;" aria-hidden="true">
+        <div class="cp-content">
+            <h3>Configuración de Privacidad</h3>
+            <div class="cp-option">
+                <label>
+                    <input type="checkbox" data-cookie="necessary" checked disabled>
+                    Necesarias (Siempre activas)
+                </label>
+            </div>
+            <div class="cp-option">
+                <label>
+                    <input type="checkbox" data-cookie="marketing">
+                    Marketing y Anuncios (AdSense)
+                </label>
+            </div>
+            <div class="cp-buttons">
+                <button id="cp-save" class="btn-accept">Guardar preferencias</button>
+                <button id="cp-cancel" class="btn-reject">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <script>
     (function () {
         // ==========================================
@@ -910,5 +994,6 @@
 </body>
 
 </html>
+
 
 
