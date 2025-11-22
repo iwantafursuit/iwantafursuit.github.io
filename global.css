@@ -1,0 +1,3 @@
+:root { --sidebar-w: 220px; --sidebar-collapsed-w: 64px; }
+.main { margin-left: var(--sidebar-w); transition: margin-left .22s ease; }
+html.site-sidebar-collapsed { --sidebar-w: var(--sidebar-collapsed-w); }

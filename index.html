@@ -1,0 +1,907 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>I Want a Fursuit find your maker</title>
+    <meta name="description" content="Fursuit makers directory: search by country, register if you are a maker." />
+
+    <script>
+        (function () {
+            // No redirigir a bots/crawlers simples
+            const ua = navigator.userAgent || '';
+            const isBot = /bot|crawl|spider|bingpreview|slurp/i.test(ua);
+            if (isBot) return;
+
+            // Si ya hay ?lang= en URL o preferencia guardada, no forzamos
+            const params = new URLSearchParams(location.search);
+            if (params.get('lang')) return;
+            if (localStorage.getItem('site_lang')) return;
+
+            // Detectar idioma preferido
+            const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'es';
+            const lang = nav.slice(0, 2).toLowerCase();
+
+            // Mapeo de idiomas a rutas
+            const map = { es: '/es/', en: '/en/' };
+            const target = map[lang] || '/es/'; // fallback
+
+            // Si ya estamos en target o root no hacemos nada
+            if (location.pathname.startsWith(target)) return;
+
+            // Redirigir (replace para no llenar el historial)
+            location.replace(target + location.search + location.hash);
+        })();
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: linear-gradient(180deg,#f8fafc 0%, #ffffff 100%);
+            color: #0f1724;
+        }
+
+        .wrap {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 760px 1fr 760px;
+            align-items: center;
+            gap: 24px;
+            padding: 40px;
+        }
+
+        .side-column {
+            height: 78vh;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding: 12px;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .slots-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 14px;
+        }
+
+        .slot {
+            width: 100%;
+            height: 480px;
+            border-radius: 0px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(15,23,36,0.06);
+            background: #0f0f0f0a;
+        }
+
+            .slot img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transform: translateY(0);
+                transition: opacity .5s ease, transform .5s ease;
+                -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0));
+                mask-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 12%, rgba(0,0,0,1) 88%, rgba(0,0,0,0));
+                -webkit-mask-size: 100% 100%;
+                mask-size: 100% 100%;
+                -webkit-mask-repeat: no-repeat;
+                mask-repeat: no-repeat;
+            }
+
+                .slot img.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+            .slot .caption {
+                display: none;
+            }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .logo img {
+            width: 720px;
+            height: auto;
+            object-fit: contain;
+            pointer-events: none;
+            margin-top: 20px;
+        }
+
+        .search-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+            .search-row input[type="search"] {
+                padding: 14px 16px;
+                border-radius: 12px;
+                border: 1px solid rgba(2,6,23,0.06);
+                min-width: 360px;
+                background: #ffffff;
+                color: inherit;
+                font-size: 16px;
+                outline: none;
+            }
+
+            .search-row select {
+                padding: 14px;
+                border-radius: 12px;
+                border: 1px solid rgba(2,6,23,0.06);
+                background: #ffffff;
+                color: inherit;
+                font-size: 16px;
+            }
+
+            .search-row button {
+                padding: 12px 18px;
+                border-radius: 12px;
+                border: none;
+                background: linear-gradient(90deg,#8b5cf6,#06b6d4);
+                color: #ffffff;
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+        .explore-btn {
+            display: block;
+            margin-top: 12px;
+            padding: 14px 20px;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(90deg,#06b6d4,#8b5cf6);
+            color: #fff;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(3,7,18,0.08);
+        }
+
+        .maker-cta {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            align-items: center;
+        }
+
+            .maker-cta .tiny {
+                width: 100%;
+                margin-top: 0px;
+                opacity: .8;
+                font-size: 13px;
+                text-align: center;
+            }
+
+        .register-btn {
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(2,6,23,0.06);
+            background: #fff;
+            color: #071032;
+            cursor: pointer;
+            transition: all .18s;
+        }
+
+            .register-btn:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 30px rgba(3,7,18,0.06);
+            }
+
+        .explain {
+            text-align: left;
+            max-width: 820px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.01), transparent);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(2,6,23,0.03);
+            font-size: 15px;
+            line-height: 1.5;
+            color: #0f1724;
+        }
+
+        .tiny {
+            opacity: .8;
+            font-size: 13px;
+            margin-top: 6px;
+            color: #334155;
+        }
+
+        @media (max-width:1200px) {
+            .wrap {
+                grid-template-columns: 300px 1fr 300px;
+                gap: 12px;
+                padding: 20px;
+            }
+
+            .slot {
+                height: 300px;
+            }
+
+            .explore-btn {
+                width: 240px;
+            }
+
+            .logo img {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .search-row input[type="search"] {
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width:1100px) {
+            .wrap {
+                grid-template-columns: 85px 1fr 85px;
+                padding: 0px 10px 10px 10px;
+                gap: 8px;
+                align-items: flex-start;
+            }
+
+            .side-column {
+                display: flex;
+                height: auto;
+                padding: 0;
+                padding-top: 150px;
+            }
+
+            .slots-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .slot {
+                height: 110px;
+                box-shadow: none;
+                background: #0000000d;
+            }
+
+            .center {
+                padding: 10px 4px 20px 4px;
+            }
+
+            .logo img {
+                width: 100%;
+                height: auto;
+                max-height: 130px;
+                margin-top: 0;
+                object-fit: contain;
+            }
+
+            .search-row {
+                flex-direction: column;
+                width: 100%;
+                gap: 8px;
+            }
+
+                .search-row input[type="search"],
+                .search-row select,
+                .search-row button {
+                    width: 100%;
+                    min-width: 0;
+                    padding: 10px;
+                    font-size: 14px;
+                }
+
+            .explore-btn {
+                width: 100%;
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .maker-cta {
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .explain {
+                font-size: 13px;
+                padding: 10px;
+            }
+
+            .tiny {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <aside class="side-column" aria-hidden="true">
+            <div class="slots-grid" id="leftGrid"></div>
+        </aside>
+
+        <main class="center">
+            <div class="logo"><img src="/assets/logo/logo.png" alt="Site Logo"></div>
+
+            <div class="search-row" role="search">
+                <input id="q" type="search" placeholder="Search makers..." aria-label="Search makers" />
+                <select id="country" aria-label="Filter by country">
+                    <option value="any">Worldwide</option>
+                    <option value="es">Spain</option>
+                    <option value="us">United States</option>
+                    <option value="de">Germany</option>
+                    <option value="ko">Korea</option>
+                </select>
+                <button id="searchBtn">Search</button>
+            </div>
+
+            <button id="exploreBtn" class="explore-btn" aria-label="Explore makers">Explore</button>
+
+            <div class="maker-cta">
+                <div class="label" style="font-size:14px; font-weight:600;">I am a Maker</div>
+                <button class="register-btn" id="registerBtn">Add me</button>
+            </div>
+
+            <div class="maker-cta tiny">
+                <div class="tiny">Are you a maker? Ask me to add you using the "Add me" button!</div>
+            </div>
+
+            <div class="explain" id="explain">
+                <strong>What is this website about?</strong>
+                <p>This site is a directory designed to gather fursuit makers: creators, studios, and artists. Makers can request to be added through "Add me".</p>
+            </div>
+        </main>
+
+        <aside class="side-column" aria-hidden="true">
+            <div class="slots-grid" id="rightGrid"></div>
+        </aside>
+    </div>
+
+    <script src="scripts/bottom-bar.js" defer></script>
+
+    <script>
+        const fallbackImages = [
+            'assets/left-1.jpg', 'assets/assets/left-2.jpg', 'assets/left-3.jpg', 'assets/left-4.jpg',
+            'assets/right-1.jpg', 'assets/right-2.jpg', 'assets/right-3.jpg', 'assets/right-4.jpg'
+        ];
+
+        const sideSlotCols = 2;
+        const sideSlotRows = 2;
+        const totalSlotsPerSide = sideSlotCols * sideSlotRows;
+        const totalSlots = totalSlotsPerSide * 2;
+        const TICK_MS = 5000;
+        let globalTimeout = null;
+        const allSlots = [];
+
+        async function setupSideSlots() {
+            allSlots.length = 0;
+            const leftGrid = document.getElementById('leftGrid');
+            const rightGrid = document.getElementById('rightGrid');
+            if (leftGrid) leftGrid.innerHTML = '';
+            if (rightGrid) rightGrid.innerHTML = '';
+            if (globalTimeout) { clearTimeout(globalTimeout); globalTimeout = null; }
+
+            let makers = [];
+            try {
+                const r = await fetch('/makers.json?ts=' + Date.now());
+                makers = await r.json();
+            } catch (e) { }
+
+            const pool = [];
+            makers.forEach(m => {
+                if (m.images && m.images.length) {
+                    m.images.forEach(img => pool.push({ src: img, id: m.id, name: m.name }));
+                }
+            });
+            if (pool.length === 0) { fallbackImages.forEach((p, i) => pool.push({ src: p, id: 'fallback' + i, name: 'Artist' })); }
+
+            const initialChosen = pickRandom(pool, Math.min(pool.length, totalSlots));
+            while (initialChosen.length < totalSlots) { initialChosen.push(pool[Math.floor(Math.random() * pool.length)]); }
+
+            function createSlots(gridEl, startIndex) {
+                for (let r = 0; r < sideSlotRows; r++) {
+                    for (let c = 0; c < sideSlotCols; c++) {
+                        const idx = startIndex + (r * sideSlotCols + c);
+                        const item = initialChosen[idx] || pool[Math.floor(Math.random() * pool.length)];
+                        const slot = document.createElement('div');
+                        slot.className = 'slot ' + (r === 0 ? 'top' : 'bottom');
+                        slot.dataset.pos = r === 0 ? 'up' : 'down';
+
+                        const img = document.createElement('img');
+                        img.src = item.src;
+                        img.classList.add('visible');
+                        img.title = item.name || '';
+                        img.dataset.id = item.id || '';
+                        img.dataset.name = item.name || '';
+                        slot.appendChild(img);
+
+                        const caption = document.createElement('div'); caption.className = 'caption'; caption.textContent = item.name || '';
+                        slot.appendChild(caption);
+
+                        slot.addEventListener('click', () => {
+                            const imgEl = slot.querySelector('img');
+                            const id = imgEl && imgEl.dataset && imgEl.dataset.id ? imgEl.dataset.id : '';
+                            if (id && !id.startsWith('fallback')) {
+                                location.href = `profile.html?id=${encodeURIComponent(id)}`;
+                            }
+                        });
+
+                        gridEl.appendChild(slot);
+
+                        const imgsForSlot = buildImagesForSlot(pool, item);
+                        const currentIndex = 0;
+                        allSlots.push({ el: slot, pos: slot.dataset.pos, images: imgsForSlot, currentIndex });
+                    }
+                }
+            }
+
+            createSlots(document.getElementById('leftGrid'), 0);
+            createSlots(document.getElementById('rightGrid'), totalSlotsPerSide);
+            scheduleNextGlobalTick();
+        }
+
+        function buildImagesForSlot(pool, anchorItem) {
+            const imgs = [];
+            imgs.push({ src: anchorItem.src, id: anchorItem.id, name: anchorItem.name });
+            const candidates = pool.filter(p => p.src !== anchorItem.src);
+            while (imgs.length < Math.min(3, pool.length) && candidates.length) {
+                const j = Math.floor(Math.random() * candidates.length);
+                imgs.push(candidates.splice(j, 1)[0]);
+            }
+            while (imgs.length < 3) { imgs.push(pool[Math.floor(Math.random() * pool.length)]); }
+            return imgs;
+        }
+
+        function normalizeHref(src) {
+            try { return new URL(src, location.href).href; } catch (e) { return src; }
+        }
+        function sameSrc(a, b) { return normalizeHref(a) === normalizeHref(b); }
+
+        function globalTick() {
+            if (allSlots.length === 0) { scheduleNextGlobalTick(); return; }
+
+            const used = new Set();
+            const chosenForSlot = new Array(allSlots.length);
+
+            for (let i = 0; i < allSlots.length; i++) {
+                const s = allSlots[i];
+                const nextIdx = (s.currentIndex + 1) % s.images.length;
+                let cand = s.images[nextIdx];
+                if ([...used].some(u => sameSrc(u, cand.src))) {
+                    let found = null;
+                    for (let k = 0; k < s.images.length; k++) {
+                        const alt = s.images[(s.currentIndex + 1 + k) % s.images.length];
+                        if (![...used].some(u => sameSrc(u, alt.src))) { found = alt; break; }
+                    }
+                    if (found) cand = found;
+                    else {
+                        const poolUnique = allSlots.flatMap(x => x.images).map(x => ({ src: x.src, id: x.id, name: x.name })).filter((v, i, a) => a.findIndex(z => normalizeHref(z.src) === normalizeHref(v.src)) === i);
+                        const alt = poolUnique.find(p => ![...used].some(u => sameSrc(u, p.src)));
+                        if (alt) { cand = alt; }
+                    }
+                }
+                chosenForSlot[i] = cand;
+                used.add(cand.src);
+            }
+
+            allSlots.forEach((s, i) => {
+                const slotEl = s.el;
+                const imgEl = slotEl.querySelector('img');
+                const pos = s.pos;
+                const next = chosenForSlot[i];
+                if (!next) return;
+                if (sameSrc(imgEl.src, next.src)) {
+                    const idx = s.images.findIndex(x => sameSrc(x.src, next.src));
+                    s.currentIndex = idx >= 0 ? idx : s.currentIndex;
+                    return;
+                }
+                imgEl.classList.remove('visible');
+                if (pos === 'up') imgEl.style.transform = 'translateY(-20px)';
+                else imgEl.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    imgEl.src = next.src;
+                    imgEl.title = next.name || '';
+                    imgEl.dataset.id = next.id || '';
+                    imgEl.dataset.name = next.name || '';
+                    const idx2 = s.images.findIndex(x => sameSrc(x.src, next.src));
+                    s.currentIndex = idx2 >= 0 ? idx2 : 0;
+                    imgEl.style.transform = (pos === 'up') ? 'translateY(20px)' : 'translateY(-20px)';
+                    void imgEl.offsetWidth;
+                    imgEl.classList.add('visible');
+                    imgEl.style.transform = 'translateY(0)';
+                }, 420);
+            });
+
+            scheduleNextGlobalTick();
+        }
+
+        function scheduleNextGlobalTick() {
+            if (globalTimeout) clearTimeout(globalTimeout);
+            globalTimeout = setTimeout(globalTick, TICK_MS);
+        }
+
+        function pickRandom(arr, n) {
+            const a = arr.slice();
+            const out = [];
+            for (let i = 0; i < n && a.length > 0; i++) {
+                const j = Math.floor(Math.random() * a.length);
+                out.push(a.splice(j, 1)[0]);
+            }
+            return out;
+        }
+
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                setupSideSlots();
+                return;
+            }
+            if (!globalTimeout && allSlots.length) scheduleNextGlobalTick();
+        });
+
+        setupSideSlots();
+
+        document.getElementById('searchBtn').addEventListener('click', function () {
+            const q = encodeURIComponent(document.getElementById('q').value.trim());
+            const country = encodeURIComponent(document.getElementById('country').value);
+            const params = new URLSearchParams();
+            if (q) params.set('q', q);
+            if (country && country !== 'any') params.set('country', country);
+            location.href = 'search.html' + (params.toString() ? ('?' + params.toString()) : '');
+        });
+
+        document.getElementById('exploreBtn').addEventListener('click', function () {
+            location.href = 'search.html';
+        });
+
+        document.getElementById('registerBtn').addEventListener('click', function () {
+            location.href = 'https://forms.gle/6boFuotq8T9DGy4v6';
+        });
+
+        window.addEventListener('beforeunload', () => { if (globalTimeout) clearTimeout(globalTimeout); });
+    </script>
+
+    <div id="cookie-banner" aria-hidden="true" style="display:none;">
+        <div class="cb-inner">
+            <div class="cb-text">
+                <strong>We use cookies</strong>
+                <p>We use necessary cookies and marketing cookies (ads). We need your explicit consent to show ads.</p>
+                <div class="cb-actions">
+                    <button id="cb-accept-all" class="btn">Accept all</button>
+                    <button id="cb-reject-all" class="btn ghost">Reject</button>
+                    <button id="cb-manage" class="btn ghost">Manage</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-panel" aria-hidden="true" style="display:none;">
+        <div class="cp-inner">
+            <h3>Cookie Preferences</h3>
+            <p>Check what you accept. Only checked cookies will be activated.</p>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="necessary" disabled checked> Necessary (always active)</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="preferences"> Preferences</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="statistics"> Statistics</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="marketing"> Marketing / Ads</label>
+            </div>
+            <div class="cp-actions">
+                <button id="cp-save" class="btn">Save</button>
+                <button id="cp-cancel" class="btn ghost">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+                #cookie-banner {
+                        position: fixed;
+                        left: 16px;
+                        right: 16px;
+                        bottom: 16px;
+                        background: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 10px;
+                        box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+                        z-index: 9999;
+                        max-width: 980px;
+                        margin: 0 auto;
+
+        }
+
+                .cb-inner {
+                        padding: 14px;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+
+        }
+
+                .cb-text p {
+                        margin: 6px 0 10px 0;
+                        color: #444;
+                        font-size: 14px;
+
+        }
+
+                .cb-actions {
+                        display: flex;
+                        gap: 8px;
+                        flex-wrap: wrap;
+
+        }
+
+                .btn {
+                        padding: 8px 12px;
+                        border-radius: 8px;
+                        border: 0;
+                        background: #0f172a;
+                        color: white;
+                        cursor: pointer;
+
+        }
+
+                    .btn.ghost {
+                            background: transparent;
+                            border: 1px solid #bbb;
+                            color: #111;
+
+        }
+
+                #cookie-panel {
+                        position: fixed;
+                        right: 16px;
+                        bottom: 90px;
+                        z-index: 9999;
+                        background: #fff;
+                        border: 1px solid #ddd;
+                        border-radius: 10px;
+                        padding: 12px;
+                        width: 320px;
+                        box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+
+        }
+
+                .cp-inner h3 {
+                        margin: 0 0 8px 0;
+
+        }
+
+                .cp-row {
+                        margin: 8px 0;
+                        font-size: 14px;
+
+        }
+
+                .cp-actions {
+                        display: flex;
+                        gap: 8px;
+                        justify-content: flex-end;
+                        margin-top: 8px;
+
+        }
+
+                .ad-slot {
+                        min-height: 60px;
+                        margin: 18px 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+        }
+
+                .ad-placeholder {
+                        width: 100%;
+                        height: 100%;
+                        padding: 10px;
+                        border: 2px dashed #ccc;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #666;
+
+        }
+
+
+    </style>
+
+    // UPDATED JAVASCRIPT LOGIC FOR ADSENSE
+    <script>
+
+        (function () {
+            const ADSENSE_CLIENT = 'ca-pub-XXXXXXXXXXXXXXXX';
+            const TEST_MODE = true;
+            const COOKIE_KEY = 'siteCookieConsent_v1';
+
+            function readConsent() {
+                try {
+                    const v = localStorage.getItem(COOKIE_KEY);
+                    return v ? JSON.parse(v) : null;
+                } catch (e) { return null; }
+            }
+            function writeConsent(obj) {
+                localStorage.setItem(COOKIE_KEY, JSON.stringify(obj));
+            }
+            function hasConsent(cat) {
+                const c = readConsent();
+                return c && c[cat] === true;
+            }
+
+            const banner = document.getElementById('cookie-banner');
+            const panel = document.getElementById('cookie-panel');
+
+            function showBanner() { banner.style.display = 'block'; banner.setAttribute('aria-hidden', 'false'); }
+            function hideBanner() { banner.style.display = 'none'; banner.setAttribute('aria-hidden', 'true'); }
+            function showPanel() { panel.style.display = 'block'; panel.setAttribute('aria-hidden', 'false'); }
+            function hidePanel() { panel.style.display = 'none'; panel.setAttribute('aria-hidden', 'true'); }
+
+            let adsScriptLoaded = false;
+            function injectAdsenseScript() {
+                if (adsScriptLoaded) return;
+                const s = document.createElement('script');
+                s.async = true;
+                s.crossOrigin = 'anonymous';
+                s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
+                document.head.appendChild(s);
+                adsScriptLoaded = true;
+            }
+
+            function renderAdSlots() {
+                const slots = document.querySelectorAll('.ad-slot');
+                slots.forEach(slot => {
+                    if (slot.dataset.rendered === 'true') return;
+
+                    const adSlotId = slot.getAttribute('data-ad-slot') || '';
+                    if (!hasConsent('marketing')) {
+                        const ph = document.createElement('div');
+                        ph.className = 'ad-placeholder';
+                        ph.innerText = 'Ad space (you need to accept marketing to see real ads)';
+                        slot.appendChild(ph);
+                        slot.dataset.rendered = 'true';
+                        return;
+                    }
+
+                    const ins = document.createElement('ins');
+                    ins.className = 'adsbygoogle';
+                    ins.style.display = 'block';
+                    if (adSlotId) ins.setAttribute('data-ad-slot', adSlotId);
+                    ins.setAttribute('data-ad-format', 'auto');
+                    ins.setAttribute('data-full-width-responsive', 'true');
+
+                    if (TEST_MODE) {
+                        ins.setAttribute('data-adtest', 'on');
+                    }
+
+                    slot.innerHTML = '';
+                    slot.appendChild(ins);
+                    slot.dataset.rendered = 'true';
+
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                    }
+                });
+            }
+
+            function ensureAdsScriptAndRender() {
+                if (!adsScriptLoaded) injectAdsenseScript();
+                renderAdSlots();
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const consent = readConsent();
+                const acceptBtn = document.getElementById('cb-accept-all');
+                const rejectBtn = document.getElementById('cb-reject-all');
+                const manageBtn = document.getElementById('cb-manage');
+                const saveBtn = document.getElementById('cp-save');
+                const cancelBtn = document.getElementById('cp-cancel');
+
+                function syncPanel() {
+                    const checkboxes = panel.querySelectorAll('input[type="checkbox"][data-cookie]');
+                    const c = readConsent() || {};
+                    checkboxes.forEach(cb => {
+                        const key = cb.getAttribute('data-cookie');
+                        if (key === 'necessary') { cb.checked = true; cb.disabled = true; }
+                        else cb.checked = !!c[key];
+                    });
+                }
+
+                if (!consent) {
+                    showBanner();
+                } else {
+                    if (hasConsent('marketing')) {
+                        ensureAdsScriptAndRender();
+                    } else {
+                        renderAdSlots();
+                    }
+                }
+
+                acceptBtn.addEventListener('click', function () {
+                    const obj = { necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() };
+                    writeConsent(obj);
+                    hideBanner();
+                    hidePanel();
+                    ensureAdsScriptAndRender();
+                });
+
+                rejectBtn.addEventListener('click', function () {
+                    const obj = { necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() };
+                    writeConsent(obj);
+                    hideBanner();
+                    hidePanel();
+                    renderAdSlots();
+                });
+
+                manageBtn.addEventListener('click', function () {
+                    showPanel();
+                    syncPanel();
+                });
+
+                cancelBtn.addEventListener('click', function () {
+                    hidePanel();
+                });
+
+                saveBtn.addEventListener('click', function () {
+                    const checkboxes = panel.querySelectorAll('input[type="checkbox"][data-cookie]');
+                    const obj = { necessary: true, ts: Date.now() };
+                    checkboxes.forEach(cb => {
+                        const key = cb.getAttribute('data-cookie');
+                        if (key === 'necessary') return;
+                        obj[key] = !!cb.checked;
+                    });
+                    writeConsent(obj);
+                    hidePanel();
+                    hideBanner();
+
+                    if (obj.marketing) {
+                        ensureAdsScriptAndRender();
+                    } else {
+                        renderAdSlots();
+                    }
+                });
+
+                if (consent && consent.marketing) {
+                    setTimeout(() => { ensureAdsScriptAndRender(); }, 50);
+                }
+            });
+
+            window.SiteConsent = {
+                get: readConsent,
+                has: hasConsent,
+                revokeAll: function () {
+                    const obj = { necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() };
+                    writeConsent(obj);
+                    renderAdSlots();
+                },
+                acceptAll: function () {
+                    const obj = { necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() };
+                    writeConsent(obj);
+                    ensureAdsScriptAndRender();
+                },
+                setTestMode: function (v) {
+                }
+            };
+
+        })();
+    </script>
+
+</body>
+</html>

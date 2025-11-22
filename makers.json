@@ -1,0 +1,67 @@
+[
+  {
+    "id": "1",
+    "name": "BINARI FURSUIT",
+    "country": "ko",
+    "countryname": "Korea",
+    "money": "ask",
+    "bio": "Imagination becomes reality\n",
+    "info": "Can?\n\n[ O ]\n\n→ Toony, Kemono style is accepted. \n→ Fursona or animal characters. \n→ YouTube, Streaming OK\n\n[ X ]\n\n→ Design without permission from the original creator (Pokemon, Digimon, etc.); similar design\n→ Difficult patterns and designs, hair\n→ Real style and materials such as resin eye, kimono, reptiles\n→ Copyright characters, additional props or costumes\n→ commercial use",
+    "styles": [ "full-suit", "heads", "Toon", "Kemono" ],
+    "images": [ "/assets/makers/BINARI_FURSUIT/2.jpg", "/assets/makers/BINARI_FURSUIT/4.jpg", "/assets/makers/BINARI_FURSUIT/3.jpg", "/assets/makers/BINARI_FURSUIT/1.jpg", "/assets/makers/BINARI_FURSUIT/5.jpg", "/assets/makers/BINARI_FURSUIT/6.jpg", "/assets/makers/BINARI_FURSUIT/7.jpg", "/assets/makers/BINARI_FURSUIT/8.jpg" ],
+    "contact": {
+      "x": "https://x.com/Binari2019",
+      "web": "https://binari2019.imweb.me/index"
+    },
+    "rating": "any"
+  },
+  {
+    "id": "2",
+    "name": "✨🐭TEM123456🐭✨",
+    "country": "us",
+    "countryname": "USA",
+    "money": "ask",
+    "bio": "Yay u (somehow) found me!!!>w<",
+    "info": "Hello everyone, I've started making fur suit back in 2018 I love making them, cosplay, miniature and craft in general I hope I guess for now all I can do is hope for a fun and crafty future ;)",
+    "styles": [ "full-suit", "heads" ],
+    "images": [ "/assets/makers/TEM123456/2.jpg", "/assets/makers/TEM123456/3.jpg", "/assets/makers/TEM123456/1.jpg", "/assets/makers/TEM123456/4.jpg" ],
+    "contact": {
+      "x": "https://x.com/us_rat18915",
+      "web": "https://linktr.ee/TEM123456__OpaliteComet"
+    },
+    "rating": "any"
+  },
+  {
+    "id": "3",
+    "name": "FurBitten Studios",
+    "country": "us",
+    "countryname": "USA",
+    "money": "ask",
+    "bio": "Protogen and Cyber Species Fursuit maker",
+    "info": "Protogen and Cyber species fursuit maker.\nYou MUST be 18+ to commission me. ",
+    "styles": [ "partial", "heads", "protogen", "Cyber" ],
+    "images": [ "/assets/makers/FurBitten_Studios/2.jpg", "/assets/makers/FurBitten_Studios/1.jpg", "/assets/makers/FurBitten_Studios/3.jpg", "/assets/makers/FurBitten_Studios/4.jpg", "/assets/makers/FurBitten_Studios/5.jpg" ],
+    "contact": {
+      "x": "https://x.com/furbittenStudio",
+      "instagram": "https://www.instagram.com/furbitten_studios/",
+      "web": "https://www.furbittenstudios.com/",
+      "linktr": "https://linktr.ee/FurBittenStudios"
+    },
+    "rating": "any"
+  },
+  {
+    "id": "4",
+    "name": "Lordoffishes",
+    "country": "us",
+    "countryname": "USA",
+    "money": "ask",
+    "bio": "Hey there! I’m fish! I’m you friendly neighbor furry artist!",
+    "info": "",
+    "styles": [ "partial", "heads" ],
+    "images": [ "/assets/makers/Lordoffishes/1.jpg", "/assets/makers/Lordoffishes/2.jpg" ],
+    "contact": {
+      "instagram": "https://www.instagram.com/lordoffishes/"
+    },
+    "rating": "any"
+  }
+]
