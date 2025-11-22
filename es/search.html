@@ -278,11 +278,11 @@
                 const meta = document.createElement('div');
                 meta.className = 'meta';
                 meta.innerHTML = `
-                                            <h3>${escapeHtml(m.name)}</h3>
-                                            <p class="small">${escapeHtml(m.countryname || '')}, ${escapeHtml(m.country)}</p>
-                                            <p>${escapeHtml((m.bio || '').slice(0, 120))}${(m.bio || '').length > 120 ? '...' : ''}</p>
-                                            <a href="profile.html?id=${encodeURIComponent(m.id)}">Ver perfil</a>
-                                          `;
+                                                <h3>${escapeHtml(m.name)}</h3>
+                                                <p class="small">${escapeHtml(m.countryname || '')}, ${escapeHtml(m.country)}</p>
+                                                <p>${escapeHtml((m.bio || '').slice(0, 120))}${(m.bio || '').length > 120 ? '...' : ''}</p>
+                                                <a href="profile.html?id=${encodeURIComponent(m.id)}">Ver perfil</a>
+                                              `;
 
                 card.appendChild(imgWrap);
                 card.appendChild(meta);
@@ -452,7 +452,11 @@
     <script src="scripts/bottom-bar.js" defer></script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8232569132678992"
-     crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
+
+    <script async custom-element="amp-auto-ads"
+            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
 
 </body>
 </html>

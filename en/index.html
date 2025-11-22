@@ -635,119 +635,109 @@
     </div>
 
     <style>
-                #cookie-banner {
-                        position: fixed;
-                        left: 16px;
-                        right: 16px;
-                        bottom: 16px;
-                        background: #fff;
-                        border: 1px solid #ddd;
-                        border-radius: 10px;
-                        box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-                        z-index: 9999;
-                        max-width: 980px;
-                        margin: 0 auto;
-
+        #cookie-banner {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            z-index: 9999;
+            max-width: 980px;
+            margin: 0 auto;
         }
 
-                .cb-inner {
-                        padding: 14px;
-                        display: flex;
-                        align-items: center;
-                        gap: 12px;
-
+        .cb-inner {
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-                .cb-text p {
-                        margin: 6px 0 10px 0;
-                        color: #444;
-                        font-size: 14px;
-
+        .cb-text p {
+            margin: 6px 0 10px 0;
+            color: #444;
+            font-size: 14px;
         }
 
-                .cb-actions {
-                        display: flex;
-                        gap: 8px;
-                        flex-wrap: wrap;
-
+        .cb-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-                .btn {
-                        padding: 8px 12px;
-                        border-radius: 8px;
-                        border: 0;
-                        background: #0f172a;
-                        color: white;
-                        cursor: pointer;
-
+        .btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 0;
+            background: #0f172a;
+            color: white;
+            cursor: pointer;
         }
 
-                    .btn.ghost {
-                            background: transparent;
-                            border: 1px solid #bbb;
-                            color: #111;
+            .btn.ghost {
+                background: transparent;
+                border: 1px solid #bbb;
+                color: #111;
+            }
 
+        #cookie-panel {
+            position: fixed;
+            right: 16px;
+            bottom: 90px;
+            z-index: 9999;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            width: 320px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
         }
 
-                #cookie-panel {
-                        position: fixed;
-                        right: 16px;
-                        bottom: 90px;
-                        z-index: 9999;
-                        background: #fff;
-                        border: 1px solid #ddd;
-                        border-radius: 10px;
-                        padding: 12px;
-                        width: 320px;
-                        box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-
+        .cp-inner h3 {
+            margin: 0 0 8px 0;
         }
 
-                .cp-inner h3 {
-                        margin: 0 0 8px 0;
-
+        .cp-row {
+            margin: 8px 0;
+            font-size: 14px;
         }
 
-                .cp-row {
-                        margin: 8px 0;
-                        font-size: 14px;
-
+        .cp-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 8px;
         }
 
-                .cp-actions {
-                        display: flex;
-                        gap: 8px;
-                        justify-content: flex-end;
-                        margin-top: 8px;
-
+        .ad-slot {
+            min-height: 60px;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-                .ad-slot {
-                        min-height: 60px;
-                        margin: 18px 0;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-
+        .ad-placeholder {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
         }
-
-                .ad-placeholder {
-                        width: 100%;
-                        height: 100%;
-                        padding: 10px;
-                        border: 2px dashed #ccc;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: #666;
-
-        }
-
-
     </style>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8232569132678992"
-     crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
+
+    <script async custom-element="amp-auto-ads"
+            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
 
 </body>
 

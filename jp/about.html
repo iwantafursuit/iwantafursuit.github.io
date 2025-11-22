@@ -1,18 +1,17 @@
 ﻿<!doctype html>
-<html lang="es">
+<html lang="ja">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Sobre I Want a Fursuit</title>
-    <meta name="description" content="Directorio de fursuit makers: encuentra makers y sus trabajos sin perderte entre redes. Reporta bugs y sugiere mejoras." />
+    <title>I Want a Fursuitについて</title>
+    <meta name="description" content="ファースーツ制作者（メーカー）のディレクトリ：ソーシャルメディアで迷うことなく、メーカーとその作品を見つけましょう。バグを報告し、改善を提案してください。" />
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8232569132678992"
-     crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
 
     <style>
         :root {
-            
-            --sidebar-w: 220px; 
+            --sidebar-w: 220px;
             --sidebar-mobile-w: 70px;
             --bottom-bar-h: 64px;
             --page-max-w: 800px;
@@ -30,9 +29,9 @@
             color: #0f172a;
         }
 
-        html.site-sidebar-collapsed {
-            --sidebar-w: var(--sidebar-collapsed-w);
-        }
+            html.site-sidebar-collapsed {
+                --sidebar-w: var(--sidebar-collapsed-w);
+            }
 
         site-sidebar:not(:defined) {
             display: none;
@@ -48,26 +47,23 @@
         }
 
         body {
-            
             padding-left: var(--sidebar-w);
             padding-bottom: calc(var(--bottom-bar-h) + 12px);
             box-sizing: border-box;
-            transition: padding-left 0.3s ease; 
+            transition: padding-left 0.3s ease;
         }
 
-        
+
         main {
             display: block;
             width: 100%;
         }
 
         .container {
-            
             max-width: var(--page-max-w);
-            margin: 40px auto; 
+            margin: 40px auto;
             padding: var(--page-pad);
             box-sizing: border-box;
-            
             text-align: center;
         }
 
@@ -78,7 +74,6 @@
             box-shadow: 0 6px 18px rgba(15,23,42,0.05);
             border: 1px solid rgba(15,23,42,0.04);
             margin-bottom: 20px;
-            
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -108,7 +103,7 @@
             line-height: 1.5;
         }
 
-        
+
         ul {
             margin: 12px 0 20px 0;
             padding: 0;
@@ -141,12 +136,11 @@
             display: inline-block;
         }
 
-        
 
-        
+
+
         @media (max-width: 720px) {
             body {
-            
                 padding-left: var(--sidebar-mobile-w);
             }
 
@@ -154,76 +148,74 @@
                 margin-top: 20px;
                 padding: 15px;
             }
-
-            
         }
     </style>
 </head>
 <body>
 
     <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
-        <a href="search.html">Buscar makers</a>
-        <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
-        <a href="about.html">Sobre la web</a>
+        <a href="search.html">メーカーを検索</a>
+        <a href="https://forms.gle/6boFuotq8T9DGy4v6">私を追加</a>
+        <a href="about.html">このウェブサイトについて</a>
     </site-sidebar>
 
     <main role="main" aria-labelledby="about-title">
         <div class="container">
 
             <article class="card" aria-describedby="about-desc">
-                <h1 id="about-title">Sobre el proyecto</h1>
+                <h1 id="about-title">プロジェクトについて</h1>
                 <p id="about-desc" class="lead">
-                    Esta web busca reunir a los fursuit makers en un solo sitio para que cualquiera que quiera
-                    encargarse un fursuit pueda ver de forma rápida y clara quiénes son y qué trabajos hacen.
+                    このウェブサイトは、ファースーツ制作者を一箇所に集め、ファースーツの制作を依頼したい人が
+                    誰がどのような作品を作っているかを迅速かつ明確に見られるようにすることを目的としています。
                 </p>
 
                 <p class="muted">
-                    En resumen: un directorio sencillo y visual para que compradores y curiosos encuentren makers
-                    que de otro modo podrían quedar ocultos por usar otras redes.
+                    要するに、購入者や興味のある人が、他のソーシャルメディアを使用しているために見落とされがちな
+                    メーカーを見つけるためのシンプルで視覚的なディレクトリです。
                 </p>
             </article>
 
             <section class="card" aria-labelledby="como-funciona">
-                <h2 id="como-funciona">Cómo funciona (rápido)</h2>
+                <h2 id="como-funciona">仕組み（簡単）</h2>
                 <ul>
-                    <li>Los makers se apuntan rellenando un formulario.</li>
-                    <li>Reviso la ficha para evitar perfiles falsos o scams.</li>
-                    <li>En el futuro añadiremos más herramientas de seguridad.</li>
+                    <li>メーカーはフォームに記入して登録します。</li>
+                    <li>偽プロフィールや詐欺を防ぐため、私がプロフィールを確認します。</li>
+                    <li>将来的には、さらにセキュリティツールを追加する予定です。</li>
                 </ul>
-                <p class="inline-note">Si tu ficha está en orden, aparecerá en la búsqueda.</p>
+                <p class="inline-note">あなたのプロフィールが問題なければ、検索結果に表示されます。</p>
             </section>
 
             <section class="card" aria-labelledby="seguridad">
-                <h2 id="seguridad">Seguridad y verificación</h2>
+                <h2 id="seguridad">セキュリティと認証</h2>
                 <p class="muted">
-                    Ahora mismo la verificación es manual. Más adelante se añadirán badges, reseñas y un sistema de "verificado" para reducir fraudes y aumentar la confianza.
+                    現在、認証は手動で行われています。今後は、詐欺を減らし信頼を高めるために、バッジ、レビュー、および「認証済み」システムが追加される予定です。
                 </p>
             </section>
 
             <section class="card" aria-labelledby="contacto">
-                <h2 id="contacto">¿Has visto un bug?</h2>
+                <h2 id="contacto">バグを見つけましたか？</h2>
                 <p class="muted">
-                    ¡Perfecto, dímelo! Reporta fallos o sugiere mejoras por DM.
+                    完璧です、教えてください！DMでバグを報告したり、改善点を提案したりしてください。
                 </p>
 
                 <div class="contact-list">
-                    <a class="link" href="https://x.com/FursuitComision" target="_blank" rel="noopener noreferrer">@FursuitComision en X</a>
+                    <a class="link" href="https://x.com/FursuitComision" target="_blank" rel="noopener noreferrer">X（旧Twitter）の @FursuitComision</a>
                 </div>
             </section>
 
             <section class="card" aria-labelledby="aviso">
-                <h2 id="aviso">Aviso corto</h2>
+                <h2 id="aviso">短いお知らせ</h2>
                 <p class="muted">
-                    La web está en desarrollo. Algunas cosas pueden cambiar o estar en pruebas. 😉
+                    このウェブサイトは開発中です。いくつかのことは変更されたり、テスト中であったりする可能性があります。😉
                 </p>
             </section>
 
             <section class="card" aria-labelledby="gracias">
-                <h2 id="gracias">Gracias</h2>
+                <h2 id="gracias">感謝</h2>
                 <p class="muted">
-                    Gracias por ayudar a que la comunidad tenga más visibilidad.
+                    コミュニティの認知度向上にご協力いただきありがとうございます。
                     <br>
-                    Si quieres aparecer, pulsa <strong style="color: var(--accent);">Add me</strong> en la barra lateral.
+                    もし掲載をご希望でしたら、サイドバーの<strong style="color: var(--accent);">私を追加 (Add me)</strong>をクリックしてください。
                 </p>
             </section>
 
@@ -233,7 +225,6 @@
     <script type="module" src="/scripts/site-sidebar.js"></script>
     <script src="scripts/bottom-bar.js" defer></script>
 
-
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8232569132678992"
             crossorigin="anonymous"></script>
 
@@ -241,7 +232,7 @@
             src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
 
+
 </body>
 
 </html>
-

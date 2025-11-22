@@ -1,14 +1,14 @@
 ﻿<!doctype html>
-<html lang="es">
+<html lang="ja">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>I Want a Fursuit encuentra tu maker</title>
-    <meta name="description" content="Directorio de fursuit makers: busca por país, regístrate si eres maker." />
+    <title>I Want a Fursuit あなたのメーカーを見つけよう</title>
+    <meta name="description" content="ファースーツメーカーのディレクトリ：国で検索し、メーカーなら登録しましょう。" />
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8232569132678992"
-     crossorigin="anonymous"></script>
-    
+            crossorigin="anonymous"></script>
+
     <style>
         * {
             box-sizing: border-box;
@@ -310,34 +310,34 @@
         </aside>
 
         <main class="center">
-            <div class="logo"><img src="/assets/logo/logo.png" alt="Logo del sitio"></div>
+            <div class="logo"><img src="/assets/logo/logo.png" alt="サイトのロゴ"></div>
 
             <div class="search-row" role="search">
-                <input id="q" type="search" placeholder="Busca makers..." aria-label="Buscar makers" />
-                <select id="country" aria-label="Filtrar por país">
-                    <option value="any">Todo el mundo</option>
-                    <option value="es">España</option>
-                    <option value="us">Estados Unidos</option>
-                    <option value="de">Alemania</option>
-                    <option value="ko">Korea</option>
+                <input id="q" type="search" placeholder="メーカーを検索..." aria-label="メーカーを検索" />
+                <select id="country" aria-label="国で絞り込む">
+                    <option value="any">全世界</option>
+                    <option value="es">スペイン</option>
+                    <option value="us">アメリカ合衆国</option>
+                    <option value="de">ドイツ</option>
+                    <option value="ko">韓国</option>
                 </select>
-                <button id="searchBtn">Buscar</button>
+                <button id="searchBtn">検索</button>
             </div>
 
-            <button id="exploreBtn" class="explore-btn" aria-label="Explorar makers">Explorar</button>
+            <button id="exploreBtn" class="explore-btn" aria-label="メーカーを探索">探索</button>
 
             <div class="maker-cta">
-                <div class="label" style="font-size:14px; font-weight:600;">Soy Maker</div>
-                <button class="register-btn" id="registerBtn">Add me</button>
+                <div class="label" style="font-size:14px; font-weight:600;">私はメーカーです</div>
+                <button class="register-btn" id="registerBtn">私を追加</button>
             </div>
 
             <div class="maker-cta tiny">
-                <div class="tiny">¿Eres maker? ¡Pídeme que te añada al botón de "Add me"!</div>
+                <div class="tiny">あなたはメーカーですか？「私を追加」ボタンから追加をリクエストしてください！</div>
             </div>
 
             <div class="explain" id="explain">
-                <strong>¿De qué trata la web?</strong>
-                <p>Este sitio es un directorio pensado para reunir a makers de fursuits: creadores, talleres y artistas. Los makers pueden pedir que se les añada mediante "Add me".</p>
+                <strong>このウェブサイトは何ですか？</strong>
+                <p>このサイトは、ファースーツメーカー（クリエイター、スタジオ、アーティスト）を集めたディレクトリです。メーカーは「私を追加」から追加をリクエストできます。</p>
             </div>
         </main>
 
@@ -382,7 +382,7 @@
                     m.images.forEach(img => pool.push({ src: img, id: m.id, name: m.name }));
                 }
             });
-            if (pool.length === 0) { fallbackImages.forEach((p, i) => pool.push({ src: p, id: 'fallback' + i, name: 'Artista' })); }
+            if (pool.length === 0) { fallbackImages.forEach((p, i) => pool.push({ src: p, id: 'fallback' + i, name: 'アーティスト' })); }
 
             const initialChosen = pickRandom(pool, Math.min(pool.length, totalSlots));
             while (initialChosen.length < totalSlots) { initialChosen.push(pool[Math.floor(Math.random() * pool.length)]); }
@@ -560,4 +560,3 @@
 </body>
 
 </html>
-

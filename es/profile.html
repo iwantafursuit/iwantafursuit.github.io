@@ -444,14 +444,14 @@
             const overlay = document.createElement('div');
             overlay.className = 'confirm-overlay';
             overlay.innerHTML = `
-                                <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
-                                    <p id="confirm-title">Los fursuit makers de esta pagina han sido y son revisados pero recuerda siempre al comprar un fursuit en internet investigar que no te estan intentando estafar.\nAntes de contactar con cualquier fursuit maker recuerda primero ver si en sus webs o redes sociales pone que tienen las comisiones abiertas para no molestarlos.\nNo olvides decir al maker que has venido a el gracias a la web <strong>I Want a Fursuit!</strong></p>
-                                    <div class="confirm-actions">
-                                        <button class="btn-accept" type="button">Aceptar</button>
-                                        <button class="btn-cancel" type="button">Cancelar</button>
+                                    <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+                                        <p id="confirm-title">Los fursuit makers de esta pagina han sido y son revisados pero recuerda siempre al comprar un fursuit en internet investigar que no te estan intentando estafar.\nAntes de contactar con cualquier fursuit maker recuerda primero ver si en sus webs o redes sociales pone que tienen las comisiones abiertas para no molestarlos.\nNo olvides decir al maker que has venido a el gracias a la web <strong>I Want a Fursuit!</strong></p>
+                                        <div class="confirm-actions">
+                                            <button class="btn-accept" type="button">Aceptar</button>
+                                            <button class="btn-cancel" type="button">Cancelar</button>
+                                        </div>
                                     </div>
-                                </div>
-                            `;
+                                `;
             document.body.appendChild(overlay);
             const btnAccept = overlay.querySelector('.btn-accept');
             const btnCancel = overlay.querySelector('.btn-cancel');
@@ -514,28 +514,28 @@
                 ).join('');
 
                 contentEl.innerHTML = `
-                                  <h1>${escapeHtml(m.name)}</h1>
-                                  <div class="location">📍 <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
-                                  <p class="short-bio">${escapeHtml(m.bio)}</p>
-                                  ${currentImages.length ? `
-                                    <div class="gallery-container">
-                                      <div class="main-view" aria-live="polite">
-                                        <button class="nav-btn left" onclick="prevImage()" aria-label="Imagen anterior" title="Anterior">
-                                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </button>
-                                        <img id="mainImage" src="${currentImages[0]}" alt="Imagen principal">
-                                        <button class="nav-btn right" onclick="nextImage()" aria-label="Imagen siguiente" title="Siguiente">
-                                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                        </button>
-                                      </div>
-                                      <div class="thumbnails" role="list">${thumbsHtml}</div>
-                                    </div>
-                                  ` : '<p>Sin imágenes disponibles.</p>'}
-                                  <h3>Información</h3>
-                                  <div class="long-info">${escapeHtml(m.info)}</div>
-                                  <h3>Contacto</h3>
-                                  <div class="contact-section">${contactHtml}</div>
-                                `;
+                                      <h1>${escapeHtml(m.name)}</h1>
+                                      <div class="location">📍 <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
+                                      <p class="short-bio">${escapeHtml(m.bio)}</p>
+                                      ${currentImages.length ? `
+                                        <div class="gallery-container">
+                                          <div class="main-view" aria-live="polite">
+                                            <button class="nav-btn left" onclick="prevImage()" aria-label="Imagen anterior" title="Anterior">
+                                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            </button>
+                                            <img id="mainImage" src="${currentImages[0]}" alt="Imagen principal">
+                                            <button class="nav-btn right" onclick="nextImage()" aria-label="Imagen siguiente" title="Siguiente">
+                                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            </button>
+                                          </div>
+                                          <div class="thumbnails" role="list">${thumbsHtml}</div>
+                                        </div>
+                                      ` : '<p>Sin imágenes disponibles.</p>'}
+                                      <h3>Información</h3>
+                                      <div class="long-info">${escapeHtml(m.info)}</div>
+                                      <h3>Contacto</h3>
+                                      <div class="contact-section">${contactHtml}</div>
+                                    `;
 
                 const mainImg = document.getElementById('mainImage');
                 if (mainImg) mainImg.addEventListener('click', () => openOverlay(currentIndex));
@@ -569,8 +569,11 @@
     <script src="scripts/bottom-bar.js" defer></script>
 
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8232569132678992"
-     crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script>
 
+    <script async custom-element="amp-auto-ads"
+            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
 
 </body>
 
