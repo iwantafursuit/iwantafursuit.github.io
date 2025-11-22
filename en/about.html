@@ -1,0 +1,604 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>About I Want a Fursuit</title>
+    <meta name="description" content="Fursuit makers directory: find makers and their work without getting lost on social media. Report bugs and suggest improvements." />
+
+    <style>
+                :root {
+                                     --sidebar-w: 220px;
+                          --sidebar-mobile-w: 70px;
+                        --bottom-bar-h: 64px;
+                        --page-max-w: 800px;
+                        --page-pad: 20px;
+                        --radius: 12px;
+                        --muted: #6b7280;
+                        --accent: #ff2b8a;
+                        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+        }
+
+                html, body {
+                        height: 100%;
+                        margin: 0;
+                        background: #fff;
+                        color: #0f172a;
+
+        }
+
+                    html.site-sidebar-collapsed {
+                            --sidebar-w: var(--sidebar-collapsed-w);
+
+            }
+
+                site-sidebar:not(:defined) {
+                        display: none;
+
+        }
+
+                site-sidebar {
+                        position: fixed;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: var(--sidebar-w);
+                        z-index: 60;
+
+        }
+
+                body {
+                                     padding-left: var(--sidebar-w);
+                        padding-bottom: calc(var(--bottom-bar-h) + 12px);
+                        box-sizing: border-box;
+                        transition: padding-left 0.3s ease;
+
+        }
+
+
+
+
+
+                main {
+                        display: block;
+                        width: 100%;
+
+        }
+
+                .container {
+                                     max-width: var(--page-max-w);
+                        margin: 40px auto;
+                          padding: var(--page-pad);
+                        box-sizing: border-box;
+                                     text-align: center;
+
+        }
+
+                .card {
+                        background: #fff;
+                        border-radius: var(--radius);
+                        padding: 24px;
+                        box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+                        border: 1px solid rgba(15,23,42,0.04);
+                        margin-bottom: 20px;
+                                     display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+        }
+
+                h1 {
+                        margin: 0 0 12px 0;
+                        font-size: 1.6rem;
+                        color: var(--accent);
+
+        }
+
+                h2 {
+                        margin: 0 0 10px 0;
+                        font-size: 1.2rem;
+
+        }
+
+                p.lead {
+                        margin: 0 0 16px 0;
+                        color: var(--muted);
+                        font-size: 1.1rem;
+                        line-height: 1.5;
+
+        }
+
+                .muted {
+                        color: var(--muted);
+                        font-size: 0.98rem;
+                        line-height: 1.5;
+
+        }
+
+
+
+
+
+                ul {
+                        margin: 12px 0 20px 0;
+                        padding: 0;
+                        color: var(--muted);
+                        list-style-position: inside;
+                        text-align: left;
+                        display: inline-block;
+
+        }
+
+                a.link {
+                        color: var(--accent);
+                        text-decoration: none;
+                        font-weight: 600;
+
+        }
+
+                .contact-list {
+                        display: flex;
+                        gap: 12px;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        margin-top: 12px;
+
+        }
+
+                .inline-note {
+                        font-size: 0.9rem;
+                        color: var(--muted);
+                        background: #f9fafb;
+                        padding: 8px 12px;
+                        border-radius: 8px;
+                        display: inline-block;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                @media (max-width: 720px) {
+                        body
+
+        {
+                                         padding-left: var(--sidebar-mobile-w);
+
+        }
+
+                    .container {
+                            margin-top: 20px;
+                            padding: 15px;
+
+        }
+
+
+
+
+
+
+
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
+        <a href="search.html">Search Makers</a>
+        <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
+        <a href="about.html">About the Website</a>
+    </site-sidebar>
+
+    <main role="main" aria-labelledby="about-title">
+        <div class="container">
+
+            <article class="card" aria-describedby="about-desc">
+                <h1 id="about-title">About the project</h1>
+                <p id="about-desc" class="lead">
+                    This website aims to gather fursuit makers in one place so that anyone who wants to
+                    commission a fursuit can quickly and clearly see who they are and what work they do.
+                </p>
+
+                <p class="muted">
+                    In short: a simple and visual directory for buyers and curious people to find makers
+                    who might otherwise remain hidden by using other networks.
+                </p>
+            </article>
+
+            <section class="card" aria-labelledby="como-funciona">
+                <h2 id="como-funciona">How it works (quick overview)</h2>
+                <ul>
+                    <li>Makers sign up by filling out a form.</li>
+                    <li>I review the profile to prevent fake profiles or scams.</li>
+                    <li>In the future we will add more safety tools.</li>
+                </ul>
+                <p class="inline-note">If your profile is in order, it will appear in the search results.</p>
+            </section>
+
+            <section class="card" aria-labelledby="seguridad">
+                <h2 id="seguridad">Security and verification</h2>
+                <p class="muted">
+                    Currently, verification is manual. Later, badges, reviews, and a "verified" system will be added to reduce fraud and increase trust.
+                </p>
+            </section>
+
+            <section class="card" aria-labelledby="contacto">
+                <h2 id="contacto">Have you seen a bug?</h2>
+                <p class="muted">
+                    Perfect, let me know! Report failures or suggest improvements via DM.
+                </p>
+
+                <div class="contact-list">
+                    <a class="link" href="https://x.com/FursuitComision" target="_blank" rel="noopener noreferrer">@FursuitComision on X</a>
+                </div>
+            </section>
+
+            <section class="card" aria-labelledby="aviso">
+                <h2 id="aviso">Short notice</h2>
+                <p class="muted">
+                    The website is under development. Some things may change or be in testing. 😉
+                </p>
+            </section>
+
+            <section class="card" aria-labelledby="gracias">
+                <h2 id="gracias">Thanks</h2>
+                <p class="muted">
+                    Thank you for helping the community gain more visibility.
+                    <br>
+                    If you want to appear, click <strong style="color: var(--accent);">Add me</strong> on the sidebar.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <script type="module" src="/scripts/site-sidebar.js"></script>
+    <script src="scripts/bottom-bar.js" defer></script>
+
+
+    <div id="cookie-banner" aria-hidden="true" style="display:none;">
+        <div class="cb-inner">
+            <div class="cb-text">
+                <strong>We use cookies</strong>
+                <p>We use necessary cookies and marketing cookies (ads). We need your explicit consent to display ads.</p>
+                <div class="cb-actions">
+                    <button id="cb-accept-all" class="btn">Accept all</button>
+                    <button id="cb-reject-all" class="btn ghost">Reject</button>
+                    <button id="cb-manage" class="btn ghost">Configure</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="cookie-panel" aria-hidden="true" style="display:none;">
+        <div class="cp-inner">
+            <h3>Cookie preferences</h3>
+            <p>Mark what you accept. Only marked cookies will be activated.</p>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="necessary" disabled checked> Necessary (always active)</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="preferences"> Preferences</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="statistics"> Statistics</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="marketing"> Marketing / Ads</label>
+            </div>
+            <div class="cp-actions">
+                <button id="cp-save" class="btn">Save</button>
+                <button id="cp-cancel" class="btn ghost">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+
+
+
+
+        #cookie-banner {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            z-index: 9999;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .cb-inner {
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cb-text p {
+            margin: 6px 0 10px 0;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .cb-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 0;
+            background: #0f172a;
+            color: white;
+            cursor: pointer;
+        }
+
+            .btn.ghost {
+                background: transparent;
+                border: 1px solid #bbb;
+                color: #111;
+            }
+
+        #cookie-panel {
+            position: fixed;
+            right: 16px;
+            bottom: 90px;
+            z-index: 9999;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            width: 320px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+
+        .cp-inner h3 {
+            margin: 0 0 8px 0;
+        }
+
+        .cp-row {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .cp-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+
+        .ad-slot {
+            min-height: 60px;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-placeholder {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+    </style>
+
+    // LÓGICA JAVASCRIPT ACTUALIZADA PARA ADSENSE
+    <script>
+
+
+        (function () {
+
+            const ADSENSE_CLIENT = 'ca-pub-XXXXXXXXXXXXXXXX'; //reemplazar por id
+            const TEST_MODE = true;
+            const COOKIE_KEY = 'siteCookieConsent_v1';
+
+            function readConsent() {
+                try {
+                    const v = localStorage.getItem(COOKIE_KEY);
+                    return v ? JSON.parse(v) : null;
+                } catch (e) { return null; }
+            }
+            function writeConsent(obj) {
+                localStorage.setItem(COOKIE_KEY, JSON.stringify(obj));
+            }
+            function hasConsent(cat) {
+                const c = readConsent();
+                return c && c[cat] === true;
+            }
+
+            const banner = document.getElementById('cookie-banner');
+            const panel = document.getElementById('cookie-panel');
+
+            function showBanner() { banner.style.display = 'block'; banner.setAttribute('aria-hidden', 'false'); }
+            function hideBanner() { banner.style.display = 'none'; banner.setAttribute('aria-hidden', 'true'); }
+            function showPanel() { panel.style.display = 'block'; panel.setAttribute('aria-hidden', 'false'); }
+            function hidePanel() { panel.style.display = 'none'; panel.setAttribute('aria-hidden', 'true'); }
+
+            let adsScriptLoaded = false;
+            function injectAdsenseScript() {
+                if (adsScriptLoaded) return;
+                const s = document.createElement('script');
+                s.async = true;
+                s.crossOrigin = 'anonymous';
+                s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
+                document.head.appendChild(s);
+                adsScriptLoaded = true;
+            }
+
+            function renderAdSlots() {
+                const slots = document.querySelectorAll('.ad-slot');
+                slots.forEach(slot => {
+                    if (slot.dataset.rendered === 'true') return;
+
+                    const adSlotId = slot.getAttribute('data-ad-slot') || '';
+                    if (!hasConsent('marketing')) {
+                        const ph = document.createElement('div');
+                        ph.className = 'ad-placeholder';
+                        ph.innerText = 'Ad space (you need to accept marketing to see actual ads)';
+                        slot.appendChild(ph);
+                        slot.dataset.rendered = 'true';
+                        return;
+                    }
+
+                    const ins = document.createElement('ins');
+                    ins.className = 'adsbygoogle';
+                    ins.style.display = 'block';
+                    if (adSlotId) ins.setAttribute('data-ad-slot', adSlotId);
+                    ins.setAttribute('data-ad-format', 'auto');
+                    ins.setAttribute('data-full-width-responsive', 'true');
+
+                    if (TEST_MODE) {
+                        ins.setAttribute('data-adtest', 'on');
+                    }
+
+                    slot.innerHTML = '';
+                    slot.appendChild(ins);
+                    slot.dataset.rendered = 'true';
+
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                    }
+                });
+            }
+
+
+            function ensureAdsScriptAndRender() {
+                if (!adsScriptLoaded) injectAdsenseScript();
+                renderAdSlots();
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const consent = readConsent();
+                const acceptBtn = document.getElementById('cb-accept-all');
+                const rejectBtn = document.getElementById('cb-reject-all');
+                const manageBtn = document.getElementById('cb-manage');
+                const saveBtn = document.getElementById('cp-save');
+                const cancelBtn = document.getElementById('cp-cancel');
+
+
+                function syncPanel() {
+                    const checkboxes = panel.querySelectorAll('input[type="checkbox"][data-cookie]');
+                    const c = readConsent() || {};
+                    checkboxes.forEach(cb => {
+                        const key = cb.getAttribute('data-cookie');
+                        if (key === 'necessary') { cb.checked = true; cb.disabled = true; }
+                        else cb.checked = !!c[key];
+                    });
+                }
+
+
+                if (!consent) {
+                    showBanner();
+                } else {
+
+                    if (hasConsent('marketing')) {
+                        ensureAdsScriptAndRender();
+                    } else {
+
+                        renderAdSlots();
+                    }
+                }
+
+                acceptBtn.addEventListener('click', function () {
+                    const obj = { necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() };
+                    writeConsent(obj);
+                    hideBanner();
+                    hidePanel();
+                    ensureAdsScriptAndRender();
+                });
+
+                rejectBtn.addEventListener('click', function () {
+                    const obj = { necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() };
+                    writeConsent(obj);
+                    hideBanner();
+                    hidePanel();
+                    renderAdSlots();
+                });
+
+                manageBtn.addEventListener('click', function () {
+                    showPanel();
+                    syncPanel();
+                });
+
+                cancelBtn.addEventListener('click', function () {
+                    hidePanel();
+                });
+
+                saveBtn.addEventListener('click', function () {
+                    const checkboxes = panel.querySelectorAll('input[type="checkbox"][data-cookie]');
+                    const obj = { necessary: true, ts: Date.now() };
+                    checkboxes.forEach(cb => {
+                        const key = cb.getAttribute('data-cookie');
+                        if (key === 'necessary') return;
+                        obj[key] = !!cb.checked;
+                    });
+                    writeConsent(obj);
+                    hidePanel();
+                    hideBanner();
+
+                    if (obj.marketing) {
+                        ensureAdsScriptAndRender();
+                    } else {
+                        renderAdSlots();
+                    }
+                });
+
+                if (consent && consent.marketing) {
+                    setTimeout(() => { ensureAdsScriptAndRender(); }, 50);
+                }
+            });
+
+
+            window.SiteConsent = {
+                get: readConsent,
+                has: hasConsent,
+                revokeAll: function () {
+                    const obj = { necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() };
+                    writeConsent(obj);
+                    renderAdSlots();
+                },
+                acceptAll: function () {
+                    const obj = { necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() };
+                    writeConsent(obj);
+                    ensureAdsScriptAndRender();
+                },
+                setTestMode: function (v) {
+                }
+            };
+
+        })();
+    </script>
+
+</body>
+</html>

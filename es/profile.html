@@ -1,0 +1,886 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Perfil Maker</title>
+
+    <style>
+        :root {
+            --sidebar-w: 220px;
+            --sidebar-collapsed-w: 64px;
+            --sidebar-bg: #ffd6e8;
+            --page-max-w: 1000px;
+            --page-pad: 20px;
+        }
+
+        html.site-sidebar-collapsed {
+            --sidebar-w: var(--sidebar-collapsed-w);
+        }
+
+        site-sidebar:not(:defined) {
+            display: none;
+        }
+
+        site-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: var(--sidebar-w);
+            z-index: 60;
+        }
+
+        .page-wrap {
+            margin-left: var(--sidebar-w);
+            width: calc(100% - var(--sidebar-w));
+            transition: margin-left .25s ease, width .25s ease;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+            padding-left: var(--page-pad);
+            padding-right: var(--page-pad);
+        }
+
+        .content {
+            max-width: var(--page-max-w);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            padding: 20px 20px 0 20px;
+            color: #0f1724;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            font-size: 2.5rem;
+        }
+
+        .location {
+            color: #64748b;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .short-bio {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .gallery-container {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 30px;
+            height: 500px;
+            align-items: stretch;
+        }
+
+        .main-view {
+            flex: 1;
+            position: relative;
+            background: #f1f5f9;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
+        }
+
+            .main-view img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+                cursor: zoom-in;
+                user-select: none;
+            }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            user-select: none;
+            transition: background 0.15s;
+            z-index: 2;
+        }
+
+            .nav-btn:hover {
+                background: rgba(0,0,0,0.75);
+            }
+
+            .nav-btn.left {
+                left: 10px;
+            }
+
+            .nav-btn.right {
+                right: 10px;
+            }
+
+        .thumbnails {
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 6px;
+            max-height: 100%;
+        }
+
+        .thumb {
+            width: 100%;
+            height: 100px;
+            display: block;
+            object-fit: cover;
+            background: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0.95;
+            transition: transform .15s, opacity .15s;
+            border: 2px solid transparent;
+            flex: none;
+        }
+
+            .thumb:hover {
+                transform: translateY(-2px);
+                opacity: 1;
+            }
+
+            .thumb.active {
+                border-color: #2563eb;
+            }
+
+        .long-info {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 12px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-section {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .contact-key {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(15, 23, 36, 0.85);
+            z-index: 9999;
+            padding: 24px;
+            cursor: zoom-out;
+        }
+
+            .overlay img {
+                max-width: 95%;
+                max-height: 95%;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+                user-select: none;
+                -webkit-user-drag: none;
+            }
+
+        .confirm-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2,6,23,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20000;
+            padding: 20px;
+        }
+
+        .confirm-dialog {
+            width: 100%;
+            max-width: 480px;
+            background: #fff0f6;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(2,6,23,0.35);
+            padding: 20px;
+            text-align: center;
+            color: #0f1724;
+        }
+
+            .confirm-dialog p {
+                margin: 0 0 18px 0;
+                font-size: 1.05rem;
+            }
+
+        .confirm-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn-accept {
+            background: #ff2b8a;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-cancel {
+            background: #e6e9ee;
+            color: #334155;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --sidebar-w: var(--sidebar-collapsed-w);
+            }
+
+            .page-wrap {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            .gallery-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .main-view {
+                height: 350px;
+            }
+
+            .thumbnails {
+                flex-direction: row;
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                height: auto;
+                max-height: none;
+                padding-right: 0;
+            }
+
+            .thumb {
+                width: 80px;
+                height: 80px;
+                flex-shrink: 0;
+                object-fit: cover;
+            }
+        }
+    </style>
+
+    <script type="module" src="/scripts/site-sidebar.js"></script>
+</head>
+<body>
+    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
+
+        <a href="search.html">Buscar makers</a>
+        <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
+        <a href="about.html">Sobre la web</a>
+
+    </site-sidebar>
+
+    <div class="page-wrap">
+        <main class="content">
+            <a href="search.html" class="back-link">← Volver</a>
+            <div id="content"></div>
+        </main>
+    </div>
+
+    <script>
+        function getParam(name) { return new URLSearchParams(location.search).get(name); }
+        function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+        function capitalize(s) { if (!s) return ''; return s.charAt(0).toUpperCase() + s.slice(1); }
+
+        let currentImages = [];
+        let currentIndex = 0;
+        let overlayOpen = false;
+        let overlayEl = null;
+
+        function updateGalleryDisplay() {
+            const mainImg = document.getElementById('mainImage');
+            if (currentImages.length > 0 && mainImg) mainImg.src = currentImages[currentIndex];
+            document.querySelectorAll('.thumb').forEach((t, idx) => t.classList.toggle('active', idx === currentIndex));
+        }
+
+        function setIndex(i) { currentIndex = i; updateGalleryDisplay(); }
+        function nextImage() { if (!currentImages.length) return; currentIndex = (currentIndex + 1) % currentImages.length; updateGalleryDisplay(); }
+        function prevImage() { if (!currentImages.length) return; currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; updateGalleryDisplay(); }
+
+        function openOverlay(index) {
+            if (overlayOpen) return;
+            overlayOpen = true;
+            const imgSrc = currentImages[index] || '';
+            overlayEl = document.createElement('div');
+            overlayEl.className = 'overlay';
+            overlayEl.innerHTML = `<img src="${escapeHtml(imgSrc)}" alt="Foto grande">`;
+            document.body.appendChild(overlayEl);
+            document.body.style.overflow = 'hidden';
+            history.pushState({ overlay: true }, '', '#photo' + index);
+
+            overlayEl.addEventListener('click', (ev) => {
+                if (ev.target === overlayEl || ev.target.tagName === 'IMG') {
+                    history.back();
+                }
+            });
+        }
+
+        function closeOverlay() {
+            if (!overlayOpen) return;
+            overlayOpen = false;
+            if (overlayEl && overlayEl.parentNode) overlayEl.parentNode.removeChild(overlayEl);
+            overlayEl = null;
+            document.body.style.overflow = '';
+        }
+
+        window.addEventListener('popstate', (ev) => {
+            const state = ev.state || {};
+            if (overlayOpen && !state.overlay) {
+                closeOverlay();
+            }
+        });
+
+        window.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape' || ev.key === 'Esc') {
+                if (overlayOpen) history.back();
+                const conf = document.querySelector('.confirm-overlay');
+                if (conf) conf.remove();
+            }
+        });
+
+        function adjustForBottomBar() {
+            const bar = document.querySelector('.donate-bar-bundle');
+            if (!bar) {
+                document.body.style.paddingBottom = '';
+                document.querySelector('.page-wrap').style.paddingBottom = '';
+                return;
+            }
+            const h = bar.offsetHeight || 0;
+            document.body.style.paddingBottom = (h + 12) + 'px';
+            document.querySelector('.page-wrap').style.paddingBottom = (h + 12) + 'px';
+        }
+
+        const barObserver = new MutationObserver(() => {
+            adjustForBottomBar();
+        });
+        barObserver.observe(document.body, { childList: true, subtree: true });
+
+        window.addEventListener('resize', adjustForBottomBar);
+        window.addEventListener('load', () => {
+            setTimeout(adjustForBottomBar, 100);
+        });
+
+        function createConfirmModal(href, originalTarget) {
+            if (document.querySelector('.confirm-overlay')) return;
+            const overlay = document.createElement('div');
+            overlay.className = 'confirm-overlay';
+            overlay.innerHTML = `
+                                <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+                                    <p id="confirm-title">Los fursuit makers de esta pagina han sido y son revisados pero recuerda siempre al comprar un fursuit en internet investigar que no te estan intentando estafar.\nAntes de contactar con cualquier fursuit maker recuerda primero ver si en sus webs o redes sociales pone que tienen las comisiones abiertas para no molestarlos.\nNo olvides decir al maker que has venido a el gracias a la web <strong>I Want a Fursuit!</strong></p>
+                                    <div class="confirm-actions">
+                                        <button class="btn-accept" type="button">Aceptar</button>
+                                        <button class="btn-cancel" type="button">Cancelar</button>
+                                    </div>
+                                </div>
+                            `;
+            document.body.appendChild(overlay);
+            const btnAccept = overlay.querySelector('.btn-accept');
+            const btnCancel = overlay.querySelector('.btn-cancel');
+
+            function clean() {
+                const o = document.querySelector('.confirm-overlay');
+                if (o) o.remove();
+            }
+
+            btnCancel.addEventListener('click', () => { clean(); });
+            btnAccept.addEventListener('click', () => {
+                clean();
+                if (originalTarget === '_self') {
+                    window.location.href = href;
+                } else {
+                    window.open(href, '_blank', 'noopener');
+                }
+            });
+
+            overlay.addEventListener('click', (ev) => {
+                if (ev.target === overlay) clean();
+            });
+        }
+
+        function attachContactConfirmHandlers() {
+            const contactLinks = document.querySelectorAll('.contact-section a');
+            contactLinks.forEach(a => {
+                if (a.dataset.confirmAttached === '1') return;
+                a.dataset.confirmAttached = '1';
+                a.addEventListener('click', (ev) => {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                    const href = a.href;
+                    createConfirmModal(href, a.target || '_blank');
+                });
+            });
+        }
+
+        async function load() {
+            const id = getParam('id');
+            const contentEl = document.getElementById('content');
+            if (!id) { contentEl.innerHTML = '<p>Id de maker no especificado.</p>'; return; }
+
+            try {
+                const r = await fetch('/makers.json');
+                const makers = await r.json();
+                const m = makers.find(x => x.id === id);
+                if (!m) { contentEl.innerHTML = '<p>Maker no encontrado.</p>'; return; }
+
+                currentImages = m.images || [];
+                let contactHtml = '';
+                if (m.contact) {
+                    for (const [key, url] of Object.entries(m.contact)) {
+                        contactHtml += `<div class="contact-item"><span class="contact-key">${capitalize(key)}:</span><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)}</a></div>`;
+                    }
+                } else contactHtml = '<p>No hay información de contacto.</p>';
+
+                const thumbsHtml = currentImages.map((img, idx) =>
+                    `<img src="${img}" class="thumb ${idx === 0 ? 'active' : ''}" onclick="setIndex(${idx})" loading="lazy" alt="Miniatura ${idx + 1}">`
+                ).join('');
+
+                contentEl.innerHTML = `
+                                  <h1>${escapeHtml(m.name)}</h1>
+                                  <div class="location">📍 <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
+                                  <p class="short-bio">${escapeHtml(m.bio)}</p>
+                                  ${currentImages.length ? `
+                                    <div class="gallery-container">
+                                      <div class="main-view" aria-live="polite">
+                                        <button class="nav-btn left" onclick="prevImage()" aria-label="Imagen anterior" title="Anterior">
+                                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                        <img id="mainImage" src="${currentImages[0]}" alt="Imagen principal">
+                                        <button class="nav-btn right" onclick="nextImage()" aria-label="Imagen siguiente" title="Siguiente">
+                                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </button>
+                                      </div>
+                                      <div class="thumbnails" role="list">${thumbsHtml}</div>
+                                    </div>
+                                  ` : '<p>Sin imágenes disponibles.</p>'}
+                                  <h3>Información</h3>
+                                  <div class="long-info">${escapeHtml(m.info)}</div>
+                                  <h3>Contacto</h3>
+                                  <div class="contact-section">${contactHtml}</div>
+                                `;
+
+                const mainImg = document.getElementById('mainImage');
+                if (mainImg) mainImg.addEventListener('click', () => openOverlay(currentIndex));
+
+                document.querySelectorAll('.thumb').forEach((el, idx) => {
+                    el.addEventListener('click', () => {
+                        setIndex(idx);
+                        el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+                    });
+                });
+
+                updateGalleryDisplay();
+
+                attachContactConfirmHandlers();
+
+                adjustForBottomBar();
+            } catch (e) {
+                console.error(e);
+                contentEl.innerHTML = '<p>Error al cargar los datos.</p>';
+            }
+        }
+
+        window.setIndex = setIndex;
+        window.nextImage = nextImage;
+        window.prevImage = prevImage;
+        window.openOverlay = openOverlay;
+
+        load();
+    </script>
+
+    <script src="scripts/bottom-bar.js" defer></script>
+
+    <div id="cookie-banner" aria-hidden="true" style="display:none;">
+        <div class="cb-inner">
+            <div class="cb-text">
+                <strong>Usamos cookies</strong>
+                <p>Usamos cookies necesarias y cookies de marketing (anuncios). Necesitamos tu consentimiento explícito para mostrar anuncios.</p>
+                <div class="cb-actions">
+                    <button id="cb-accept-all" class="btn">Aceptar todo</button>
+                    <button id="cb-reject-all" class="btn ghost">Rechazar</button>
+                    <button id="cb-manage" class="btn ghost">Configurar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-panel" aria-hidden="true" style="display:none;">
+        <div class="cp-inner">
+            <h3>Preferencias de cookies</h3>
+            <p>Marca lo que aceptas. Solo las cookies marcadas se activarán.</p>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="necessary" disabled checked> Necesarias (siempre activas)</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="preferences"> Preferencias</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="statistics"> Estadísticas</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="marketing"> Marketing / Anuncios</label>
+            </div>
+            <div class="cp-actions">
+                <button id="cp-save" class="btn">Guardar</button>
+                <button id="cp-cancel" class="btn ghost">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #cookie-banner {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            z-index: 9999;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .cb-inner {
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cb-text p {
+            margin: 6px 0 10px 0;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .cb-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 0;
+            background: #0f172a;
+            color: white;
+            cursor: pointer;
+        }
+
+            .btn.ghost {
+                background: transparent;
+                border: 1px solid #bbb;
+                color: #111;
+            }
+
+        #cookie-panel {
+            position: fixed;
+            right: 16px;
+            bottom: 90px;
+            z-index: 9999;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            width: 320px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+
+        .cp-inner h3 {
+            margin: 0 0 8px 0;
+        }
+
+        .cp-row {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .cp-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+
+        .ad-slot {
+            min-height: 60px;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-placeholder {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+    </style>
+
+    // LÓGICA JAVASCRIPT ACTUALIZADA PARA ADSENSE
+    <script>
+
+        (function () {
+            const ADSENSE_CLIENT = 'ca-pub-XXXXXXXXXXXXXXXX';
+            const TEST_MODE = true;
+            const COOKIE_KEY = 'siteCookieConsent_v1';
+
+            function readConsent() {
+                try {
+                    const v = localStorage.getItem(COOKIE_KEY);
+                    return v ? JSON.parse(v) : null;
+                } catch (e) { return null; }
+            }
+            function writeConsent(obj) {
+                localStorage.setItem(COOKIE_KEY, JSON.stringify(obj));
+            }
+            function hasConsent(cat) {
+                const c = readConsent();
+                return c && c[cat] === true;
+            }
+
+            const banner = document.getElementById('cookie-banner');
+            const panel = document.getElementById('cookie-panel');
+
+            function showBanner() { banner.style.display = 'block'; banner.setAttribute('aria-hidden', 'false'); }
+            function hideBanner() { banner.style.display = 'none'; banner.setAttribute('aria-hidden', 'true'); }
+            function showPanel() { panel.style.display = 'block'; panel.setAttribute('aria-hidden', 'false'); }
+            function hidePanel() { panel.style.display = 'none'; panel.setAttribute('aria-hidden', 'true'); }
+
+            let adsScriptLoaded = false;
+            function injectAdsenseScript() {
+                if (adsScriptLoaded) return;
+                const s = document.createElement('script');
+                s.async = true;
+                s.crossOrigin = 'anonymous';
+                s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
+                document.head.appendChild(s);
+                adsScriptLoaded = true;
+            }
+
+            function renderAdSlots() {
+                const slots = document.querySelectorAll('.ad-slot');
+                slots.forEach(slot => {
+                    if (slot.dataset.rendered === 'true') return;
+
+                    const adSlotId = slot.getAttribute('data-ad-slot') || '';
+                    if (!hasConsent('marketing')) {
+                        const ph = document.createElement('div');
+                        ph.className = 'ad-placeholder';
+                        ph.innerText = 'Espacio de anuncio (necesitas aceptar marketing para ver anuncios reales)';
+                        slot.appendChild(ph);
+                        slot.dataset.rendered = 'true';
+                        return;
+                    }
+
+                    const ins = document.createElement('ins');
+                    ins.className = 'adsbygoogle';
+                    ins.style.display = 'block';
+                    if (adSlotId) ins.setAttribute('data-ad-slot', adSlotId);
+                    ins.setAttribute('data-ad-format', 'auto');
+                    ins.setAttribute('data-full-width-responsive', 'true');
+
+                    if (TEST_MODE) {
+                        ins.setAttribute('data-adtest', 'on');
+                    }
+
+                    slot.innerHTML = '';
+                    slot.appendChild(ins);
+                    slot.dataset.rendered = 'true';
+
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                    }
+                });
+            }
+
+            function ensureAdsScriptAndRender() {
+                if (!adsScriptLoaded) injectAdsenseScript();
+                renderAdSlots();
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const consent = readConsent();
+                const acceptBtn = document.getElementById('cb-accept-all');
+                const rejectBtn = document.getElementById('cb-reject-all');
+                const manageBtn = document.getElementById('cb-manage');
+                const saveBtn = document.getElementById('cp-save');
+                const cancelBtn = document.getElementById('cp-cancel');
+
+                function syncPanel() {
+                    const checkboxes = panel.querySelectorAll('input[type="checkbox"][data-cookie]');
+                    const c = readConsent() || {};
+                    checkboxes.forEach(cb => {
+                        const key = cb.getAttribute('data-cookie');
+                        if (key === 'necessary') { cb.checked = true; cb.disabled = true; }
+                        else cb.checked = !!c[key];
+                    });
+                }
+
+                if (!consent) {
+                    showBanner();
+                } else {
+                    if (hasConsent('marketing')) {
+                        ensureAdsScriptAndRender();
+                    } else {
+                        renderAdSlots();
+                    }
+                }
+
+                acceptBtn.addEventListener('click', function () {
+                    const obj = { necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() };
+                    writeConsent(obj);
+                    hideBanner();
+                    hidePanel();
+                    ensureAdsScriptAndRender();
+                });
+
+                rejectBtn.addEventListener('click', function () {
+                    const obj = { necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() };
+                    writeConsent(obj);
+                    hideBanner();
+                    hidePanel();
+                    renderAdSlots();
+                });
+
+                manageBtn.addEventListener('click', function () {
+                    showPanel();
+                    syncPanel();
+                });
+
+                cancelBtn.addEventListener('click', function () {
+                    hidePanel();
+                });
+
+                saveBtn.addEventListener('click', function () {
+                    const checkboxes = panel.querySelectorAll('input[type="checkbox"][data-cookie]');
+                    const obj = { necessary: true, ts: Date.now() };
+                    checkboxes.forEach(cb => {
+                        const key = cb.getAttribute('data-cookie');
+                        if (key === 'necessary') return;
+                        obj[key] = !!cb.checked;
+                    });
+                    writeConsent(obj);
+                    hidePanel();
+                    hideBanner();
+
+                    if (obj.marketing) {
+                        ensureAdsScriptAndRender();
+                    } else {
+                        renderAdSlots();
+                    }
+                });
+
+                if (consent && consent.marketing) {
+                    setTimeout(() => { ensureAdsScriptAndRender(); }, 50);
+                }
+            });
+
+            window.SiteConsent = {
+                get: readConsent,
+                has: hasConsent,
+                revokeAll: function () {
+                    const obj = { necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() };
+                    writeConsent(obj);
+                    renderAdSlots();
+                },
+                acceptAll: function () {
+                    const obj = { necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() };
+                    writeConsent(obj);
+                    ensureAdsScriptAndRender();
+                },
+                setTestMode: function (v) {
+
+                }
+            };
+
+        })();
+    </script>
+
+
+</body>
+</html>

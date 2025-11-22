@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Buscar makers — MVP</title>
+
+    <style>
+        :root {
+            /* 1. DEFINIMOS LAS MEDIDAS AQUÍ PARA QUE EXISTAN SIEMPRE */
+            --sidebar-w: 220px;
+            --sidebar-collapsed-w: 64px;
+            --sidebar-bg: #ffe6f0;
+            --page-pad: 18px;
+            --card-radius: 10px;
+            --img-size: 260px;
+            --bottom-bar-height: 0px;
+        }
+
+        /* 2. CUANDO EL HTML TIENE LA CLASE DE COLAPSADO, CAMBIAMOS EL VALOR DE --sidebar-w */
+        html.site-sidebar-collapsed {
+            --sidebar-w: var(--sidebar-collapsed-w);
+        }
+
+        site-sidebar:not(:defined) {
+            display: none;
+        }
+
+        site-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            /* La barra usa siempre --sidebar-w. Si la variable cambia, la barra cambia */
+            width: var(--sidebar-w);
+            z-index: 60;
+            transition: width 0.22s ease; /* Añadida transición suave para la barra */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Inter,system-ui,Arial;
+            margin: 0;
+            color: #0f1724;
+            background: #fff;
+            scroll-padding-bottom: var(--bottom-bar-height);
+        }
+
+        .main {
+            /* El margen también usa --sidebar-w. Si la variable cambia, el margen se ajusta */
+            margin-left: var(--sidebar-w);
+            padding: var(--page-pad);
+            min-height: 100vh;
+            transition: margin-left 0.22s ease; /* Transición suave para el contenido */
+            padding-bottom: calc(var(--page-pad) + var(--bottom-bar-height));
+            position: relative; /* Añadido por seguridad */
+            z-index: 1;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+            header h2 {
+                margin: 0
+            }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 18px;
+            flex-wrap: wrap
+        }
+
+        input[type="search"], select, button {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+            gap: 14px;
+            padding-bottom: 6px;
+        }
+
+        .card {
+            border: 1px solid #eee;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            background: #fafafa;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f3f3f3;
+            cursor: pointer;
+        }
+
+            .img-wrap img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: opacity 300ms ease;
+                opacity: 1;
+            }
+
+            .img-wrap .white-overlay {
+                position: absolute;
+                inset: 0;
+                background: #fff;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 350ms ease;
+            }
+
+        .meta {
+            margin-top: 0;
+            flex: 1
+        }
+
+            .meta h3 {
+                margin: 0;
+                font-size: 16px
+            }
+
+            .meta p {
+                margin: 6px 0;
+                font-size: 14px;
+                color: #334155
+            }
+
+        .small {
+            font-size: 13px;
+            color: #61748a
+        }
+
+        @media (max-width:720px) {
+            :root {
+                /* En móvil la barra es más pequeña por defecto */
+                --sidebar-w: 80px;
+            }
+
+            .main {
+                padding: 12px
+            }
+        }
+    </style>
+
+
+    <script type="module" src="/scripts/site-sidebar.js"></script>
+</head>
+
+<body>
+
+    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
+
+        <a href="search.html">Buscar makers</a>
+        <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
+        <a href="about.html">Sobre la web</a>
+
+    </site-sidebar>
+
+    <main class="main">
+        <header>
+            <h2>Buscar makers</h2>
+            <div style="margin-left:auto" class="small" id="count">0 resultados</div>
+        </header>
+
+        <div class="controls">
+            <input id="q" type="search" placeholder="Buscar por nombre/estilo/palabras..." />
+            <select id="country">
+                <option value="any">Cualquier país</option>
+                <option value="es">España</option>
+                <option value="us">Estados Unidos</option>
+                <option value="de">Alemania</option>
+                <option value="ko">Korea</option>
+            </select>
+            <button id="btnSearch">Buscar</button>
+            <div style="flex:1"></div>
+        </div>
+
+        <div id="results" class="grid" aria-live="polite"></div>
+    </main>
+
+    <script>
+
+        const rotationIntervals = [10000, 20000, 30000];
+        const overlayFadeMs = 350;
+
+        const params = new URLSearchParams(location.search);
+        const initialQ = params.get('q') || '';
+        const initialCountry = params.get('country') || 'any';
+
+        let makers = [];
+
+        async function loadMakers() {
+            try {
+                const r = await fetch('/makers.json?ts=' + Date.now());
+                if (!r.ok) throw new Error('No se pudo cargar makers.json: ' + r.status);
+                makers = await r.json();
+            } catch (e) {
+                console.error('Error cargando makers.json', e);
+                makers = [];
+            }
+            renderResults(makers);
+            doSearch();
+        }
+
+        function doSearch() {
+            const q = document.getElementById('q').value.trim().toLowerCase();
+            const country = document.getElementById('country').value;
+            let res = makers.filter(m => {
+                if (country !== 'any' && m.country !== country) return false;
+                if (!q) return true;
+                if ((m.name || '').toLowerCase().includes(q)) return true;
+                if ((m.bio || '').toLowerCase().includes(q)) return true;
+                if ((m.styles || []).some(s => s.toLowerCase().includes(q))) return true;
+                return false;
+            });
+            renderResults(res);
+            const newParams = new URLSearchParams();
+            if (q) newParams.set('q', q);
+            if (country && country !== 'any') newParams.set('country', country);
+            history.replaceState({}, '', location.pathname + (newParams.toString() ? '?' + newParams.toString() : ''));
+        }
+
+        function renderResults(list) {
+            const cont = document.getElementById('results');
+            cont.innerHTML = '';
+            document.getElementById('count').textContent = list.length + ' resultados';
+            if (list.length === 0) {
+                cont.innerHTML = '<p class="small">No hay resultados. Prueba con otros términos.</p>';
+                return;
+            }
+
+            list.forEach(m => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                const imgWrap = document.createElement('div');
+                imgWrap.className = 'img-wrap';
+                const imgEl = document.createElement('img');
+                imgEl.alt = m.name || '';
+                imgEl.loading = 'lazy';
+                const images = (m.images && m.images.length) ? m.images.slice() : ['/assets/placeholder.jpg'];
+
+                imgEl.src = images[0];
+                imgWrap.appendChild(imgEl);
+
+                const overlay = document.createElement('div');
+                overlay.className = 'white-overlay';
+                imgWrap.appendChild(overlay);
+
+                const meta = document.createElement('div');
+                meta.className = 'meta';
+                meta.innerHTML = `
+                                            <h3>${escapeHtml(m.name)}</h3>
+                                            <p class="small">${escapeHtml(m.countryname || '')}, ${escapeHtml(m.country)}</p>
+                                            <p>${escapeHtml((m.bio || '').slice(0, 120))}${(m.bio || '').length > 120 ? '...' : ''}</p>
+                                            <a href="profile.html?id=${encodeURIComponent(m.id)}">Ver perfil</a>
+                                          `;
+
+                card.appendChild(imgWrap);
+                card.appendChild(meta);
+                cont.appendChild(card);
+
+                imgWrap.addEventListener('click', () => {
+                    location.href = `profile.html?id=${encodeURIComponent(m.id)}`;
+                });
+
+                if (images.length > 1) {
+                    startRotationForCard({ imgEl, overlay, images });
+                }
+            });
+        }
+
+        function startRotationForCard({ imgEl, overlay, images }) {
+            const state = {
+                currentIndex: 0,
+                timeoutId: null,
+                nextTickAt: null,
+                paused: false,
+                simulatedTick: false,
+                remaining: null
+            };
+
+            let nextInterval = chooseRandomInterval();
+            let initialDelay = Math.floor(Math.random() * nextInterval);
+            state.nextTickAt = Date.now() + initialDelay;
+            state.timeoutId = setTimeout(tick, initialDelay);
+
+            const wrapper = imgEl.parentElement;
+            wrapper.addEventListener('mouseenter', () => {
+                if (state.paused) return;
+                state.paused = true;
+                const now = Date.now();
+                state.remaining = state.nextTickAt - now;
+                clearTimeout(state.timeoutId);
+                if (state.remaining <= 0) {
+                    state.simulatedTick = true;
+                } else {
+                    state.simulatedTick = false;
+                }
+            });
+
+            wrapper.addEventListener('mouseleave', () => {
+                if (!state.paused) return;
+                state.paused = false;
+                if (state.simulatedTick) {
+                    state.simulatedTick = false;
+                    const ni = chooseRandomInterval();
+                    state.nextTickAt = Date.now() + ni;
+                    state.timeoutId = setTimeout(tick, ni);
+                } else {
+                    const rem = Math.max(50, state.remaining || 0);
+                    state.nextTickAt = Date.now() + rem;
+                    state.timeoutId = setTimeout(tick, rem);
+                }
+            });
+
+            function tick() {
+                if (state.paused) {
+                    state.nextTickAt = Date.now() + chooseRandomInterval();
+                    state.timeoutId = setTimeout(tick, chooseRandomInterval());
+                    return;
+                }
+
+                overlay.style.transition = `opacity ${overlayFadeMs}ms ease`;
+                overlay.style.opacity = '1';
+                setTimeout(() => {
+                    state.currentIndex = (state.currentIndex + 1) % images.length;
+                    imgEl.src = images[state.currentIndex];
+                    overlay.style.opacity = '0';
+                }, overlayFadeMs);
+
+                nextInterval = chooseRandomInterval();
+                state.nextTickAt = Date.now() + nextInterval;
+                state.timeoutId = setTimeout(tick, nextInterval);
+            }
+
+            function chooseRandomInterval() {
+                const idx = Math.floor(Math.random() * rotationIntervals.length);
+                return rotationIntervals[idx];
+            }
+
+            return {
+                stop() { clearTimeout(state.timeoutId); }
+            };
+        }
+
+        function escapeHtml(s) { return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('q').value = initialQ;
+            document.getElementById('country').value = initialCountry;
+
+            document.getElementById('btnSearch').addEventListener('click', doSearch);
+            document.getElementById('q').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+
+            loadMakers();
+
+            initBottomBarWatcher();
+        });
+
+
+        function initBottomBarWatcher() {
+            const setBottomBarHeight = (h) => {
+                const val = (typeof h === 'number') ? h + 'px' : String(h || '0px');
+                document.documentElement.style.setProperty('--bottom-bar-height', val);
+                document.body.style.scrollPaddingBottom = val;
+                const main = document.querySelector('.main');
+                if (main) main.style.paddingBottom = `calc(var(--page-pad) + var(--bottom-bar-height))`;
+            };
+
+
+            const detectAndObserve = () => {
+                const bar = document.querySelector('.donate-bar-bundle');
+                if (bar) {
+                    setBottomBarHeight(bar.offsetHeight);
+
+                    if (window.ResizeObserver) {
+                        try {
+                            const ro = new ResizeObserver(entries => {
+                                for (const e of entries) {
+                                    const h = Math.round(e.contentRect.height);
+                                    setBottomBarHeight(h);
+                                }
+                            });
+                            ro.observe(bar);
+                        } catch (err) {
+                            window.addEventListener('resize', () => setBottomBarHeight(bar.offsetHeight));
+                        }
+                    } else {
+                        window.addEventListener('resize', () => setBottomBarHeight(bar.offsetHeight));
+                    }
+                } else {
+                    setBottomBarHeight(0);
+                }
+            };
+
+            const mo = new MutationObserver((mutations) => {
+                for (const m of mutations) {
+                    if (m.addedNodes && m.addedNodes.length) {
+                        for (const n of m.addedNodes) {
+                            if (n.nodeType === 1) {
+                                if (n.classList && n.classList.contains('donate-bar-bundle')) {
+                                    detectAndObserve();
+                                    return;
+                                }
+                                if (n.querySelector && n.querySelector('.donate-bar-bundle')) {
+                                    detectAndObserve();
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            mo.observe(document.body, { childList: true, subtree: true });
+
+            detectAndObserve();
+            setTimeout(detectAndObserve, 300);
+            setTimeout(detectAndObserve, 1000);
+        }
+    </script>
+
+    <script src="scripts/bottom-bar.js" defer></script>
+
+    <div id="cookie-banner" aria-hidden="true" style="display:none;">
+        <div class="cb-inner">
+            <div class="cb-text">
+                <strong>Usamos cookies</strong>
+                <p>Usamos cookies necesarias y cookies de marketing (anuncios). Necesitamos tu consentimiento explícito para mostrar anuncios.</p>
+                <div class="cb-actions">
+                    <button id="cb-accept-all" class="btn">Aceptar todo</button>
+                    <button id="cb-reject-all" class="btn ghost">Rechazar</button>
+                    <button id="cb-manage" class="btn ghost">Configurar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-panel" aria-hidden="true" style="display:none;">
+        <div class="cp-inner">
+            <h3>Preferencias de cookies</h3>
+            <p>Marca lo que aceptas. Solo las cookies marcadas se activarán.</p>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="necessary" disabled checked> Necesarias (siempre activas)</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="preferences"> Preferencias</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="statistics"> Estadísticas</label>
+            </div>
+            <div class="cp-row">
+                <label><input type="checkbox" data-cookie="marketing"> Marketing / Anuncios</label>
+            </div>
+            <div class="cp-actions">
+                <button id="cp-save" class="btn">Guardar</button>
+                <button id="cp-cancel" class="btn ghost">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #cookie-banner {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            z-index: 9999;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .cb-inner {
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cb-text p {
+            margin: 6px 0 10px 0;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .cb-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 0;
+            background: #0f172a;
+            color: white;
+            cursor: pointer;
+        }
+
+            .btn.ghost {
+                background: transparent;
+                border: 1px solid #bbb;
+                color: #111;
+            }
+
+        #cookie-panel {
+            position: fixed;
+            right: 16px;
+            bottom: 90px;
+            z-index: 9999;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            width: 320px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+
+        .cp-inner h3 {
+            margin: 0 0 8px 0;
+        }
+
+        .cp-row {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .cp-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+
+        .ad-slot {
+            min-height: 60px;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-placeholder {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+    </style>
+
+    // LÓGICA JAVASCRIPT ACTUALIZADA PARA ADSENSE
+    <script>
+
+        (function () {
+            const ADSENSE_CLIENT = 'ca-pub-XXXXXXXXXXXXXXXX';
+            const TEST_MODE = true;
+            const COOKIE_KEY = 'siteCookieConsent_v1';
+
+            function readConsent() {
+                try {
+                    const v = localStorage.getItem(COOKIE_KEY);
+                    return v ? JSON.parse(v) : null;
+                } catch (e) { return null; }
+            }
+            function writeConsent(obj) {
+                localStorage.setItem(COOKIE_KEY, JSON.stringify(obj));
+            }
+            function hasConsent(cat) {
+                const c = readConsent();
+                return c && c[cat] === true;
+            }
+
+            const banner = document.getElementById('cookie-banner');
+            const panel = document.getElementById('cookie-panel');
+
+            function showBanner() { banner.style.display = 'block'; banner.setAttribute('aria-hidden', 'false'); }
+            function hideBanner() { banner.style.display = 'none'; banner.setAttribute('aria-hidden', 'true'); }
+            function showPanel() { panel.style.display = 'block'; panel.setAttribute('aria-hidden', 'false'); }
+            function hidePanel() { panel.style.display = 'none'; panel.setAttribute('aria-hidden', 'true'); }
+
+            let adsScriptLoaded = false;
+            function injectAdsenseScript() {
+                if (adsScriptLoaded) return;
+                const s = document.createElement('script');
+                s.async = true;
+                s.crossOrigin = 'anonymous';
+                s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`;
+                document.head.appendChild(s);
+                adsScriptLoaded = true;
+            }
+
+            function renderAdSlots() {
+                const slots = document.querySelectorAll('.ad-slot');
+                slots.forEach(slot => {
+                    if (slot.dataset.rendered === 'true') return;
+
+                    const adSlotId = slot.getAttribute('data-ad-slot') || '';
+                    if (!hasConsent('marketing')) {
+                        const ph = document.createElement('div');
+                        ph.className = 'ad-placeholder';
+                        ph.innerText = 'Espacio de anuncio (necesitas aceptar marketing para ver anuncios reales)';
+                        slot.appendChild(ph);
+                        slot.dataset.rendered = 'true';
+                        return;
+                    }
+
+                    const ins = document.createElement('ins');
+                    ins.className = 'adsbygoogle';
+                    ins.style.display = 'block';
+                    if (adSlotId) ins.setAttribute('data-ad-slot', adSlotId);
+                    ins.setAttribute('data-ad-format', 'auto');
+                    ins.setAttribute('data-full-width-responsive', 'true');
+
+                    if (TEST_MODE) {
+                        ins.setAttribute('data-adtest', 'on');
+                    }
+
+                    slot.innerHTML = '';
+                    slot.appendChild(ins);
+                    slot.dataset.rendered = 'true';
+
+                    try {
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    } catch (e) {
+                    }
+                });
+            }
+
+
+            function ensureAdsScriptAndRender() {
+                if (!adsScriptLoaded) injectAdsenseScript();
+                renderAdSlots();
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const consent = readConsent();
+                const acceptBtn = document.getElementById('cb-accept-all');
+                const rejectBtn = document.getElementById('cb-reject-all');
+                const manageBtn = document.getElementById('cb-manage');
+                const saveBtn = document.getElementById('cp-save');
+                const cancelBtn = document.getElementById('cp-cancel');
+
+                function syncPanel() {
+                    const checkboxes = panel.querySelectorAll('input[type="checkbox"][data-cookie]');
+                    const c = readConsent() || {};
+                    checkboxes.forEach(cb => {
+                        const key = cb.getAttribute('data-cookie');
+                        if (key === 'necessary') { cb.checked = true; cb.disabled = true; }
+                        else cb.checked = !!c[key];
+                    });
+                }
+
+                if (!consent) {
+                    showBanner();
+                } else {
+                    if (hasConsent('marketing')) {
+                        ensureAdsScriptAndRender();
+                    } else {
+                        renderAdSlots();
+                    }
+                }
+
+                acceptBtn.addEventListener('click', function () {
+                    const obj = { necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() };
+                    writeConsent(obj);
+                    hideBanner();
+                    hidePanel();
+                    ensureAdsScriptAndRender();
+                });
+
+                rejectBtn.addEventListener('click', function () {
+                    const obj = { necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() };
+                    writeConsent(obj);
+                    hideBanner();
+                    hidePanel();
+                    renderAdSlots();
+                });
+
+                manageBtn.addEventListener('click', function () {
+                    showPanel();
+                    syncPanel();
+                });
+
+                cancelBtn.addEventListener('click', function () {
+                    hidePanel();
+                });
+
+                saveBtn.addEventListener('click', function () {
+                    const checkboxes = panel.querySelectorAll('input[type="checkbox"][data-cookie]');
+                    const obj = { necessary: true, ts: Date.now() };
+                    checkboxes.forEach(cb => {
+                        const key = cb.getAttribute('data-cookie');
+                        if (key === 'necessary') return;
+                        obj[key] = !!cb.checked;
+                    });
+                    writeConsent(obj);
+                    hidePanel();
+                    hideBanner();
+
+                    if (obj.marketing) {
+                        ensureAdsScriptAndRender();
+                    } else {
+                        renderAdSlots();
+                    }
+                });
+
+                if (consent && consent.marketing) {
+                    setTimeout(() => { ensureAdsScriptAndRender(); }, 50);
+                }
+            });
+
+            window.SiteConsent = {
+                get: readConsent,
+                has: hasConsent,
+                revokeAll: function () {
+                    const obj = { necessary: true, preferences: false, statistics: false, marketing: false, ts: Date.now() };
+                    writeConsent(obj);
+                    renderAdSlots();
+                },
+                acceptAll: function () {
+                    const obj = { necessary: true, preferences: true, statistics: true, marketing: true, ts: Date.now() };
+                    writeConsent(obj);
+                    ensureAdsScriptAndRender();
+                },
+                setTestMode: function (v) {
+                }
+            };
+
+        })();
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"
+         data-adtest="on"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</body>
+</html>
