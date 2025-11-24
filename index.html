@@ -14,23 +14,23 @@
             const ua = navigator.userAgent || '';
             const isBot = /bot|crawl|spider|bingpreview|slurp/i.test(ua);
             if (isBot) return;
-
+    
             // Si ya hay ?lang= en URL o preferencia guardada, no forzamos
             const params = new URLSearchParams(location.search);
             if (params.get('lang')) return;
             if (localStorage.getItem('site_lang')) return;
-
+    
             // Detectar idioma preferido
             const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'es';
             const lang = nav.slice(0, 2).toLowerCase();
-
+    
             // Mapeo de idiomas a rutas
             const map = { es: '/es/', en: '/en/' };
             const target = map[lang] || '/es/'; // fallback
-
+    
             // Si ya estamos en target o root no hacemos nada
             if (location.pathname.startsWith(target)) return;
-
+    
             // Redirigir (replace para no llenar el historial)
             location.replace(target + location.search + location.hash);
         })();
@@ -581,6 +581,7 @@
 </body>
 
 </html>
+
 
 
 
