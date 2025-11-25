@@ -445,7 +445,10 @@
             overlay.className = 'confirm-overlay';
             overlay.innerHTML = `
                                                 <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
-                                                    <p id="confirm-title">このページに掲載されているファースーツメーカーは審査されていますが、インターネットでファースーツを購入する際は、詐欺ではないか必ずご自身で調査してください。\nファースーツメーカーに連絡する前に、彼らのウェブサイトやソーシャルメディアでコミッションが受け付けているかを確認し、迷惑をかけないようにしてください。\n「<strong>I Want a Fursuit!</strong>」というウェブサイトを通じてメーカーにたどり着いたことを伝えるのを忘れないでください！</p>
+                                                    <p id="confirm-title">
+                                                    <p>このページに掲載されているファースーツメーカーは審査されていますが、インターネットでファースーツを購入する際は、詐欺ではないか必ずご自身で調査してください。
+                                                    <p>ファースーツメーカーに連絡する前に、彼らのウェブサイトやソーシャルメディアでコミッションが受け付けているかを確認し、迷惑をかけないようにしてください。
+                                                    <p>「<strong>I Want a Fursuit!</strong>」というウェブサイトを通じてメーカーにたどり着いたことを伝えるのを忘れないでください！</p>
                                                     <div class="confirm-actions">
                                                         <button class="btn-accept" type="button">承認</button>
                                                         <button class="btn-cancel" type="button">キャンセル</button>
@@ -493,13 +496,33 @@
         async function load() {
             const id = getParam('id');
             const contentEl = document.getElementById('content');
-            if (!id) { contentEl.innerHTML = '<p>メーカーIDが指定されていません。</p>'; return; }
+            if (!id) {
+                contentEl.innerHTML = `
+            <div class="error-container">
+                <h2>メイカーIDが指定されていません</h2>
+                <p>ウェブアドレスが正しいことを確認し、検索したいファースーツ・メイカーのIDが含まれていることを確認してください。</p>
+                <p>このウェブサイトは、世界中の才能あるファースーツ・メイカーを宣伝し、ファンがプロジェクトに最適なアーティストを見つけるのを支援するためのディレクトリです。メインのディレクトリページに戻り、他のクリエイターを探すことができます。</p>
+            </div>
+        `;
+                return;
+            }
+
 
             try {
                 const r = await fetch('/makers.json');
                 const makers = await r.json();
                 const m = makers.find(x => x.id === id);
-                if (!m) { contentEl.innerHTML = '<p>メーカーが見つかりません。</p>'; return; }
+                if (!m) {
+                    contentEl.innerHTML = `
+                <div class="error-container">
+                    <h2>メイカーが見つかりません</h2>
+                    <p>お探しのクリエイタープロフィールは、当社のディレクトリに見つからないか、最近削除された可能性があります。</p>
+                    <p>当社のデータベースは、コミュニティのファースーツ・メイカーに関する最も正確な情報を提供するために常に更新されています。これがエラーであると思われる場合は、お問い合わせください。</p>
+                    <p>それまでは、他の注目すべきメイカーのリストをご覧になることをお勧めします。このサイトは、ファンとアーティストをつなぎ、ファースーティングアートにおける多様性と品質を促進するためのプラットフォームであることを忘れないでください。</p>
+                </div>
+            `;
+                    return;
+                }
 
                 currentImages = m.images || [];
                 let contactHtml = '';
@@ -514,28 +537,35 @@
                 ).join('');
 
                 contentEl.innerHTML = `
-                                                    <h1>${escapeHtml(m.name)}</h1>
-                                                    <div class="location">📍 <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
-                                                    <p class="short-bio">${escapeHtml(m.bio)}</p>
-                                                    ${currentImages.length ? `
-                                                        <div class="gallery-container">
-                                                          <div class="main-view" aria-live="polite">
-                                                            <button class="nav-btn left" onclick="prevImage()" aria-label="前の画像" title="前へ">
-                                                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                                            </button>
-                                                            <img id="mainImage" src="${currentImages[0]}" alt="メイン画像">
-                                                            <button class="nav-btn right" onclick="nextImage()" aria-label="次の画像" title="次へ">
-                                                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                                            </button>
-                                                          </div>
-                                                          <div class="thumbnails" role="list">${thumbsHtml}</div>
-                                                        </div>
-                                                    ` : '<p>利用可能な画像はありません。</p>'}
-                                                    <h3>情報</h3>
-                                                    <div class="long-info">${escapeHtml(m.info)}</div>
-                                                    <h3>連絡先</h3>
-                                                    <div class="contact-section">${contactHtml}</div>
-                                                `;
+                                    <h1>${escapeHtml(m.name)}</h1>
+                                    <div class="location">📍 <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
+                                    <p class="short-bio">${escapeHtml(m.bio)}</p>
+                                    ${currentImages.length ? `
+                                        <div class="gallery-container">
+                                            <div class="main-view" aria-live="polite">
+                                                <button class="nav-btn left" onclick="prevImage()" aria-label="前の画像" title="前へ">
+                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                                <img id="mainImage" src="${currentImages[0]}" alt="メイン画像">
+                                                <button class="nav-btn right" onclick="nextImage()" aria-label="次の画像" title="次へ">
+                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="thumbnails" role="list">${thumbsHtml}</div>
+                                        </div>
+                                    ` : '<p>画像が利用できません。</p>'}
+                                    <h3>情報</h3>
+                                    <div class="long-info">${escapeHtml(m.info)}</div>
+                                    <h3>連絡先</h3>
+                                    <div class="contact-section">${contactHtml}</div>
+                                    <div class="editor-notes">
+                                        <hr>
+                                        <h4>ファースーツ・メイカーとこのディレクトリについて</h4>
+                                        <p>このページは、才能あるファースーツ・メイカーである**${escapeHtml(m.name)}**の作品と連絡先情報を紹介するためのものです。ファースーツ・コミュニティは素晴らしく、これらの職人はデザインを目に見えるキャラクターに変えるその中心的な存在です。彼らのギャラリーを探索して、作品の品質とスタイルを確認することをお勧めします。</p>
+                                        <p>提供されている連絡先情報は、メイカーから直接提供されたものです。ファースーツを注文する前に、興味のある方には常に徹底的な調査とレビューを読むことを推奨します。私たちの使命は、つながりを促進するディレクトリとなることですが、取引や最終的な作品の品質については責任を負いません。</p>
+                                        <p>あなたがファースーツ・メイカーで、プロフィールを掲載したい、または更新したい場合は、サイドバーの「私を追加」ボタンをクリックしてください。</p>
+                                    </div>
+                                    `;
 
                 const mainImg = document.getElementById('mainImage');
                 if (mainImg) mainImg.addEventListener('click', () => openOverlay(currentIndex));

@@ -445,7 +445,10 @@
             overlay.className = 'confirm-overlay';
             overlay.innerHTML = `
                                     <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
-                                        <p id="confirm-title">Los fursuit makers de esta pagina han sido y son revisados pero recuerda siempre al comprar un fursuit en internet investigar que no te estan intentando estafar.\nAntes de contactar con cualquier fursuit maker recuerda primero ver si en sus webs o redes sociales pone que tienen las comisiones abiertas para no molestarlos.\nNo olvides decir al maker que has venido a el gracias a la web <strong>I Want a Fursuit!</strong></p>
+                                        <p id="confirm-title">
+                                        <p>Los fursuit makers de esta pagina han sido y son revisados pero recuerda siempre al comprar un fursuit en internet investigar que no te estan intentando estafar.
+                                        <p>Antes de contactar con cualquier fursuit maker recuerda primero ver si en sus webs o redes sociales pone que tienen las comisiones abiertas para no molestarlos.
+                                        <p>No olvides decir al maker que has venido a el gracias a la web <strong>I Want a Fursuit!</strong></p>
                                         <div class="confirm-actions">
                                             <button class="btn-accept" type="button">Aceptar</button>
                                             <button class="btn-cancel" type="button">Cancelar</button>
@@ -493,13 +496,33 @@
         async function load() {
             const id = getParam('id');
             const contentEl = document.getElementById('content');
-            if (!id) { contentEl.innerHTML = '<p>Id de maker no especificado.</p>'; return; }
+            if (!id) {
+                contentEl.innerHTML = `
+                    <div class="error-container">
+                        <h2>ID de Maker no especificado</h2>
+                        <p>Por favor, asegúrate de que la dirección web es correcta y contiene la identificación del Fursuit Maker que deseas buscar.</p>
+                        <p>Este sitio web es un directorio dedicado a la promoción de Fursuit Makers talentosos de todo el mundo, ayudando a los entusiastas a encontrar el artista perfecto para su proyecto. Puedes volver a la página principal del directorio para buscar a otros creadores.</p>
+                    </div>
+                `;
+                            return;
+            }
+
 
             try {
                 const r = await fetch('/makers.json');
                 const makers = await r.json();
                 const m = makers.find(x => x.id === id);
-                if (!m) { contentEl.innerHTML = '<p>Maker no encontrado.</p>'; return; }
+                if (!m) {
+                    contentEl.innerHTML = `
+                        <div class="error-container">
+                            <h2>Maker no encontrado</h2>
+                            <p>Lamentamos informarte que el perfil de creador que estás buscando no se encuentra en nuestro directorio o ha sido retirado recientemente.</p>
+                            <p>Nuestra base de datos se actualiza constantemente para ofrecer la información más precisa sobre los Fursuit Makers de la comunidad. Si crees que esto es un error, por favor, ponte en contacto con nosotros.</p>
+                            <p>Mientras tanto, te invitamos a explorar la lista de otros makers destacados. Recuerda que este sitio es una plataforma para conectar a fans con artistas, promoviendo la diversidad y la calidad en el arte del fursuiting.</p>
+                        </div>
+                    `;
+                    return;
+                }
 
                 currentImages = m.images || [];
                 let contactHtml = '';
@@ -535,6 +558,13 @@
                                       <div class="long-info">${escapeHtml(m.info)}</div>
                                       <h3>Contacto</h3>
                                       <div class="contact-section">${contactHtml}</div>
+                                      <div class="editor-notes">
+                                        <hr>
+                                        <h4>Acerca de los Fursuit Makers y este Directorio</h4>
+                                        <p>Esta página está dedicada a mostrar el trabajo y la información de contacto de **${escapeHtml(m.name)}**, un talentoso Fursuit Maker. La comunidad de fursuiters es maravillosa, y estos artesanos son el corazón de la misma, transformando diseños en personajes tangibles. Te animamos a explorar la galería de este maker para ver la calidad y el estilo de sus creaciones.</p>
+                                        <p>La información de contacto proporcionada es directamente la que el maker ha facilitado. Siempre recomendamos a los interesados realizar una investigación exhaustiva y leer reseñas antes de encargar un fursuit. Nuestra misión es ser un directorio que facilita la conexión, pero no somos responsables de las transacciones o la calidad final del trabajo.</p>
+                                        <p>Si eres un Fursuit Maker y deseas aparecer o actualizar tu perfil, por favor, puedes pulsar el boton de "Add me" en la barra lateral".</p>
+                                    </div>
                                     `;
 
                 const mainImg = document.getElementById('mainImage');

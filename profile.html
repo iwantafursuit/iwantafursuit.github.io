@@ -446,7 +446,10 @@
             // Texto traducido con cuidado para mantener el aviso de seguridad
             overlay.innerHTML = `
                                     <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
-                                        <p id="confirm-title">The fursuit makers on this page have been reviewed, but always remember to do your research when buying a fursuit online to ensure you are not being scammed.\nBefore contacting any fursuit maker, remember to first check if their website or social media states that commissions are open to avoid disturbing them.\nDon't forget to tell the maker you found them thanks to the <strong>I Want a Fursuit!</strong> website.</p>
+                                        <p id="confirm-title">
+                                        <p>The fursuit makers on this page have been reviewed, but always remember to do your research when buying a fursuit online to ensure you are not being scammed.
+                                        <p>Before contacting any fursuit maker, remember to first check if their website or social media states that commissions are open to avoid disturbing them.
+                                        <p>Don't forget to tell the maker you found them thanks to the <strong>I Want a Fursuit!</strong> website.</p>
                                         <div class="confirm-actions">
                                             <button class="btn-accept" type="button">Accept</button>
                                             <button class="btn-cancel" type="button">Cancel</button>
@@ -494,13 +497,33 @@
         async function load() {
             const id = getParam('id');
             const contentEl = document.getElementById('content');
-            if (!id) { contentEl.innerHTML = '<p>Maker ID not specified.</p>'; return; }
+            if (!id) {
+                contentEl.innerHTML = `
+            <div class="error-container">
+                <h2>Maker ID Not Specified</h2>
+                <p>Please ensure that the web address is correct and contains the ID of the Fursuit Maker you wish to search for.</p>
+                <p>This website is a directory dedicated to promoting talented Fursuit Makers from around the world, helping enthusiasts find the perfect artist for their project. You can return to the main directory page to search for other creators.</p>
+            </div>
+        `;
+                return;
+            }
+
 
             try {
                 const r = await fetch('/makers.json');
                 const makers = await r.json();
                 const m = makers.find(x => x.id === id);
-                if (!m) { contentEl.innerHTML = '<p>Maker not found.</p>'; return; }
+                if (!m) {
+                    contentEl.innerHTML = `
+                <div class="error-container">
+                    <h2>Maker Not Found</h2>
+                    <p>We regret to inform you that the creator profile you are looking for is not in our directory or has been recently removed.</p>
+                    <p>Our database is constantly updated to offer the most accurate information about Fursuit Makers in the community. If you believe this is an error, please contact us.</p>
+                    <p>Meanwhile, we invite you to explore the list of other featured makers. Remember that this site is a platform to connect fans with artists, promoting diversity and quality in the art of fursuiting.</p>
+                </div>
+            `;
+                    return;
+                }
 
                 currentImages = m.images || [];
                 let contactHtml = '';
@@ -508,34 +531,41 @@
                     for (const [key, url] of Object.entries(m.contact)) {
                         contactHtml += `<div class="contact-item"><span class="contact-key">${capitalize(key)}:</span><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)}</a></div>`;
                     }
-                } else contactHtml = '<p>No contact information available.</p>';
+                } else contactHtml = '<p>No contact information.</p>';
 
                 const thumbsHtml = currentImages.map((img, idx) =>
                     `<img src="${img}" class="thumb ${idx === 0 ? 'active' : ''}" onclick="setIndex(${idx})" loading="lazy" alt="Thumbnail ${idx + 1}">`
                 ).join('');
 
                 contentEl.innerHTML = `
-                                      <h1>${escapeHtml(m.name)}</h1>
-                                      <div class="location">📍 <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
-                                      <p class="short-bio">${escapeHtml(m.bio)}</p>
-                                      ${currentImages.length ? `
+                                    <h1>${escapeHtml(m.name)}</h1>
+                                    <div class="location">📍 <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
+                                    <p class="short-bio">${escapeHtml(m.bio)}</p>
+                                    ${currentImages.length ? `
                                         <div class="gallery-container">
-                                          <div class="main-view" aria-live="polite">
-                                            <button class="nav-btn left" onclick="prevImage()" aria-label="Previous image" title="Previous">
-                                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                            </button>
-                                            <img id="mainImage" src="${currentImages[0]}" alt="Main image">
-                                            <button class="nav-btn right" onclick="nextImage()" aria-label="Next image" title="Next">
-                                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                                            </button>
-                                          </div>
-                                          <div class="thumbnails" role="list">${thumbsHtml}</div>
+                                            <div class="main-view" aria-live="polite">
+                                                <button class="nav-btn left" onclick="prevImage()" aria-label="Previous image" title="Previous">
+                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                                <img id="mainImage" src="${currentImages[0]}" alt="Main image">
+                                                <button class="nav-btn right" onclick="nextImage()" aria-label="Next image" title="Next">
+                                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                </button>
+                                            </div>
+                                            <div class="thumbnails" role="list">${thumbsHtml}</div>
                                         </div>
-                                      ` : '<p>No images available.</p>'}
-                                      <h3>Information</h3>
-                                      <div class="long-info">${escapeHtml(m.info)}</div>
-                                      <h3>Contact</h3>
-                                      <div class="contact-section">${contactHtml}</div>
+                                    ` : '<p>No images available.</p>'}
+                                    <h3>Information</h3>
+                                    <div class="long-info">${escapeHtml(m.info)}</div>
+                                    <h3>Contact</h3>
+                                    <div class="contact-section">${contactHtml}</div>
+                                    <div class="editor-notes">
+                                        <hr>
+                                        <h4>About Fursuit Makers and this Directory</h4>
+                                        <p>This page is dedicated to showcasing the work and contact information of **${escapeHtml(m.name)}**, a talented Fursuit Maker. The fursuiter community is wonderful, and these artisans are the heart of it, transforming designs into tangible characters. We encourage you to explore this maker's gallery to see the quality and style of their creations.</p>
+                                        <p>The contact information provided is directly what the maker has supplied. We always recommend that interested parties conduct thorough research and read reviews before commissioning a fursuit. Our mission is to be a directory that facilitates connection, but we are not responsible for transactions or the final quality of the work.</p>
+                                        <p>If you are a Fursuit Maker and wish to appear or update your profile, please click the "Add me" button in the sidebar.</p>
+                                    </div>
                                     `;
 
                 const mainImg = document.getElementById('mainImage');
@@ -575,7 +605,6 @@
     <script async custom-element="amp-auto-ads"
             src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
-
 
 </body>
 
