@@ -13,7 +13,6 @@
 
     <style>
         :root {
-            /* 1. DEFINIMOS LAS MEDIDAS AQUÍ PARA QUE EXISTAN SIEMPRE */
             --sidebar-w: 220px;
             --sidebar-collapsed-w: 64px;
             --sidebar-bg: #ffe6f0;
@@ -23,7 +22,6 @@
             --bottom-bar-height: 0px;
         }
 
-        /* 2. CUANDO EL HTML TIENE LA CLASE DE COLAPSADO, CAMBIAMOS EL VALOR DE --sidebar-w */
         html.site-sidebar-collapsed {
             --sidebar-w: var(--sidebar-collapsed-w);
         }
@@ -37,10 +35,9 @@
             left: 0;
             top: 0;
             bottom: 0;
-            /* La barra usa siempre --sidebar-w. Si la variable cambia, la barra cambia */
             width: var(--sidebar-w);
             z-index: 60;
-            transition: width 0.22s ease; /* Añadida transición suave para la barra */
+            transition: width 0.22s ease;
         }
 
         * {
@@ -56,13 +53,12 @@
         }
 
         .main {
-            /* El margen también usa --sidebar-w. Si la variable cambia, el margen se ajusta */
             margin-left: var(--sidebar-w);
             padding: var(--page-pad);
             min-height: 100vh;
-            transition: margin-left 0.22s ease; /* Transición suave para el contenido */
+            transition: margin-left 0.22s ease; 
             padding-bottom: calc(var(--page-pad) + var(--bottom-bar-height));
-            position: relative; /* Añadido por seguridad */
+            position: relative; 
             z-index: 1;
         }
 
@@ -164,7 +160,6 @@
 
         @media (max-width:720px) {
             :root {
-                /* En móvil la barra es más pequeña por defecto */
                 --sidebar-w: 80px;
             }
 
@@ -184,6 +179,7 @@
 
         <a href="search.html">Buscar makers</a>
         <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
+        <a href="cleaning.html">Limpieza de Fursuit</a>
         <a href="about.html">Sobre la web</a>
 
     </site-sidebar>
