@@ -1,0 +1,279 @@
+﻿<!doctype html>
+<html lang="ja">
+<head>
+
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>I Want a Fursuit について</title>
+    <meta name="description" content="ファースーツ制作者（メーカー）のディレクトリ：ソーシャルメディアで迷うことなく、メーカーとその作品を見つけられます。バグ報告や改善提案も歓迎します。" />
+
+
+
+    <style>
+                :root {
+                        --sidebar-w: 220px;
+                        --sidebar-mobile-w: 70px;
+                        --bottom-bar-h: 64px;
+                        --page-max-w: 800px;
+                        --page-pad: 20px;
+                        --radius: 12px;
+                        --muted: #6b7280;
+                        --accent: #ff2b8a;
+                        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+        }
+
+                html, body {
+                        height: 100%;
+                        margin: 0;
+                        background: #fff;
+                        color: #0f172a;
+
+        }
+
+                    html.site-sidebar-collapsed {
+                            --sidebar-w: var(--sidebar-collapsed-w);
+
+        }
+
+                site-sidebar:not(:defined) {
+                        display: none;
+
+        }
+
+                site-sidebar {
+                        position: fixed;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        width: var(--sidebar-w);
+                        z-index: 60;
+
+        }
+
+                body {
+                        padding-left: var(--sidebar-w);
+                        padding-bottom: calc(var(--bottom-bar-h) + 12px);
+                        box-sizing: border-box;
+                        transition: padding-left 0.3s ease;
+
+        }
+
+
+                main {
+                        display: block;
+                        width: 100%;
+
+        }
+
+                .container {
+                        max-width: var(--page-max-w);
+                        margin: 40px auto;
+                        padding: var(--page-pad);
+                        box-sizing: border-box;
+                        text-align: center;
+
+        }
+
+                .card {
+                        background: #fff;
+                        border-radius: var(--radius);
+                        padding: 24px;
+                        box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+                        border: 1px solid rgba(15,23,42,0.04);
+                        margin-bottom: 20px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+        }
+
+                h1 {
+                        margin: 0 0 12px 0;
+                        font-size: 1.6rem;
+                        color: var(--accent);
+
+        }
+
+                h2 {
+                        margin: 0 0 10px 0;
+                        font-size: 1.2rem;
+
+        }
+
+                p.lead {
+                        margin: 0 0 16px 0;
+                        color: var(--muted);
+                        font-size: 1.1rem;
+                        line-height: 1.5;
+
+        }
+
+                .muted {
+                        color: var(--muted);
+                        font-size: 0.98rem;
+                        line-height: 1.5;
+
+        }
+
+
+                ul {
+                        margin: 12px 0 20px 0;
+                        padding: 0;
+                        color: var(--muted);
+                        list-style-position: inside;
+                        text-align: left;
+                        display: inline-block;
+
+        }
+
+                a.link {
+                        color: var(--accent);
+                        text-decoration: none;
+                        font-weight: 600;
+
+        }
+
+                .contact-list {
+                        display: flex;
+                        gap: 12px;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        margin-top: 12px;
+
+        }
+
+                .inline-note {
+                        font-size: 0.9rem;
+                        color: var(--muted);
+                        background: #f9fafb;
+                        padding: 8px 12px;
+                        border-radius: 8px;
+                        display: inline-block;
+
+        }
+
+
+
+
+                @media (max-width: 720px) {
+                        body
+
+        {
+                            padding-left: var(--sidebar-mobile-w);
+
+        }
+
+                    .container {
+                            margin-top: 20px;
+                            padding: 15px;
+
+        }
+
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
+        <a href="search.html">メーカーを検索</a>
+        <a href="https://forms.gle/6boFuotq8T9DGy4v6">私を追加</a>
+        <a href="cleaning.html">ファースーツの洗い方とお手入れ</a>
+        <a href="about.html">ウェブサイトについて</a>
+    </site-sidebar>
+
+    <main role="main" aria-labelledby="about-title">
+        <div class="container">
+
+            <article class="card" aria-describedby="about-desc">
+                <h1 id="about-title">✨ プロフィールを30日間ハイライト表示</h1>
+                <p id="about-desc" class="lead">
+                    ユーザーがウェブサイトに入ると、通常はメーカーの長いリストが表示されますが…
+                    あなたは群を抜いて目立つことができます。
+
+                    プレミアムハイライトオプションを使用すると、あなたのプロフィールに特別なアニメーションの枠が表示され、他のプロフィールから際立ち、ファースーツメーカーを探しているすべての人の注目を集め、ページのトップに表示されます。
+                </p>
+            </article>
+
+            <section class="card" aria-labelledby="que-incluye">
+                <h2 id="que-incluye">🟢 プレミアムハイライトには何が含まれますか？</h2>
+                <ul>
+                    <li>🔸 アバターの周りのアニメーションの光の輪</li>
+                    <li>🔸 あなたのプロフィールが一番上に表示されます</li>
+                    <li>🔸 より多くのクリック、より多くの訪問、より多くの潜在的な依頼</li>
+                    <li>🔸 丸30日間持続します</li>
+                </ul>
+
+                <h2 id="precio">🟢 価格</h2>
+                <p id="about-desc" class="lead">
+                    5ユーロ / 月
+                    サブスクリプションなし、煩わしさなし。
+                    プロフィールを目立たせたいときに支払うだけです。
+                </p>
+            </section>
+
+            <section class="card" aria-labelledby="por-que-funciona">
+                <h2 id="por-que-funciona">🐾 なぜ効果があるのですか？</h2>
+                <p id="about-desc" class="lead">
+                    ユーザーは通常、視覚的に最も目立つものを最初に探します。
+                    ハイライトが有効になっていると、あなたのプロフィールは:
+                </p>
+                <ul>
+                    <li>🔸 より多くの注目を集めます
+                    <li>🔸 より多くのクリックを受けます
+                    <li>
+                        🔸 そして販売のチャンスを増やします
+                        <ul>
+                            <p id="about-desc" class="lead">
+                                これは、多くの大手ウェブサイトが行っていることと全く同じですが…
+                                ここでは、はるかにアクセスしやすくなっています。
+                            </p>
+            </section>
+
+            <section class="card" aria-labelledby="como-activarlo">
+                <h2 id="como-activarlo">🧾 有効化の方法</h2>
+                <p class="muted">
+                    1. 以下のリンクから5ユーロを送金してください:
+                </p>
+
+                <div class="contact-list">
+                    <a class="link" href="https://paypal.me/DavidGarcia343881/5" target="_blank" rel="noopener noreferrer">👉 paypal.me/DavidGarcia343881/5</a>
+                </div>
+
+                <p class="muted">
+                    2. 支払いメモに、以下を記入してください:
+                </p>
+                "Highlight – [あなたのメーカー名]"
+                </p>
+
+                <p class="ready-note">
+                    支払いが確認され次第、24時間以内にハイライトが有効になります。
+                </p>
+            </section>
+
+            <section class="card" aria-labelledby="aviso">
+                <h2 id="aviso">💬 プラットフォームからの親切なメモ</h2>
+                <p class="muted">
+                    このサービスは完全に任意です。
+                </p>
+                あなたのプロフィールは常に表示されます。
+                ハイライトは、単に視覚的な後押しをするだけです。
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <script type="module" src="/scripts/site-sidebar.js"></script>
+    <script src="scripts/bottom-bar.js" defer></script>
+
+
+
+
+</body>
+
+</html>

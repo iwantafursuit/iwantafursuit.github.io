@@ -2,14 +2,10 @@
 <html lang="es">
 <head>
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8232569132678992"
-            crossorigin="anonymous"></script>
-
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Buscar makers — MVP</title>
-
-
+    <title>Buscar makers</title>
 
     <style>
         :root {
@@ -56,9 +52,9 @@
             margin-left: var(--sidebar-w);
             padding: var(--page-pad);
             min-height: 100vh;
-            transition: margin-left 0.22s ease; 
+            transition: margin-left 0.22s ease;
             padding-bottom: calc(var(--page-pad) + var(--bottom-bar-height));
-            position: relative; 
+            position: relative;
             z-index: 1;
         }
 
@@ -107,7 +103,73 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            position: relative; /* Necesario para efectos */
+            transition: transform 0.2s ease;
         }
+
+        /* --- NUEVO: Estilos para el Highlight Arcoiris --- */
+        @keyframes rainbow {
+            0% {
+                border-color: hsl(0, 100%, 50%);
+                box-shadow: 0 0 28px hsl(0, 100%, 50%);
+            }
+
+            10% {
+                border-color: hsl(36, 100%, 50%);
+                box-shadow: 0 0 25px hsl(36, 100%, 50%);
+            }
+
+            20% {
+                border-color: hsl(72, 100%, 50%);
+                box-shadow: 0 0 22px hsl(72, 100%, 50%);
+            }
+
+            30% {
+                border-color: hsl(108, 100%, 50%);
+                box-shadow: 0 0 20px hsl(108, 100%, 50%);
+            }
+
+            40% {
+                border-color: hsl(144, 100%, 50%);
+                box-shadow: 0 0 18px hsl(144, 100%, 50%);
+            }
+
+            50% {
+                border-color: hsl(180, 100%, 50%);
+                box-shadow: 0 0 15px hsl(180, 100%, 50%);
+            }
+
+            60% {
+                border-color: hsl(216, 100%, 50%);
+                box-shadow: 0 0 16px hsl(216, 100%, 50%);
+            }
+
+            70% {
+                border-color: hsl(252, 100%, 50%);
+                box-shadow: 0 0 17px hsl(252, 100%, 50%);
+            }
+
+            80% {
+                border-color: hsl(288, 100%, 50%);
+                box-shadow: 0 0 18px hsl(288, 100%, 50%);
+            }
+
+            90% {
+                border-color: hsl(324, 100%, 50%);
+                box-shadow: 0 0 22px hsl(324, 100%, 50%);
+            }
+
+            100% {
+                border-color: hsl(360, 100%, 50%);
+                box-shadow: 0 0 25px hsl(360, 100%, 50%);
+            }
+        }
+
+        .card.highlight {
+            border-width: 2px;
+            animation: rainbow 3s linear infinite;
+        }
+        /* ----------------------------------------------- */
 
         .img-wrap {
             position: relative;
@@ -166,6 +228,21 @@
             .main {
                 padding: 12px
             }
+
+            .grid {
+                grid-template-columns: 1fr 1fr; 
+                gap: 10px; 
+            }
+
+            .meta h3 {
+                font-size: 14px;
+                word-break: break-word;
+            }
+
+            .meta p {
+                font-size: 12px;
+            }
+
         }
     </style>
 
@@ -226,7 +303,7 @@
                 console.error('Error cargando makers.json', e);
                 makers = [];
             }
-            renderResults(makers);
+
             doSearch();
         }
 
@@ -241,11 +318,53 @@
                 if ((m.styles || []).some(s => s.toLowerCase().includes(q))) return true;
                 return false;
             });
-            renderResults(res);
+
+            const resWithFake = insertFakeProfiles(res);
+
+            renderResults(resWithFake);
+
             const newParams = new URLSearchParams();
             if (q) newParams.set('q', q);
             if (country && country !== 'any') newParams.set('country', country);
             history.replaceState({}, '', location.pathname + (newParams.toString() ? '?' + newParams.toString() : ''));
+        }
+
+        
+        const TRANSPARENT_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+
+        function makeFakeProfile() {
+            return {
+                id: 'highlight-' + Math.random().toString(36).slice(2, 9),
+                name: '✨ Destaca tu perfil aqui',
+                bio: 'Haz que como makers aparezcas arriba y brille tu perfil por 30 dias',
+                images: [TRANSPARENT_GIF],
+                
+                fake: true,
+                highlight: true
+            };
+        }
+
+        function insertFakeProfiles(list) {
+            const out = [];
+            const firstPosOneBased = 5;
+            let fakeInserted = false;
+
+            for (let i = 0; i < list.length; i++) {
+                const count = i + 1;
+                if (count === firstPosOneBased || (count > firstPosOneBased && ((count - firstPosOneBased) % 20 === 0))) {
+                    out.push(makeFakeProfile());
+                    fakeInserted = true;
+                }
+                out.push(list[i]);
+            }
+
+            
+            if (!fakeInserted) {
+                out.push(makeFakeProfile());
+            }
+
+            
+            return out;
         }
 
         function renderResults(list) {
@@ -260,6 +379,15 @@
             list.forEach(m => {
                 const card = document.createElement('div');
                 card.className = 'card';
+
+                
+                if (m.highlight === true) {
+                    card.classList.add('highlight');
+                    const randomDelay = -(Math.random() * 3).toFixed(2);
+                    card.style.animationDelay = `${randomDelay}s`;
+                }
+                
+
                 const imgWrap = document.createElement('div');
                 imgWrap.className = 'img-wrap';
                 const imgEl = document.createElement('img');
@@ -274,22 +402,51 @@
                 overlay.className = 'white-overlay';
                 imgWrap.appendChild(overlay);
 
+                
                 const meta = document.createElement('div');
                 meta.className = 'meta';
-                meta.innerHTML = `
-                                                <h3>${escapeHtml(m.name)}</h3>
-                                                <p class="small">${escapeHtml(m.countryname || '')}, ${escapeHtml(m.country)}</p>
-                                                <p>${escapeHtml((m.bio || '').slice(0, 120))}${(m.bio || '').length > 120 ? '...' : ''}</p>
-                                                <a href="profile.html?id=${encodeURIComponent(m.id)}">Ver perfil</a>
-                                              `;
+
+                const h3 = document.createElement('h3');
+                h3.textContent = m.name || '';
+                meta.appendChild(h3);
+
+                
+                if (m.country) {
+                    const pCountry = document.createElement('p');
+                    pCountry.className = 'small';
+                    pCountry.textContent = `${m.countryname ? m.countryname + ', ' : ''}${m.country}`;
+                    meta.appendChild(pCountry);
+                }
+
+                const pBio = document.createElement('p');
+                pBio.innerHTML = escapeHtml((m.bio || '').slice(0, 120)) + ((m.bio || '').length > 120 ? '...' : '');
+                meta.appendChild(pBio);
+
+                
+                const a = document.createElement('a');
+                if (m.fake) {
+                    a.href = 'highlight.html'; 
+                    a.textContent = 'Quiero destacar mi perfil ✨';
+                } else {
+                    a.href = `profile.html?id=${encodeURIComponent(m.id)}`;
+                    a.textContent = 'Ver perfil';
+                }
+                meta.appendChild(a);
 
                 card.appendChild(imgWrap);
                 card.appendChild(meta);
                 cont.appendChild(card);
 
-                imgWrap.addEventListener('click', () => {
-                    location.href = `profile.html?id=${encodeURIComponent(m.id)}`;
-                });
+                
+                if (m.fake) {
+                    imgWrap.addEventListener('click', () => {
+                        location.href = 'highlight.html';
+                    });
+                } else {
+                    imgWrap.addEventListener('click', () => {
+                        location.href = `profile.html?id=${encodeURIComponent(m.id)}`;
+                    });
+                }
 
                 if (images.length > 1) {
                     startRotationForCard({ imgEl, overlay, images });
@@ -450,9 +607,5 @@
 
     <script src="scripts/bottom-bar.js" defer></script>
 
-    
-
 </body>
 </html>
-
-

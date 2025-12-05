@@ -1,6 +1,7 @@
 [
   {
     "id": "1",
+    "highlight": false,
     "name": "BINARI FURSUIT",
     "country": "ko",
     "countryname": "Korea",
@@ -17,6 +18,7 @@
   },
   {
     "id": "2",
+    "highlight": false,
     "name": "✨🐭TEM123456🐭✨",
     "country": "us",
     "countryname": "USA",
@@ -33,6 +35,7 @@
   },
   {
     "id": "3",
+    "highlight": false,
     "name": "FurBitten Studios",
     "country": "us",
     "countryname": "USA",
@@ -51,6 +54,7 @@
   },
   {
     "id": "4",
+    "highlight": false,
     "name": "Lordoffishes",
     "country": "us",
     "countryname": "USA",
