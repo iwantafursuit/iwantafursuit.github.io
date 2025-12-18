@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ROOT / default -->
+  <url>
+    <loc>https://iwantafursuit.github.io/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/"/>
+  </url>
+
+  <!-- Search pages -->
+  <url>
+    <loc>https://iwantafursuit.github.io/search.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/search.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/search.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/search.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/search.html"/>
+  </url>
+
+  <!-- Profile listing (low priority) -->
+  <url>
+    <loc>https://iwantafursuit.github.io/profile.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html"/>
+  </url>
+
+  <!-- Individual maker profiles (IDs) -->
+  <url>
+    <loc>https://iwantafursuit.github.io/profile.html?id=1</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=1"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/profile.html?id=2</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=2"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/profile.html?id=3</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=3"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/profile.html?id=4</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=4"/>
+  </url>
+
+  <!-- Highlight / venta -->
+  <url>
+    <loc>https://iwantafursuit.github.io/highlight.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/highlight.html"/>
+  </url>
+
+  <!-- About / Cleaning / Legal / Privacy / Cookies / Terms -->
+  <url>
+    <loc>https://iwantafursuit.github.io/about.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/about.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/cleaning.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/cleaning.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/privacy.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/privacy.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/cookies.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/cookies.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/terms.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/terms.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/legal.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/legal.html"/>
+  </url>
+
+  <!-- ENGLISH root and pages (explicit /en/ versions) -->
+  <url>
+    <loc>https://iwantafursuit.github.io/en/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/search.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/search.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/search.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/search.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/search.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/profile.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/profile.html?id=1</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=1"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/profile.html?id=2</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=2"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/profile.html?id=3</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=3"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/profile.html?id=4</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=4"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/highlight.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/highlight.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/about.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/about.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/cleaning.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/cleaning.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/privacy.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/privacy.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/cookies.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/cookies.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/terms.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/terms.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/en/legal.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/legal.html"/>
+  </url>
+
+  <!-- JAPANESE pages -->
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/search.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/search.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/search.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/search.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/search.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/profile.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/profile.html?id=1</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=1"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=1"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/profile.html?id=2</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=2"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=2"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/profile.html?id=3</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=3"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=3"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/profile.html?id=4</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/profile.html?id=4"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/profile.html?id=4"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/highlight.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/highlight.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/highlight.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/about.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/about.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/cleaning.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/cleaning.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/cleaning.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/privacy.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/privacy.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/cookies.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/cookies.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/cookies.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/terms.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/terms.html"/>
+  </url>
+
+  <url>
+    <loc>https://iwantafursuit.github.io/jp/legal.html</loc>
+    <lastmod>2025-12-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.1</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/en/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/legal.html"/>
+  </url>
+
+</urlset>
