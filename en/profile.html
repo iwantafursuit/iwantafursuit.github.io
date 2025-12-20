@@ -528,6 +528,9 @@
                     return;
                 }
 
+                const makerStyles = m.styles ? m.styles : "Fursuit Maker"; 
+                document.title = `${m.name} - ${makerStyles}`;
+
                 currentImages = m.images || [];
                 let contactHtml = '';
                 if (m.contact) {
@@ -607,4 +610,5 @@
 </body>
 
 </html>
+
 
