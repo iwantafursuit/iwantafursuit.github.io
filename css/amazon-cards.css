@@ -1,0 +1,96 @@
+
+.amazon-card {
+  display: inline-block;            
+  width: 260px;                     
+  vertical-align: top;
+  margin: 10px;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.amazon-card .card-wrap {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  height: 120px;                    
+  overflow: hidden;
+}
+
+/* imagen */
+.amazon-card .card-wrap img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fafafa;
+  flex: 0 0 96px;
+}
+
+/* info */
+.amazon-card .amazon-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.amazon-card .amazon-info h3 {
+  font-size: 13px;
+  line-height: 1.1;
+  margin: 0;
+  font-weight: 600;
+  color: #0f172a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* precio */
+.amazon-card .amazon-price {
+  font-weight: 700;
+  color: #1f6feb;
+  font-size: 13px;
+}
+
+/* badge idioma */
+.amazon-card .lang-badge {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(15,23,42,0.06);
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+/* botón CTA: naranja degradado, bonito */
+.amazon-card .amazon-cta {
+  margin-top: auto;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(255,107,53,0.18);
+  background: linear-gradient(90deg, #ff7a3d 0%, #ff6131 100%);
+}
+
+@media (max-width: 880px) {
+  .amazon-card { width: 48%; }    
+}
+
+@media (max-width: 520px) {
+  .amazon-card { width: 100%; }   
+  .amazon-card .card-wrap { height: auto; }
+  .amazon-card .amazon-cta { width: 46%; } 
+}
