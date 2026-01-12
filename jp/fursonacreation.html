@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ファーソナの作り方：実践ガイド</title>
+    <meta name="description" content="完璧なファーソナのコンセプトを見つけるためのステップバイステップガイド。アイデアをまとめ、形にするための実践的なヒント、クリエイティブな「公式」、おすすめ製品を紹介します。" />
+    <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" />
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+<style>
+    :root {
+        --sidebar-w: 220px;
+        --sidebar-mobile-w: 70px;
+        --bottom-bar-h: 64px;
+        --page-max-w: 820px;
+        --page-pad: 22px;
+        --radius: 12px;
+        --muted: #6b7280;
+        --accent: #ff2b8a;
+        font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        background: #fff;
+        color: #0f172a;
+    }
+
+    site-sidebar:not(:defined) { display:none; }
+
+    site-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: var(--sidebar-w);
+        z-index: 60;
+    }
+
+    body {
+        padding-left: var(--sidebar-w);
+        padding-bottom: calc(var(--bottom-bar-h) + 20px);
+        box-sizing: border-box;
+        transition: padding-left 0.3s ease;
+    }
+
+    main { display: block; width: 100%; }
+
+    .container {
+        max-width: var(--page-max-w);
+        margin: 36px auto;
+        padding: var(--page-pad);
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+        border: 1px solid rgba(15,23,42,0.04);
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    h1 { margin: 0; font-size: 1.6rem; color: var(--accent); text-align: center; }
+    h2 { margin: 6px 0 8px 0; font-size: 1.14rem; }
+    p.lead { margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+    .muted { color: var(--muted); font-size: 0.98rem; line-height: 1.6; }
+    ul { margin: 6px 0 12px 20px; color: var(--muted); }
+    ol { margin: 6px 0 12px 20px; color: var(--muted); }
+    .notice { display: inline-block; padding: 10px 14px; background: #fffbfb; border-radius: 10px; border: 1px solid rgba(255,43,138,0.06); color: var(--muted); font-size: 0.98rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 320px; gap: 18px; align-items: start; }
+    .steps { display:flex; flex-direction:column; gap:12px; }
+    .step { background: #fbfbfd; padding: 12px; border-radius: 10px; border: 1px solid rgba(15,23,42,0.03); }
+    imghow { width: 100%; height: auto; border-radius: 8px; border: 1px dashed rgba(15,23,42,0.06); background: #f7f7f9; display: block; }
+    .small { font-size: 0.95rem; color: var(--muted); }
+    .cta-button {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .product-row { display:flex; flex-direction:column; gap:10px; margin:6px 0; }
+
+    @media (max-width: 880px) { .two-col { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) {
+        body { padding-left: var(--sidebar-mobile-w); }
+        .container { margin-top: 20px; padding: 15px; }
+    }
+</style>
+
+</head> <body> <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"> 
+    <a href="search.html">メーカーを検索</a>
+    <a href="https://forms.gle/6boFuotq8T9DGy4v6">私を追加</a>
+    <a href="cleaning.html">ファースーツの洗い方とお手入れ</a>
+    <a href="fursonacreation.html">ファーソナガイド</a>
+    <a href="fursonanamecreation.html">名前の決め方</a>
+    <a href="about.html">ウェブサイトについて</a>
+</site-sidebar>
+<link rel="stylesheet" href="/css/amazon-cards.css">
+<script src="/js/amazon-cards.js" defer></script>
+
+<main role="main" aria-labelledby="article-title">
+    <div class="container">
+        <article class="card" aria-describedby="article-desc">
+            <h1 id="article-title">ファーソナの作り方：理想のコンセプトを見つけるための実践ガイド</h1>
+
+            <p id="article-desc" class="lead">
+                このガイドは、あなたに本当にぴったりのファーソナのコンセプトを見つけるためのものです。
+                絵を描いたり着ぐるみを制作したりする前の段階（それは次のステップです）である、アイデアの構築と
+                想像力を刺激するクリエイティブな手法に焦点を当てています。ここにあるヒントを「思考の公式」として活用し、
+                選択肢を広げ、納得のいくコンセプトを作り上げましょう。
+            </p>
+
+            <div class="notice">
+                ヒント：スケッチブックやデジタルフォルダを用意しましょう。アイデアが浮かんだ瞬間に保存しておくことが大切です。
+            </div>
+        </article>
+
+        <section class="card" aria-labelledby="what-is">
+            <h2 id="what-is">ファーソナとは何か</h2>
+            <p class="muted">
+                ファーソナとは、あなたの一部、気質、クリエイティブな好み、あるいは「なりたい自分」を象徴する擬人化されたキャラクターのことです。
+                日常の自分に近いキャラクターを作る人もいれば、意図的に憧れや象徴的な意味を込めたデザインにする人もいます。
+            </p>
+            <p class="muted">
+                ここでの目標は「明確化」です。はっきりとしたコンセプトがあれば、その後のステップ（命名、アート、メーカーへの依頼）がスムーズになり、
+                時間の無駄や修正の手間を減らすことができます。
+            </p>
+        </section>
+
+        <section class="card two-col" aria-labelledby="start-with-love">
+            <div>
+                <h2 id="start-with-love">まずは「好きなもの」から始める</h2>
+                <p class="muted">
+                    満足のいくファーソナに素早く辿り着く方法の一つは、すでに好きなキャラクターを分析することです。
+                    お気に入りのゲーム、映画、漫画のキャラクターには、態度、シルエット、カラーパレットなど、
+                    あなたが惹かれる共通のパターンが隠されています。
+                </p>
+                <ul>
+                    <li>問いかけ：そのキャラクターの何に惹かれますか？エネルギー、立ち振る舞い、それとも動き方ですか？</li>
+                    <li>注意：参考にすることは盗用ではありません。自分の好みに合う「パターン」を抽出することです。</li>
+                </ul>
+            </div>
+
+            <aside>
+                <figure>
+                    <img class="imghow" src="/assets/howto/6.png" alt="リファレンスとキャラクターのインスピレーションを集める" />
+                    <figcaption class="muted">好きなキャラクターから、ポーズ、プロポーション、パレットなどの視覚的なリファレンスを集めましょう。</figcaption>
+                </figure>
+            </aside>
+        </section>
+
+        <section class="card" aria-labelledby="tunnel-effect">
+            <h2 id="tunnel-effect">「トンネル効果」を避け、種族の選択肢を広げる</h2>
+            <p class="muted">
+                白紙の状態からキャラクターを考えようとすると、脳は最も馴染みのある動物（<strong>オオカミ、ネコ、キツネ</strong>など）を提示しがちです。
+                これは創造性の欠如ではなく、単に頭の中の選択肢が限られているだけです。意識的に他のキャラクターや生き物に触れることで、
+                可能性が広がります。例えば、ゲームの敵キャラであるワニや、脇役のモンスターを思い出すだけで、新しい種族のアイデアが生まれるかもしれません。
+            </p>
+            <p class="muted">
+                以下のものを意識的に探してみましょう：
+            </p>
+            <ul>
+                <li>一般的ではない動物（爬虫類、鳥類、海洋生物、昆虫）</li>
+                <li>神話上の生き物やハイブリッド（混成）コンセプト</li>
+                <li>ゲームやメディアのマイナーなキャラクター。ユニークで活用できる特徴が含まれていることが多いです。</li>
+            </ul>
+        </section>
+
+        <section class="card two-col" aria-labelledby="use-references">
+            <div>
+                <h2 id="use-references">ケモノキャラクターを分析のリファレンスにする</h2>
+                <p class="muted">
+                    他のファーソナをただ眺めるだけでなく、分析してみましょう。構成要素を分解し、再構築できるヒントを見つけます：
+                </p>
+                <ul>
+                    <li>種族とシルエット</li>
+                    <li>体型とプロポーション</li>
+                    <li>特徴的な模様、パターン、またはアクセサリー</li>
+                </ul>
+
+                <p class="muted">
+                    この分析を行うことで、自分の繰り返される好みが明確になり、「なんとなく好き」が「具体的なデザインの選択」へと変わります。
+                </p>
+            </div>
+
+            <aside>
+                <figure>
+                    <img class="imghow" src="/assets/howto/7.png" alt="好きなキャラクターの要素を分析する" />
+                    <figcaption class="muted">種族、形、細部を分析して、自分だけのユニークな組み合わせを作りましょう。</figcaption>
+                </figure>
+            </aside>
+        </section>
+
+        <section class="card" aria-labelledby="organize-ideas">
+            <h2 id="organize-ideas">決定する前にアイデアを整理する</h2>
+            <p class="muted">
+                アイデアを可視化することで、焦った決断を防げます。自分のワークフローに合ったツールを使いましょう：
+            </p>
+            <ul>
+                <li>メモやラフスケッチ用のスケッチブックやノート</li>
+                <li>リファレンス画像やブックマークを保存するデジタルフォルダ</li>
+                <li>色やプロポーションを試すためのペンタブレット</li>
+            </ul>
+
+            
+        </section>
+
+        <section class="card" aria-labelledby="formula">
+            <h2 id="formula">行き詰まった時のためのシンプルな公式</h2>
+            <p class="muted">
+                以下の3つの要素を組み合わせることで、確実なコンセプトが生まれます：
+            </p>
+            <ol class="muted">
+                <li>心から惹かれる「種族」を1つ選ぶ</li>
+                <li>自分を象徴する、または好みの「性格的特徴」を1つ選ぶ</li>
+                <li>スタイルの参考になる「視覚的なリファレンス」を1つ選ぶ</li>
+            </ol>
+            <p class="muted">
+                これら3つを組み合わせることで、改善（イテレーション）の土台となる明確なスタート地点が決まります。
+            </p>
+        </section>
+
+        <section class="card" aria-labelledby="take-your-time">
+            <h2 id="take-your-time">時間をかけましょう。変化するのは当然です</h2>
+            <p class="muted">
+                印象に残るファーソナの多くは、時間をかけて進化します。色、プロポーション、細部の調整はあって当然です。焦ると後悔に繋がりますが、じっくり探索することで自信に繋がります。
+            </p>
+        </section>
+
+        <section class="card two-col" aria-labelledby="next-steps">
+            <div>
+                <h2 id="next-steps">次のステップは？</h2>
+                <p class="muted">コンセプトが固まったら、次の2つのアクションへ進みましょう：</p>
+
+                <h3 class="small">1. 完璧な名前を決める</h3>
+                <p class="muted">名前はアイデンティティを固定するものです。まだ決まっていない場合は、トーン、種族、性格に合った名前を探すための専用チュートリアルを参考にしてください。</p>
+                <p><a class="cta-button" href="fursonanamecreation.html">名前のチュートリアルへ →</a></p>
+
+                <h3 class="small">2. ファーソナを着ぐるみやアートに形作る</h3>
+                <p class="muted">コンセプトと名前が決まったら、自分で着ぐるみを作るか、プロのメーカーに依頼することができます。信頼できるメーカーのディレクトリを用意していますので、自信を持って進めてください。</p>
+                <p><a class="cta-button" href="search.html">メーカーを探す →</a></p>
+            </div>
+
+            <aside>
+                <figure>
+                    <img class="imghow" src="/assets/howto/5.png" alt="次のステップ：命名と依頼" />
+                    <figcaption class="muted">おめでとうございます！これでファーソナの完成です。</figcaption>
+                </figure>
+            </aside>
+        </section>
+
+        <section class="card" aria-labelledby="final-tips">
+            <h2 id="final-tips">最後のアドバイスと注意点</h2>
+            <ul>
+                <li class="muted">リファレンスを活用して創造の選択肢を広げましょう。視覚的な刺激がトンネル効果を解消します。</li>
+                <li class="muted">まずは種族、性格、リファレンスに集中しましょう。服やアクセサリーは後から考えれば大丈夫です。</li>
+                <li class="muted">シンプルなリファレンスフォルダを作成しておきましょう。将来依頼する絵師さんやメーカーさんに喜ばれます。</li>
+            </ul>
+        </section>
+
+        <section class="card" aria-labelledby="contact">
+            <h2 id="contact">質問やサポートが必要ですか？</h2>
+            <p class="muted">コンセプトへのフィードバックや名前選びの相談が必要な場合は、お問い合わせいただくか、ディレクトリからアイデアを送信してください。レビュアーが建設的なアドバイスを差し上げます。</p>
+            <div class="small">連絡先: <a class="small" href="https://x.com/FursuitComision" target="_blank" rel="noopener noreferrer">@FursuitComision (X)</a></div>
+        </section>
+    </div>
+</main>
+
+<script type="module" src="/scripts/site-sidebar.js"></script>
+<script src="scripts/bottom-bar.js" defer></script>
+
+</body> </html>

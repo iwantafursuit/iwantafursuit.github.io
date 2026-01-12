@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cómo elegir el nombre perfecto para tu Fursona</title>
+    <meta name="description" content="Tutorial práctico para elegir un nombre adecuado, memorable y fácil de pronunciar para tu fursona. Consejos, errores comunes y próximos pasos." />
+    <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" />
+    <link rel="shortcut icon" href="/assets/favicon.ico">
+
+    <style>
+        :root {
+            --sidebar-w: 220px;
+            --sidebar-mobile-w: 70px;
+            --bottom-bar-h: 64px;
+            --page-max-w: 820px;
+            --page-pad: 22px;
+            --radius: 12px;
+            --muted: #6b7280;
+            --accent: #ff2b8a;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: #fff;
+            color: #0f172a;
+        }
+
+        site-sidebar:not(:defined) { display:none; }
+
+        site-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: var(--sidebar-w);
+            z-index: 60;
+        }
+
+        body {
+            padding-left: var(--sidebar-w);
+            padding-bottom: calc(var(--bottom-bar-h) + 20px);
+            box-sizing: border-box;
+            transition: padding-left 0.3s ease;
+        }
+
+        main { display: block; width: 100%; }
+
+        .container {
+            max-width: var(--page-max-w);
+            margin: 36px auto;
+            padding: var(--page-pad);
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+            border: 1px solid rgba(15,23,42,0.04);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        h1 { margin: 0; font-size: 1.6rem; color: var(--accent); text-align: center; }
+        h2 { margin: 6px 0 8px 0; font-size: 1.14rem; }
+        p.lead { margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+        .muted { color: var(--muted); font-size: 0.98rem; line-height: 1.6; }
+        ul { margin: 6px 0 12px 20px; color: var(--muted); }
+        ol { margin: 6px 0 12px 20px; color: var(--muted); }
+        .notice { display: inline-block; padding: 10px 14px; background: #fffbfb; border-radius: 10px; border: 1px solid rgba(255,43,138,0.06); color: var(--muted); font-size: 0.98rem; }
+        .two-col { display: grid; grid-template-columns: 1fr 320px; gap: 18px; align-items: start; }
+        .steps { display:flex; flex-direction:column; gap:12px; }
+        .step { background: #fbfbfd; padding: 12px; border-radius: 10px; border: 1px solid rgba(15,23,42,0.03); }
+        imghow { width: 100%; height: auto; border-radius: 8px; border: 1px dashed rgba(15,23,42,0.06); background: #f7f7f9; display: block; }
+        .small { font-size: 0.95rem; color: var(--muted); }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .product-row { display:flex; flex-direction:column; gap:10px; margin:6px 0; }
+
+        @media (max-width: 880px) { .two-col { grid-template-columns: 1fr; } }
+        @media (max-width: 720px) {
+            body { padding-left: var(--sidebar-mobile-w); }
+            .container { margin-top: 20px; padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
+        <a href="search.html">Buscar makers</a>
+        <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
+        <a href="cleaning.html">Limpieza de Fursuit</a>
+        <a href="fursonacreation.html">Crea tu Fursona</a>
+        <a href="fursonanamecreation.html"> Nombra tu Fursona</a>
+        <a href="about.html">Sobre el Sitio Web</a>
+    </site-sidebar>
+
+    <link rel="stylesheet" href="/css/amazon-cards.css">
+    <script src="/js/amazon-cards.js" defer></script>
+
+    <main role="main" aria-labelledby="article-title">
+        <div class="container">
+
+            <article class="card" aria-describedby="article-desc">
+                <h1 id="article-title">Cómo elegir el nombre perfecto para tu Fursona</h1>
+
+                <p id="article-desc" class="lead">
+                    Elegir un nombre para tu fursona es un paso significativo. Este tutorial ofrece una guía clara y práctica para encontrar un nombre que se sienta auténtico, 
+                    memorable y fácil de usar en arte, perfiles y presentaciones.
+                </p>
+
+                <div class="notice">Consejo: Mantén una lista corta de nombres candidatos y vuelve a revisarlos después de un día; el nombre correcto suele sentirse natural después de un tiempo.</div>
+            </article>
+
+            <section class="card" aria-labelledby="why-name-matters">
+                <h2 id="why-name-matters">Por qué el nombre es importante</h2>
+                <p class="muted">
+                    El nombre de una fursona hace más que identificar a un personaje: ayuda a que otros lo recuerden y establece expectativas sobre su personalidad y tono. 
+                    Un nombre bien elegido refuerza la identidad del personaje y reduce el arrepentimiento futuro cuando el nombre ya está vinculado a piezas de arte o a un fursuit.
+                </p>
+            </section>
+
+            <section class="card two-col" aria-labelledby="start-from-core">
+                <div>
+                    <h2 id="start-from-core">Empieza por la identidad central de tu fursona</h2>
+                    <p class="muted">
+                        Antes de buscar nombres, revisa las bases de tu fursona: especie, rasgos de personalidad y tono general (juguetón, elegante, 
+                        calmado, feroz, etc.). El nombre debe apoyar esos elementos en lugar de contradecirlos.
+                    </p>
+
+                    <ul>
+                        <li>Coherencia de tono: no le pongas un nombre con sonido agresivo a un personaje gentil, a menos que el contraste sea intencional.</li>
+                        <li>Piensa a largo plazo: ¿seguirá encajando este nombre si el personaje madura o cambia ligeramente?</li>
+                    </ul>
+                </div>
+                
+            </section>
+
+            <section class="card" aria-labelledby="styles">
+                <h2 id="styles">Decide el estilo de nombre que quieres</h2>
+                <p class="muted">
+                    No existe un único estilo de nomenclatura correcto. Elige una dirección que encaje con la forma en que imaginas que el personaje sea conocido:
+                </p>
+                <ul>
+                    <li><strong>Realista:</strong> nombres o apellidos de estilo humano.</li>
+                    <li><strong>Fantasía:</strong> nombres inventados o con resonancia mítica.</li>
+                    <li><strong>Corto y simple:</strong> fácil de recordar y pronunciar.</li>
+                    <li><strong>Simbólico:</strong> palabras ligadas a la naturaleza, colores o conceptos.</li>
+                </ul>
+                <p class="muted">Selecciona un estilo y mantenlo constante mientras pruebas las opciones.</p>
+            </section>
+
+            <section class="card two-col" aria-labelledby="pronunciation">
+                <div>
+                    <h2 id="pronunciation">Prioriza la pronunciación y la legibilidad</h2>
+                    <p class="muted">
+                        Especialmente en línea y en eventos, un nombre debe ser fácil de decir y de escribir. Pregúntate:
+                    </p>
+                    <ul>
+                        <li>¿Puede la gente pronunciarlo tras escucharlo una sola vez?</li>
+                        <li>¿Es fácil de deletrear al escribirlo?</li>
+                        <li>¿Se ve limpio en un perfil o en una firma de arte?</li>
+                    </ul>
+                    <p class="muted">Evita puntuaciones innecesarias o deletreos intencionadamente oscuros, a menos que sea una elección estilística deliberada.</p>
+                </div>
+                
+            </section>
+
+            <section class="card" aria-labelledby="inspiration">
+                <h2 id="inspiration">Fuentes de inspiración</h2>
+                <p class="muted">
+                    Si estás atascado, usa estas fuentes de ideas sin complicarte demasiado:
+                </p>
+                <ul>
+                    <li>Palabras vinculadas a la especie o hábitat de tu personaje.</li>
+                    <li>Mitología, literatura o palabras en otros idiomas que te gusten.</li>
+                    <li>Alteraciones de nombres existentes para hacerlos únicos.</li>
+                </ul>
+
+            </section>
+
+            <section class="card" aria-labelledby="test-name">
+                <h2 id="test-name">Prueba el nombre en contexto</h2>
+                <p class="muted">
+                    Antes de decidirte:
+                </p>
+                <ul>
+                    <li>Di el nombre en voz alta como si estuvieras presentando al personaje.</li>
+                    <li>Imagina la firma en un dibujo o el nombre de usuario en un perfil.</li>
+                    <li>Pregunta a un amigo o pruébalo en una comunidad pequeña; el feedback puede revelar problemas inesperados.</li>
+                </ul>
+                <p class="muted">Si se siente natural en estos contextos, es muy probable que el nombre sea el adecuado.</p>
+            </section>
+
+            <section class="card" aria-labelledby="avoid-mistakes">
+                <h2 id="avoid-mistakes">Errores comunes al nombrar que debes evitar</h2>
+                <ul>
+                    <li class="muted">Elegir un nombre solo porque suena "guay" pero no encaja con el personaje.</li>
+                    <li class="muted">Escoger un nombre de moda que se sentirá anticuado rápidamente.</li>
+                    <li class="muted">Nombres excesivamente complejos con símbolos, mayúsculas excesivas o variantes difíciles de deletrear.</li>
+                </ul>
+            </section>
+
+            <section class="card" aria-labelledby="evolve">
+                <h2 id="evolve">Los nombres pueden evolucionar, pero ten cuidado tras los encargos</h2>
+                <p class="muted">
+                    Es normal pulir un nombre al principio del proceso. Sin embargo, cambiarlo después de encargar arte o crear un fursuit es más difícil. 
+                    Tómate un poco más de tiempo ahora para reducir la posibilidad de querer cambiarlo después.
+                </p>
+            </section>
+
+            <section class="card two-col" aria-labelledby="next-steps">
+                <div>
+                    <h2 id="next-steps">Próximos pasos tras elegir el nombre</h2>
+                    <p class="muted">Una vez que tu fursona tiene un concepto sólido y un nombre, elige una de estas dos opciones claras:</p>
+
+                    <h3 class="small">1. Encarga a un maker para dar vida a tu fursona</h3>
+                    <p class="muted">Si tu concepto y nombre están listos, puedes solicitar un fursuit a uno de los makers de nuestro directorio. Ellos te ayudarán a transformar tu personaje en una forma duradera y ponible.</p>
+                    <p><a class="cta-button" href="search.html">Encontrar un Maker →</a></p>
+
+                    <h3 class="small">2. Revisa la guía de creación para los toques finales</h3>
+                    <p class="muted">Si sientes que algo aún necesita refinarse (colores, marcas o personalidad), nuestra guía <strong>Cómo crear tu Fursona</strong> te ayuda a añadir esos detalles especiales finales antes de realizar un encargo.</p>
+                    <p><a class="cta-button" href="fursonacreation.html">Revisar la Guía de Fursona →</a></p>
+                </div>
+
+                <aside>
+                    <figure>
+                        <img class="imghow" src="/assets/howto/5.png" alt="Próximos pasos tras el nombre" />
+                        <figcaption class="muted">¿Nombre decidido? ¡¡¡Felicidades!!! Es hora de traer al personaje al mundo o pulir el concepto aún más.</figcaption>
+                    </figure>
+                </aside>
+            </section>
+
+            <section class="card" aria-labelledby="final-tips">
+                <h2 id="final-tips">Consejos finales y notas de cierre</h2>
+                <ul>
+                    <li class="muted">Mantén una lista corta y consúltalo con la almohada; el instinto revela la mejor opción.</li>
+                    <li class="muted">Prefiere la claridad sobre la complejidad: los nombres sencillos son más fáciles de adoptar y recordar.</li>
+                    <li class="muted">Documenta la elección del nombre con una nota breve: por qué encaja con el personaje. Ayuda a futuros colaboradores a entender tu intención.</li>
+                </ul>
+            </section>
+
+            <section class="card" aria-labelledby="contact">
+                <h2 id="contact">¿Preguntas o necesitas opinión?</h2>
+                <p class="muted">Si quieres feedback sobre tus opciones de nombre o ayuda para refinar tu lista, envíanos tus candidatos a través del directorio y uno de nuestros revisores te dará sugerencias constructivas.</p>
+                <div class="small">Contacto: <a class="small" href="https://x.com/FursuitComision" target="_blank" rel="noopener noreferrer">@FursuitComision en X</a></div>
+            </section>
+
+        </div>
+    </main>
+
+    <script type="module" src="/scripts/site-sidebar.js"></script>
+    <script src="scripts/bottom-bar.js" defer></script>
+</body>
+</html>
