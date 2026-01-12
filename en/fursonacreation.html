@@ -1,0 +1,307 @@
+<!doctype html> <html lang="en"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width,initial-scale=1" /> <title>How to Create Your Fursona, Practical Guide</title> <meta name="description" content="Step-by-step guide to finding the perfect fursona concept. Practical tips, creative 'formulas', and product suggestions to help you sketch and organise ideas." /> <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" /> <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" /> <link rel="shortcut icon" href="/assets/favicon.ico">
+<style>
+    :root {
+        --sidebar-w: 220px;
+        --sidebar-mobile-w: 70px;
+        --bottom-bar-h: 64px;
+        --page-max-w: 820px;
+        --page-pad: 22px;
+        --radius: 12px;
+        --muted: #6b7280;
+        --accent: #ff2b8a;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        background: #fff;
+        color: #0f172a;
+    }
+
+    site-sidebar:not(:defined) { display:none; }
+
+    site-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: var(--sidebar-w);
+        z-index: 60;
+    }
+
+    body {
+        padding-left: var(--sidebar-w);
+        padding-bottom: calc(var(--bottom-bar-h) + 20px);
+        box-sizing: border-box;
+        transition: padding-left 0.3s ease;
+    }
+
+    main { display: block; width: 100%; }
+
+    .container {
+        max-width: var(--page-max-w);
+        margin: 36px auto;
+        padding: var(--page-pad);
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+        border: 1px solid rgba(15,23,42,0.04);
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    h1 { margin: 0; font-size: 1.6rem; color: var(--accent); text-align: center; }
+    h2 { margin: 6px 0 8px 0; font-size: 1.14rem; }
+    p.lead { margin: 0; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
+    .muted { color: var(--muted); font-size: 0.98rem; line-height: 1.6; }
+    ul { margin: 6px 0 12px 20px; color: var(--muted); }
+    ol { margin: 6px 0 12px 20px; color: var(--muted); }
+    .notice { display: inline-block; padding: 10px 14px; background: #fffbfb; border-radius: 10px; border: 1px solid rgba(255,43,138,0.06); color: var(--muted); font-size: 0.98rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 320px; gap: 18px; align-items: start; }
+    .steps { display:flex; flex-direction:column; gap:12px; }
+    .step { background: #fbfbfd; padding: 12px; border-radius: 10px; border: 1px solid rgba(15,23,42,0.03); }
+    imghow { width: 100%; height: auto; border-radius: 8px; border: 1px dashed rgba(15,23,42,0.06); background: #f7f7f9; display: block; }
+    .small { font-size: 0.95rem; color: var(--muted); }
+    .cta-button {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .product-row { display:flex; flex-direction:column; gap:10px; margin:6px 0; }
+
+    @media (max-width: 880px) { .two-col { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) {
+        body { padding-left: var(--sidebar-mobile-w); }
+        .container { margin-top: 20px; padding: 15px; }
+    }
+</style>
+
+</head> <body> <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"> 
+    <a href="search.html">Search Makers</a> <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
+    <a href="cleaning.html">Fursuit Cleaning</a>
+    <a href="fursonacreation.html">Fursona Guide</a> 
+    <a href="about.html">About the Website</a> </site-sidebar>
+<link rel="stylesheet" href="/css/amazon-cards.css">
+<script src="/js/amazon-cards.js" defer></script>
+
+<main role="main" aria-labelledby="article-title">
+    <div class="container">
+        <article class="card" aria-describedby="article-desc">
+            <h1 id="article-title">How to Create Your Fursona: Practical Guide to Finding the Perfect Concept</h1>
+
+            <p id="article-desc" class="lead">
+                This guide helps you discover a fursona concept that truly fits you. It focuses on idea development and creative methods
+                that spark imagination not on drawing or building a fursuit (that step comes later). Use the tips here as 'mental formulas'
+                to get excited, expand your options, and arrive at a confident concept.
+            </p>
+
+            <div class="notice">
+                Tip: gather a sketchbook or a digital folder for references, you will want to save ideas as they appear.
+            </div>
+        </article>
+
+        <section class="card" aria-labelledby="what-is">
+            <h2 id="what-is">What a fursona really is</h2>
+            <p class="muted">
+                A fursona is an anthropomorphic character that represents part of you, your temperament, creative taste, or an identity you want to try on.
+                Some creators build fursonas close to their everyday self; others intentionally design aspirational or symbolic characters.
+            </p>
+            <p class="muted">
+                The goal here is clarity: a clear concept helps later steps (naming, art, or commissioning a maker) and reduces wasted time and revisions.
+            </p>
+        </section>
+
+        <section class="card two-col" aria-labelledby="start-with-love">
+            <div>
+                <h2 id="start-with-love">Start with what you already love</h2>
+                <p class="muted">
+                    One of the fastest ways to land on a satisfying fursona is to examine the characters you already enjoy. Your favorite video game,
+                    movie, or comic characters reveal consistent patterns in what attracts you: attitude, silhouette, colour palettes, or presence.
+                </p>
+                <ul>
+                    <li>Ask: what exactly draws you to that character, their energy, stance, or the way they move?</li>
+                    <li>Note: referencing is not copying. It is extracting the patterns that fit your taste.</li>
+                </ul>
+
+                
+            </div>
+
+            <aside>
+                <figure>
+                    <img class="imghow" src="/assets/howto/6.png" alt="Collecting references and character inspiration" />
+                    <figcaption class="muted">Collect visual references from characters you love: pose, proportion, and palette.</figcaption>
+                </figure>
+            </aside>
+        </section>
+
+        <section class="card" aria-labelledby="tunnel-effect">
+            <h2 id="tunnel-effect">Avoid the "tunnel effect" and expand your species options</h2>
+            <p class="muted">
+                When people try to invent a character from a blank page, the mind tends to offer the most familiar animals: <strong>wolves, cats, foxes</strong>.
+                This isn't lack of creativity, it's a limited mental palette. By actively exposing yourself to other characters and creatures, you
+                expand possibilities. For example, remembering a crocodile enemy from a game or a minor monster can suddenly give you a new species option.
+            </p>
+            <p class="muted">
+                Try intentionally looking at:
+            </p>
+            <ul>
+                <li>Non-standard animals (reptiles, birds, marine life, insects)</li>
+                <li>Mythical creatures or hybrid concepts</li>
+                <li>Minor or background characters in games and media, they often contain unique, usable traits</li>
+            </ul>
+        </section>
+
+        <section class="card two-col" aria-labelledby="use-references">
+            <div>
+                <h2 id="use-references">Use furry characters as active references</h2>
+                <p class="muted">
+                    Don't just admire other fursonas, analyse them. Break them down into components you can reuse and recombine:
+                </p>
+                <ul>
+                    <li>Species and silhouette</li>
+                    <li>Body type and proportions</li>
+                    <li>Distinctive marks, patterns, or accessories</li>
+                </ul>
+
+                <p class="muted">
+                    This analysis helps you see recurring preferences and turns vague attraction into concrete design choices.
+                </p>
+
+            </div>
+
+            <aside>
+                <figure>
+                    <img class="imghow" src="/assets/howto/7.png" alt="Analyze components of characters you like" />
+                    <figcaption class="muted">Analyse species, shapes and details to build your own unique combination.</figcaption>
+                </figure>
+            </aside>
+        </section>
+
+        <section class="card" aria-labelledby="organize-ideas">
+            <h2 id="organize-ideas">Organise your ideas before you commit</h2>
+            <p class="muted">
+                Externalising ideas prevents rushed decisions. Use tools that match your workflow:
+            </p>
+            <ul>
+                <li>Sketchbook or notebook for notes and thumbnails</li>
+                <li>A digital folder for references and image bookmarks</li>
+                <li>A drawing tablet to experiment with colors and proportions</li>
+            </ul>
+
+            <div class="product-row" aria-hidden="true">
+                    <!-- Place product cards here; replace data-url / data-title / data-image in your editor -->
+                    <div class="amazon-card"
+                             data-url="https://www.amazon.com/dp/B0B2TSK3QS"
+                             data-title="Journal: The bad guys Notebook"
+                             data-image="https://m.media-amazon.com/images/I/61goKb4w5bL._SL1500_.jpg"
+                             data-lang="en">
+                        </div>
+                        
+                        <div class="amazon-card"
+                             data-url="https://www.amazon.com/dp/B075T6MTJX"
+                             data-title="HUION Inspiroy H640P Drawing Tablet, 6x4 inch Digital Art with Battery-Free Stylus, 8192 Pen Pressure, 6 Hot Keys, Graphics Tablet for Drawing, Writing, Design, Teaching, Work with Mac, PC & Mobile"
+                             data-image="https://m.media-amazon.com/images/I/51ErAZ+mtUL._AC_SL1500_.jpg"
+                             data-lang="en">
+                        </div>
+
+                        <div class="amazon-card"
+                             data-url="https://www.amazon.com/dp/B0D813G71Q"
+                             data-title="HUION Kamvas 13 (Gen 3) - Tableta de dibujo con pantalla, tableta artística totalmente laminada de 13.3 pulgadas con vidrio Canvas antirreflejo 2.0, 99% sRGB, PenTech 4.0, 16384 niveles de presión del"
+                             data-image="https://m.media-amazon.com/images/I/6139Gs3+FAL._AC_SL1500_.jpg"
+                             data-lang="en">
+                        </div>
+
+                        <div class="amazon-card"
+                             data-url="https://www.amazon.com/dp/B0DZVN4GH7"
+                             data-title="OXW Funny Office Gifts Notebook Journal, Gag Fun Gifts for Coworker Colleague Employee Boss Adults Friends Women Men, Sarcastic Snarky Gift, This is Fine Dog Spiral Notebook 5.5 x 8.3"
+                             data-image="https://m.media-amazon.com/images/I/61gsfVDYymL._AC_SL1500_.jpg"
+                             data-lang="en">
+                        </div>
+
+                        <div class="amazon-card"
+                             data-url="https://www.amazon.com/dp/1646041615"
+                             data-title="Drawing Furries: Learn How to Draw Creative Characters, Anthropomorphic Animals, Fantasy Fursonas, and More (How to Draw Books)"
+                             data-image="https://m.media-amazon.com/images/I/91FEMRoPr2L._SL1500_.jpg"
+                             data-lang="en">
+                        </div>
+                </div>
+        </section>
+
+        <section class="card" aria-labelledby="formula">
+            <h2 id="formula">A simple formula to get unstuck</h2>
+            <p class="muted">
+                Use this three-element mix to spark a reliable concept:
+            </p>
+            <ol class="muted">
+                <li>One species that genuinely attracts you</li>
+                <li>One personality trait that represents or appeals to you</li>
+                <li>One visual or character reference that inspires the style</li>
+            </ol>
+            <p class="muted">
+                Combining these three gives you a clear starting point you can iterate on.
+            </p>
+        </section>
+
+        <section class="card" aria-labelledby="take-your-time">
+            <h2 id="take-your-time">Take your time, evolution is normal</h2>
+            <p class="muted">
+                Most memorable fursonas evolve. Expect adjustments to colors, proportions, or small details. Rushing often leads to second-guessing; exploration builds confidence.
+            </p>
+        </section>
+
+        <section class="card two-col" aria-labelledby="next-steps">
+            <div>
+                <h2 id="next-steps">What comes next?</h2>
+                <p class="muted">When the concept feels right, you have two clear next actions:</p>
+
+                <h3 class="small">1. Choose the perfect name</h3>
+                <p class="muted">A name anchors identity. If you don't yet have one, our dedicated name tutorial helps you find options that match tone, species, and personality.</p>
+                <p><a class="cta-button" href="/name-tutorial.html">Go to Name Tutorial →</a></p>
+
+                <h3 class="small">2. Turn your fursona into a fursuit or final artwork</h3>
+                <p class="muted">If you already have the concept and a name, you can either create the fursuit yourself or commission a professional maker. We maintain a directory of trusted makers to help you move forward with confidence.</p>
+                <p><a class="cta-button" href="/search.html">Find a Maker →</a></p>
+            </div>
+
+            <aside>
+                <figure>
+                    <img class="imghow" src="/assets/howto/5.png" alt="Next steps: naming and commissioning" />
+                    <figcaption class="muted">Congrats, you've finished your fursona.</figcaption>
+                </figure>
+            </aside>
+        </section>
+
+        <section class="card" aria-labelledby="final-tips">
+            <h2 id="final-tips">Final tips and reminders</h2>
+            <ul>
+                <li class="muted">Use references to expand your creative options, exposure solves the tunnel effect.</li>
+                <li class="muted">Focus on species, personality and a reference first; clothes and accessories can come later.</li>
+                <li class="muted">Keep a simple reference folder; future artists and makers will thank you.</li>
+            </ul>
+        </section>
+
+        <section class="card" aria-labelledby="contact">
+            <h2 id="contact">Questions or need help?</h2>
+            <p class="muted">If you want feedback on a concept or help choosing a name, contact us or submit your idea through the directory and one of our reviewers will give you constructive suggestions.</p>
+            <div class="small">Contact: <a class="small" href="https://x.com/FursuitComision" target="_blank" rel="noopener noreferrer">@FursuitComision on X</a></div>
+        </section>
+    </div>
+</main>
+
+<script type="module" src="/scripts/site-sidebar.js"></script>
+<script src="scripts/bottom-bar.js" defer></script>
+
+</body> </html>

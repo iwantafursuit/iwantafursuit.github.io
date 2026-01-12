@@ -349,6 +349,7 @@
         <a href="search.html">Search makers</a>
         <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
         <a href="cleaning.html">Fursuit Cleaning</a>
+        <a href="fursonacreation.html">Fursona Guide</a> 
         <a href="about.html">About the site</a>
 
     </site-sidebar>
@@ -517,7 +518,6 @@
                 const r = await fetch('/makers.json');
                 const makers = await r.json();
                 const m = makers.find(x => x.id === id);
-                
                 if (!m) {
                     contentEl.innerHTML = `
                 <div class="error-container">
