@@ -14,22 +14,15 @@
     <script>
         (function () {
             const ua = navigator.userAgent || '';
-            const isBot = /bot|crawl|spider|bingpreview|slurp/i.test(ua);
-            if (isBot) return;
-
+        if (/bot|crawl|spider|bingpreview|slurp/i.test(ua)) return;
             const params = new URLSearchParams(location.search);
             if (params.get('lang')) return;
             if (localStorage.getItem('site_lang')) return;
 
-            const nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'es';
-            const lang = nav.slice(0, 2).toLowerCase();
-
-            const map = { es: '/es/', en: '/en/' };
-            const target = map[lang] || '/en/';
-
-            if (location.pathname.startsWith(target)) return;
-
+        const target = '/en/';
+        if (!location.pathname.startsWith(target)) {
             location.replace(target + location.search + location.hash);
+        }
         })();
     </script>
 
@@ -361,7 +354,7 @@
 
             <div class="explain" id="explain">
                 <strong>What is this website about?</strong>
-                <p>This site is a directory designed to gather fursuit makers: creators, studios, and artists. Makers can request to be added through "Add me".</p>
+                <p>IWantaFursuit is a searchable fursuit maker database designed to help people discover fursuit creators, studios, and artists more easily. Browse makers by style, species, or country, compare portfolios, and find the right artist for your custom fursuit commission. Makers can request to be added through the “Add Me” button.</button>.</p>
             </div>
         </main>
 
@@ -572,6 +565,261 @@
 
         window.addEventListener('beforeunload', () => { if (globalTimeout) clearTimeout(globalTimeout); });
     </script>
+
+        <section class="card faq-section" aria-labelledby="faq-title">
+    <h2 id="faq-title" style="text-align:center;">Frequently Asked Questions</h2>
+
+    <div class="faq-wrap">
+        <details class="faq-item">
+        <summary>What is a fursuit maker database?</summary>
+        <div class="faq-content">
+            <p>
+            A fursuit maker database is a searchable collection of fursuit makers and their commission information. It helps people compare makers, styles, prices, and availability in one place.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>What is a fursuit maker directory?</summary>
+        <div class="faq-content">
+            <p>
+            A fursuit maker directory is a list of makers organized so users can browse them more easily. It is useful for finding artists, studios, and commission options without searching all over social media.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How do I find a fursuit maker for a commission?</summary>
+        <div class="faq-content">
+            <p>
+            Start by checking maker examples, commission status, style, budget, and region. A directory makes this faster by grouping makers in one searchable place.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>Where can I find trusted fursuit makers?</summary>
+        <div class="faq-content">
+            <p>
+            Trusted fursuit makers are usually found through directories, verified portfolios, community recommendations, and clear commission info. Looking at past work and communication style is a good way to judge fit.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How do I compare fursuit makers?</summary>
+        <div class="faq-content">
+            <p>
+            You can compare makers by style, price range, turnaround time, materials, location, and whether they are open for commissions. A good database makes these differences easy to see.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How much does a custom fursuit cost?</summary>
+        <div class="faq-content">
+            <p>
+            The cost of a custom fursuit can vary widely depending on the maker, the complexity of the design, and whether you want a fullsuit, partial, or more detailed build. Prices often change based on materials, labor, and customization.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How long does a fursuit commission take?</summary>
+        <div class="faq-content">
+            <p>
+            Turnaround time depends on the maker’s queue, the complexity of the suit, and the number of commissions they already have. Some projects take a few months, while others can take much longer.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>Can I search makers by style, budget, or location?</summary>
+        <div class="faq-content">
+            <p>
+            Yes. That is one of the biggest advantages of a fursuit maker database. Being able to search by style, budget, or location helps people find the right maker much faster.
+            </p>
+        </div>
+        </details>
+        <details class="faq-item">
+        <summary>Why was IWantaFursuit created?</summary>
+        <div class="faq-content">
+            <p>
+            IWantaFursuit was created to make finding and commissioning fursuit makers easier, safer, and more accessible.
+            </p>
+
+            <p>
+            While other maker directories already existed, our goal was never to simply create another list of makers. We want to build a platform focused on helping both clients and makers have a better and safer commission experience.
+            </p>
+
+            <p>
+            In the future, we plan to introduce systems designed to reduce scams, improve trust, and make the commissioning process more secure for everyone involved.
+            </p>
+
+            <p>
+            Right now, we are still a growing project and do not yet have the resources to implement all the features we envision. However, this directory is the first step toward that larger goal.
+            </p>
+        </div>
+        </details>
+    </div>
+    </section>
+
+    <style>
+        .faq-section {
+            max-width: 820px;
+            margin: 24px auto;
+            margin-bottom: 120px;
+        }
+
+        .faq-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 12px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            padding: 14px 16px;
+            font-weight: 700;
+            list-style: none;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.1rem;
+            color: #ff2b8a;
+            margin-left: 12px;
+            flex: 0 0 auto;
+        }
+
+        .faq-item[open] summary::after {
+            content: "–";
+        }
+
+        .faq-content {
+            padding: 0 16px 16px 16px;
+        }
+
+        .faq-content p {
+            margin: 0;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+    </style>
+
+    <style>
+        #cookie-banner {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            z-index: 9999;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .cb-inner {
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cb-text p {
+            margin: 6px 0 10px 0;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .cb-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 0;
+            background: #0f172a;
+            color: white;
+            cursor: pointer;
+        }
+
+            .btn.ghost {
+                background: transparent;
+                border: 1px solid #bbb;
+                color: #111;
+            }
+
+        #cookie-panel {
+            position: fixed;
+            right: 16px;
+            bottom: 90px;
+            z-index: 9999;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            width: 320px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+
+        .cp-inner h3 {
+            margin: 0 0 8px 0;
+        }
+
+        .cp-row {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .cp-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+
+        .ad-slot {
+            min-height: 60px;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-placeholder {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+    </style>
 
 
 </body>

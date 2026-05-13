@@ -60,6 +60,7 @@
             z-index: 1;
         }
 
+
         header {
             display: flex;
             align-items: center;
@@ -608,6 +609,305 @@
             setTimeout(detectAndObserve, 1000);
         }
     </script>
+
+    <section class="card faq-section" aria-labelledby="faq-title">
+    <h2 id="faq-title" style="text-align:center;">Fursuit Maker FAQ</h2>
+
+    <div class="faq-wrap">
+
+        <details class="faq-item">
+        <summary>How do I browse fursuit makers?</summary>
+        <div class="faq-content">
+            <p>
+            Browsing makers is simple. You can scroll through the marketplace and click on the maker that matches your taste the most. You can also use the search bar to find makers more quickly.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How do I choose the right fursuit maker?</summary>
+        <div class="faq-content">
+            <p>
+            Choosing the right maker depends on your personal taste and what style you are looking for. In general, it is usually better to choose a maker based on the furry style you truly like rather than only choosing by price.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>Can I search makers by style or species?</summary>
+        <div class="faq-content">
+            <p>
+            Yes. You can use the search bar at the top of the page to search for maker names, species, or styles such as protogen, kemono, cartoon, and more.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How do I contact a fursuit maker?</summary>
+        <div class="faq-content">
+            <p>
+            Once you click on a maker profile, you will see photos of their fursuits, a description, and links to contact them directly.
+            </p>
+
+            <p>
+            At the moment, contact happens outside the website through the maker’s social media pages because IWantaFursuit does not yet include an internal messaging system.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How do I know if a maker is open for commissions?</summary>
+        <div class="faq-content">
+            <p>
+            Most makers mention whether commissions are open or closed in their social media bio or posts. If no information appears, the best option is usually to contact the maker privately and ask directly.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>What should I check before commissioning a fursuit?</summary>
+        <div class="faq-content">
+            <p>
+            Before commissioning a fursuit, it is a good idea to check the maker’s style, past work, communication quality, estimated wait times, pricing information, and terms of service.
+            </p>
+
+            <p>
+            Looking at multiple completed commissions can also help you understand how consistent the maker’s work is.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How do I compare fursuit makers?</summary>
+        <div class="faq-content">
+            <p>
+            You can compare makers by looking at their furry style, suit quality, proportions, materials, facial expressions, pricing, and turnaround times.
+            </p>
+
+            <p>
+            Since every maker has a different artistic style, comparing portfolios is one of the best ways to find the creator that matches your vision.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>Can beginners use this directory?</summary>
+        <div class="faq-content">
+            <p>
+            Yes. The website is designed to be intuitive and beginner-friendly so people can quickly discover makers and view their work without wasting time searching across multiple websites.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>How do I avoid fursuit commission scams?</summary>
+        <div class="faq-content">
+            <p>
+            A good way to avoid scams is to check whether the maker has completed real commissions before. Look for posts showing finished suits delivered to clients, public customer interactions, reviews, or commission posts mentioning the commissioner.
+            </p>
+
+            <p>
+            It is usually safer to trust makers with a visible history of completed work and community presence rather than accounts showing only isolated images without proof of past clients.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>What types of fursuits can I commission?</summary>
+        <div class="faq-content">
+            <p>
+            The type of fursuits available depends on the maker. Some create fullsuits, while others focus on partial suits, kemono styles, realistic designs, cartoon styles, protogens, or custom species.
+            </p>
+
+            <p>
+            Browsing different maker profiles is the best way to discover which styles and commission types are available.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>Can I find makers from different countries?</summary>
+        <div class="faq-content">
+            <p>
+            Yes. There is a country filter next to the search bar that allows you to browse makers from different regions and countries more easily.
+            </p>
+        </div>
+        </details>
+
+        <details class="faq-item">
+        <summary>What is the difference between a partial and a fullsuit?</summary>
+        <div class="faq-content">
+            <p>
+            A partial fursuit usually includes only certain pieces such as the head, paws, tail, and sometimes feet paws.
+            </p>
+
+            <p>
+            A fullsuit includes the complete body and is designed to fully cover the wearer from head to toe.
+            </p>
+        </div>
+        </details>
+
+    </div>
+    </section>
+
+    <style>
+        .faq-section {
+            max-width: 820px;
+            margin: 24px auto;
+            margin-bottom: 120px;
+
+        }
+        
+
+        .faq-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 12px;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            padding: 14px 16px;
+            font-weight: 700;
+            list-style: none;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.1rem;
+            color: #ff2b8a;
+            margin-left: 12px;
+            flex: 0 0 auto;
+        }
+
+        .faq-item[open] summary::after {
+            content: "–";
+        }
+
+        .faq-content {
+            padding: 0 16px 16px 16px;
+        }
+
+        .faq-content p {
+            margin: 0;
+            color: #6b7280;
+            line-height: 1.7;
+        }
+    </style>
+
+    <style>
+        #cookie-banner {
+            position: fixed;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            z-index: 9999;
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .cb-inner {
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cb-text p {
+            margin: 6px 0 10px 0;
+            color: #444;
+            font-size: 14px;
+        }
+
+        .cb-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 0;
+            background: #0f172a;
+            color: white;
+            cursor: pointer;
+        }
+
+            .btn.ghost {
+                background: transparent;
+                border: 1px solid #bbb;
+                color: #111;
+            }
+
+        #cookie-panel {
+            position: fixed;
+            right: 16px;
+            bottom: 90px;
+            z-index: 9999;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            width: 320px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        }
+
+        .cp-inner h3 {
+            margin: 0 0 8px 0;
+        }
+
+        .cp-row {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .cp-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+            margin-top: 8px;
+        }
+
+        .ad-slot {
+            min-height: 60px;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-placeholder {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+    </style>
 
     <script src="scripts/bottom-bar.js" defer></script>
 
