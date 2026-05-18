@@ -9,38 +9,13 @@
     <title>Maker Profile</title>
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
+    <link rel="stylesheet" href="/css/tutorials.css">
+
     
 
     <style>
-        :root {
-            --sidebar-w: 220px;
-            --sidebar-collapsed-w: 64px;
-            --sidebar-bg: #ffd6e8;
-            --page-max-w: 1000px;
-            --page-pad: 20px;
-        }
-
-        html.site-sidebar-collapsed {
-            --sidebar-w: var(--sidebar-collapsed-w);
-        }
-
-        site-sidebar:not(:defined) {
-            display: none;
-        }
-
-        site-sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: var(--sidebar-w);
-            z-index: 60;
-        }
 
         .page-wrap {
-            margin-left: var(--sidebar-w);
-            width: calc(100% - var(--sidebar-w));
-            transition: margin-left .25s ease, width .25s ease;
             display: flex;
             justify-content: center;
             box-sizing: border-box;
@@ -59,21 +34,20 @@
         }
 
         html, body {
-            height: 100%;
-        }
-
-        body {
-            font-family: 'Inter', Arial, sans-serif;
-            margin: 0;
-            padding: 20px 20px 0 20px;
-            color: #0f1724;
-            background: #ffffff;
             overflow-x: hidden;
         }
 
-        a {
-            color: #2563eb;
-            text-decoration: none;
+        * {
+            box-sizing: border-box;
+        }
+
+        a, p, div, span {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .content, .page-wrap, .contact-section, .long-info {
+            min-width: 0;
         }
 
             a:hover {
@@ -82,6 +56,7 @@
 
         .back-link {
             display: inline-block;
+            margin-top: 58px;
             margin-bottom: 20px;
             font-weight: bold;
         }
@@ -221,6 +196,13 @@
         .contact-item {
             margin-bottom: 8px;
             font-size: 1.05rem;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .contact-item a {
+            display: inline-block;
+            max-width: 100%;
         }
 
         .contact-key {
@@ -304,9 +286,7 @@
         }
 
         @media (max-width: 768px) {
-            :root {
-                --sidebar-w: var(--sidebar-collapsed-w);
-            }
+
 
             .page-wrap {
                 padding-left: 12px;
@@ -338,23 +318,26 @@
                 flex-shrink: 0;
                 object-fit: cover;
             }
+
+            @media (max-width: 768px) {
+                .contact-item {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                }
+
+                .contact-key {
+                    margin-right: 0;
+                }
+            }
         }
     </style>
 
     <script type="module" src="/scripts/site-sidebar.js"></script>
 </head>
 <body>
-    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
 
-    <a href="search.html">Search Makers</a>
-    <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
-    <a href="cleaning.html">Fursuit Cleaning</a>
-    <a href="whatisafurry.html">What is a Furry?</a>
-    <a href="fursonacreation.html">Fursona Guide</a>
-    <a href="fursonanamecreation.html">Fursona Name Tutorial</a>
-    <a href="about.html">About the Website</a>
-
-    </site-sidebar>
+    <main class="page-content tutorial-page" role="main" aria-labelledby="article-title">
 
     <div class="page-wrap">
         <main class="content">
@@ -569,13 +552,6 @@
                                     <div class="long-info">${escapeHtml(m.info)}</div>
                                     <h3>Contact</h3>
                                     <div class="contact-section">${contactHtml}</div>
-                                    <div class="editor-notes">
-                                        <hr>
-                                        <h4>About Fursuit Makers and this Directory</h4>
-                                        <p>This page is dedicated to showcasing the work and contact information of **${escapeHtml(m.name)}**, a talented Fursuit Maker. The fursuiter community is wonderful, and these artisans are the heart of it, transforming designs into tangible characters. We encourage you to explore this maker's gallery to see the quality and style of their creations.</p>
-                                        <p>The contact information provided is directly what the maker has supplied. We always recommend that interested parties conduct thorough research and read reviews before commissioning a fursuit. Our mission is to be a directory that facilitates connection, but we are not responsible for transactions or the final quality of the work.</p>
-                                        <p>If you are a Fursuit Maker and wish to appear or update your profile, please click the "Add me" button in the sidebar.</p>
-                                    </div>
                                     `;
 
                 const mainImg = document.getElementById('mainImage');
@@ -606,6 +582,10 @@
 
         load();
     </script>
+    </main>
+
+    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"></site-sidebar>
+
 
     <script src="scripts/bottom-bar.js" defer></script>
 
