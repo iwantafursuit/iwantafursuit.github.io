@@ -13,6 +13,10 @@
     --bottom-bar-height: 0px;
 }
 
+html.site-sidebar-collapsed {
+  --sidebar-content-w: 0px;
+}
+
 main.page-content {
   margin-left: var(--sidebar-content-w);
   width: calc(100% - var(--sidebar-content-w));
