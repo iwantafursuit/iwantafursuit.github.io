@@ -2,9 +2,9 @@
     const AFFILIATE_TAG = "iwantafursuit-20";
 
     const CTA_BY_LANG = {
-        es: "Ir ya a amazon",
-        en: "Buy now on amazon",
-        jp: "今すぐ購入 (in amazon)"
+        es: "Ir a amazon",
+        en: "Buy on amazon",
+        jp: "今すぐ購入"
     };
 
     const LANG_LABEL = {
