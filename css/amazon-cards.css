@@ -15,8 +15,10 @@
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  min-height: 120px;
-  overflow: hidden;
+
+  min-height: 120px;  
+  height: auto;       
+  overflow: visible;  
 }
 
 /* imagen */
