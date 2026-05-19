@@ -1,7 +1,6 @@
-
 .amazon-card {
-  display: inline-block;            
-  width: 260px;                     
+  display: inline-block;
+  width: 260px;
   vertical-align: top;
   margin: 10px;
   box-sizing: border-box;
@@ -16,7 +15,7 @@
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  height: 120px;                    
+  min-height: 120px;
   overflow: hidden;
 }
 
@@ -41,7 +40,7 @@
 
 .amazon-card .amazon-info h3 {
   font-size: 13px;
-  line-height: 1.1;
+  line-height: 1.25;
   margin: 0;
   font-weight: 600;
   color: #0f172a;
@@ -70,27 +69,52 @@
   margin-top: 2px;
 }
 
-/* botón CTA: naranja degradado, bonito */
+/* botón CTA */
 .amazon-card .amazon-cta {
   margin-top: auto;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   text-align: center;
-  padding: 8px 10px;
+  padding: 9px 10px;
   border-radius: 10px;
   font-weight: 700;
   font-size: 13px;
+  line-height: 1.2;
   color: #fff;
   box-shadow: 0 6px 18px rgba(255,107,53,0.18);
   background: linear-gradient(90deg, #ff7a3d 0%, #ff6131 100%);
+  white-space: normal;
+  word-break: break-word;
+  min-height: 38px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* hover */
+.amazon-card .amazon-cta:hover {
+  filter: brightness(0.96);
+}
+
+/* responsive */
 @media (max-width: 880px) {
-  .amazon-card { width: 48%; }    
+  .amazon-card {
+    width: 48%;
+  }
 }
 
 @media (max-width: 520px) {
-  .amazon-card { width: 100%; }   
-  .amazon-card .card-wrap { height: auto; }
-  .amazon-card .amazon-cta { width: 46%; } 
+  .amazon-card {
+    width: 100%;
+  }
+
+  .amazon-card .card-wrap {
+    height: auto;
+    min-height: 0;
+  }
+
+  .amazon-card .amazon-cta {
+    width: 100%;
+  }
 }
