@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Partial vs Full Fursuit: What's the Difference?</title>
+  <meta
+    name="description"
+    content="Learn the difference between partial and full fursuits, when to choose each type, comfort tips, and how to decide which one is right for you."
+  />
+  <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/css/tutorials.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      color: #0f172a;
+    }
+
+    main { display: block; width: 100%; }
+
+    .container {
+      max-width: var(--page-max-w);
+      margin: 36px auto;
+      padding: var(--page-pad);
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+      border: 1px solid rgba(15,23,42,0.04);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    h2 {
+      margin: 6px 0 8px 0;
+      font-size: 1.14rem;
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    ol {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    .notice {
+      display: inline-block;
+      padding: 10px 14px;
+      background: #fffbfb;
+      border-radius: 10px;
+      border: 1px solid rgba(255,43,138,0.08);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .comparison-card {
+        padding: 14px;
+      }
+
+      .comparison-card h3 {
+        font-size: 0.98rem;
+      }
+
+      .comparison-card p,
+      .comparison-card ul {
+        font-size: 0.92rem;
+      }
+
+      .tag {
+        padding: 4px 8px;
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 16px 16px;
+      }
+
+      .comparison-card {
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .comparison-card h3 {
+        font-size: 0.94rem;
+      }
+
+      .comparison-card p,
+      .comparison-card ul {
+        font-size: 0.88rem;
+      }
+
+      .tag {
+        padding: 3px 7px;
+        font-size: 0.74rem;
+      }
+
+      .divider-line {
+        margin: 3px 0;
+      }
+    }
+
+    .comparison-card {
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid rgba(15,23,42,0.06);
+    }
+
+    .comparison-card.partial {
+      background: linear-gradient(180deg, #fff5ff 0%, #fff9fb 100%);
+      border-color: rgba(255,43,138,0.12);
+    }
+
+    .comparison-card.full {
+      background: linear-gradient(180deg, #f0f7ff 0%, #f5faff 100%);
+      border-color: rgba(59,130,246,0.12);
+    }
+
+    .comparison-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.05rem;
+    }
+
+    .comparison-card.partial h3 {
+      color: var(--accent);
+    }
+
+    .comparison-card.full h3 {
+      color: #2563eb;
+    }
+
+    .comparison-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .comparison-card ul {
+      margin-top: 8px;
+    }
+
+    .divider-line {
+      grid-column: 1 / -1;
+      border: none;
+      border-top: 1px solid rgba(15,23,42,0.06);
+      margin: 4px 0;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .tag.partial {
+      background: #fff0f6;
+      color: #d91a6e;
+    }
+
+    .tag.full {
+      background: #eef2ff;
+      color: #4338ca;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .faq-item {
+      margin-bottom: 16px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 6px 0;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+  </style>
+
+  <script type="module" src="/scripts/site-sidebar.js"></script>
+
+</head>
+
+<body>
+  <main class="page-content tutorial-page" role="main" aria-labelledby="article-title">
+    <div class="container">
+      <article class="card" aria-describedby="article-desc">
+        <h1 id="article-title">Partial vs Full Fursuit: What's the Difference?</h1>
+
+        <p id="article-desc" class="lead">
+          When you are planning to get a fursuit, one of the first questions is whether you should go for a partial or a full suit. The answer depends on your budget, your comfort level, and what you plan to wear your suit for. This article breaks down both options so you can make a clear decision.
+        </p>
+
+        <div class="notice">
+          A <strong>partial</strong> suit covers the main visible parts (head, paws, tail), while a <strong>full</strong> suit covers the entire body including legs and arms. Both have their own advantages.
+        </div>
+      </article>
+
+      <section class="card" aria-labelledby="partial-suit">
+        <h2 id="partial-suit">Partial Fursuit</h2>
+        <p class="muted">
+          A partial fursuit covers the parts that are most visible when your fursona is in view. It usually includes the head, paws, and tail, and sometimes arm or leg sleeves.
+        </p>
+
+        <div class="comparison-card partial">
+          <h3>What a typical partial includes:</h3>
+          <ul>
+            <li>Sculpted head (2D or 3D)</li>
+            <li>Front paws (hands)</li>
+            <li>Tail</li>
+            <li>Arm sleeves or leg sleeves (optional)</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>Partial is a good choice if you:</h3>
+          <ul>
+            <li>Want a lower price (partial suits often start around $1,500)</li>
+            <li>Plan to wear the suit indoors or in air-conditioned spaces</li>
+            <li>Are new to fursuiting and not sure if it is right for you</li>
+            <li>Want to wear a partial for photos or short convention visits</li>
+            <li>Plan to add pieces over time as your budget grows</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>Pros:</h3>
+          <ul>
+            <li>Less expensive</li>
+            <li>Easier to wear and move in</li>
+            <li>Better airflow and less overheating</li>
+            <li>Can be expanded later with more pieces</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>Cons:</h3>
+          <ul>
+            <li>Not a complete character look</li>
+            <li>Less suitable for long events or outdoor conventions</li>
+            <li>May look less immersive in full-body shots</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="full-suit">
+        <h2 id="full-suit">Full Fursuit</h2>
+        <p class="muted">
+          A full fursuit covers the entire body. It includes the head, paws, feetpaws, tail, arm sleeves, and leg sleeves all together. It gives you a complete, fully immersed character experience.
+        </p>
+
+        <div class="comparison-card full">
+          <h3>What a typical full suit includes:</h3>
+          <ul>
+            <li>Sculpted head (2D or 3D)</li>
+            <li>Front paws (hands)</li>
+            <li>Feetpaws (back feet)</li>
+            <li>Full tail</li>
+            <li>Arm and leg sleeves</li>
+            <li>Full body fur coverage</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>Full suit is a good choice if you:</h3>
+          <ul>
+            <li>Want the complete character experience</li>
+            <li>Plan to attend conventions regularly</li>
+            <li>Want full photos and videos with no gaps in the character</li>
+            <li>Enjoy dancing, performing, or long wearing sessions</li>
+            <li>Have the budget and the time for a major project</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>Pros:</h3>
+          <ul>
+            <li>Complete immersion as your character</li>
+            <li>Better for full-body photos and videos</li>
+            <li>More comfortable for long wearing periods if properly ventilated</li>
+            <li>More versatile for performances, dancing, and events</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>Cons:</h3>
+          <ul>
+            <li>Much more expensive (full digitigrade can exceed $9,000)</li>
+            <li>Heavier and more physically demanding</li>
+            <li>Requires more maintenance and storage space</li>
+            <li>Longer commission wait times</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="comparison-summary">
+        <h2 id="comparison-summary">Quick Comparison Summary</h2>
+
+        <div class="comparison-grid">
+          <div class="comparison-card partial">
+            <h3>Partial</h3>
+            <p>Lower cost. Easier to wear. Best for starting out.</p>
+            <div class="tag-list">
+              <span class="tag partial">Budget-friendly</span>
+              <span class="tag partial">Beginner-friendly</span>
+              <span class="tag partial">Expandable</span>
+            </div>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>Full</h3>
+            <p>Complete look. Better for events. More immersive.</p>
+            <div class="tag-list">
+              <span class="tag full">Full immersion</span>
+              <span class="tag full">Pro-level</span>
+              <span class="tag full">Versatile</span>
+            </div>
+          </div>
+
+          <hr class="divider-line">
+
+          <div class="comparison-card partial">
+            <h3>Typical Price</h3>
+            <p class="muted">$1,500 – $4,500 depending on pieces and complexity.</p>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>Typical Price</h3>
+            <p class="muted">$3,000 – $9,000+ depending on plantigrade or digitigrade.</p>
+          </div>
+
+          <hr class="divider-line">
+
+          <div class="comparison-card partial">
+            <h3>Wearing Duration</h3>
+            <p class="muted">Usually 30–60 minutes at a time.</p>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>Wearing Duration</h3>
+            <p class="muted">Can reach 1.5–2 hours with proper breaks.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="decision-guide">
+        <h2 id="decision-guide">How to Decide Which One You Need</h2>
+        <p class="muted">
+          There is no right or wrong answer, but here are some questions to ask yourself:
+        </p>
+
+        <ol>
+          <li>What is your budget?</li>
+          <li>How often do you plan to wear the suit?</li>
+          <li>Where will you wear it (conventions, photoshoots, home)?</li>
+          <li>Are you a beginner or have you worn a suit before?</li>
+          <li>Do you want to invest in a long-term project?</li>
+        </ol>
+
+        <p class="muted">
+          If you answered that your budget is limited, you are new to fursuiting, or you are just testing the waters, a partial suit is a great starting point. You can always add more pieces later.
+        </p>
+
+        <p class="muted">
+          If you already know you love fursuiting, have a solid budget, and want a complete character experience, a full suit is the way to go.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="faq">
+        <h2 id="faq">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+          <h3>Can I upgrade a partial to a full suit?</h3>
+          <p class="muted">
+            Yes. Many people buy a partial first and add feetpaws, leg sleeves, and arm sleeves later. Some artists also offer upgrade packages.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Is a fullsuit always heavier than a partial?</h3>
+          <p class="muted">
+            Not necessarily. A plantigrade fullsuit is generally lighter than a digitigrade one. But fullsuits always have more pieces, so they are usually more physically tiring to wear.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Do I need a full suit to enjoy fursuiting?</h3>
+          <p class="muted">
+            Absolutely not. Partial suits are enjoyed by thousands of furries every day. A partial is still a complete character look for the most visible parts.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Which one looks better in photos?</h3>
+          <p class="muted">
+            A full suit gives a more complete image, but partial suits still look amazing in most photos, especially close-ups and waist-up shots.
+          </p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="final-thoughts">
+        <h2 id="final-thoughts">Final Thoughts</h2>
+        <p class="muted">
+          Both partial and full fursuits are amazing ways to bring your fursona to life. The best choice is the one that fits your budget, your experience level, and your goals.
+        </p>
+        <p class="muted">
+          There is no rush to decide. Many furries start with a partial, fall in love with fursuiting, and later invest in a full suit. That journey is completely normal.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step">
+        <h2 id="next-step">Already know what type you want?</h2>
+        <p class="muted">
+          If you already decided on a partial or full suit and want to know how much it will cost, check our pricing guide.
+        </p>
+        <p>
+          <a class="cta-button" href="/en/howmuchdoesafursuitcost.html">How Much Does a Fursuit Cost? →</a>
+        </p>
+        <p class="small">
+          A full breakdown of prices by piece so you can plan your budget.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step-refine">
+        <h2 id="next-step-refine">Ready to order your fursuit?</h2>
+        <p class="muted">
+          If you already know what type of suit you want and you are ready to commission your character, use our maker directory to find the perfect artist for your project.
+        </p>
+        <p>
+          <a class="cta-button" href="/en/search.html">Search Makers →</a>
+        </p>
+        <p class="small">
+          Browse artists by style, price range, and availability.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"></site-sidebar>
+  <script src="scripts/bottom-bar.js" defer></script>
+</body>
+</html>

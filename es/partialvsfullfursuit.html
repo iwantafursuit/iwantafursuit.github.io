@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Parcial vs Completo: ¿Cuál es la Diferencia?</title>
+  <meta
+    name="description"
+    content="Aprende la diferencia entre un fursuit parcial y uno completo, cuándo elegir cada tipo, consejos de comodidad y cómo decidir cuál es el adecuado para ti."
+  />
+  <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/css/tutorials.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      color: #0f172a;
+    }
+
+    main { display: block; width: 100%; }
+
+    .container {
+      max-width: var(--page-max-w);
+      margin: 36px auto;
+      padding: var(--page-pad);
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+      border: 1px solid rgba(15,23,42,0.04);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    h2 {
+      margin: 6px 0 8px 0;
+      font-size: 1.14rem;
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    ol {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    .notice {
+      display: inline-block;
+      padding: 10px 14px;
+      background: #fffbfb;
+      border-radius: 10px;
+      border: 1px solid rgba(255,43,138,0.08);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .comparison-card {
+        padding: 14px;
+      }
+
+      .comparison-card h3 {
+        font-size: 0.98rem;
+      }
+
+      .comparison-card p,
+      .comparison-card ul {
+        font-size: 0.92rem;
+      }
+
+      .tag {
+        padding: 4px 8px;
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 16px 16px;
+      }
+
+      .comparison-card {
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .comparison-card h3 {
+        font-size: 0.94rem;
+      }
+
+      .comparison-card p,
+      .comparison-card ul {
+        font-size: 0.88rem;
+      }
+
+      .tag {
+        padding: 3px 7px;
+        font-size: 0.74rem;
+      }
+
+      .divider-line {
+        margin: 3px 0;
+      }
+    }
+
+    .comparison-card {
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid rgba(15,23,42,0.06);
+    }
+
+    .comparison-card.partial {
+      background: linear-gradient(180deg, #fff5ff 0%, #fff9fb 100%);
+      border-color: rgba(255,43,138,0.12);
+    }
+
+    .comparison-card.full {
+      background: linear-gradient(180deg, #f0f7ff 0%, #f5faff 100%);
+      border-color: rgba(59,130,246,0.12);
+    }
+
+    .comparison-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.05rem;
+    }
+
+    .comparison-card.partial h3 {
+      color: var(--accent);
+    }
+
+    .comparison-card.full h3 {
+      color: #2563eb;
+    }
+
+    .comparison-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .comparison-card ul {
+      margin-top: 8px;
+    }
+
+    .divider-line {
+      grid-column: 1 / -1;
+      border: none;
+      border-top: 1px solid rgba(15,23,42,0.06);
+      margin: 4px 0;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .tag.partial {
+      background: #fff0f6;
+      color: #d91a6e;
+    }
+
+    .tag.full {
+      background: #eef2ff;
+      color: #4338ca;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .faq-item {
+      margin-bottom: 16px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 6px 0;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+  </style>
+
+  <script type="module" src="/scripts/site-sidebar.js"></script>
+
+</head>
+
+<body>
+  <main class="page-content tutorial-page" role="main" aria-labelledby="article-title">
+    <div class="container">
+      <article class="card" aria-describedby="article-desc">
+        <h1 id="article-title">Parcial vs Completo: ¿Cuál es la Diferencia?</h1>
+
+        <p id="article-desc" class="lead">
+          Cuando estás planeando comprar un fursuit, una de las primeras preguntas es si debes optar por un parcial o uno completo. La respuesta depende de tu presupuesto, tu nivel de comodidad y para qué planeas usar tu traje. Este artículo desglosa ambas opciones para que puedas tomar una decisión clara.
+        </p>
+
+        <div class="notice">
+          Un traje <strong>parcial</strong> cubre las partes más visibles (cabeza, patas, cola), mientras que un traje <strong>completo</strong> cubre todo el cuerpo incluyendo piernas y brazos. Ambos tienen sus propias ventajas.
+        </div>
+      </article>
+
+      <section class="card" aria-labelledby="partial-suit">
+        <h2 id="partial-suit">Fursuit Parcial</h2>
+        <p class="muted">
+          Un fursuit parcial cubre las partes que son más visibles cuando tu fursona está en vista. Por lo general incluye la cabeza, las patas y la cola, y a veces mangas de brazo o pierna.
+        </p>
+
+        <div class="comparison-card partial">
+          <h3>Lo que incluye un parcial típico:</h3>
+          <ul>
+            <li>Cabeza esculpida (2D o 3D)</li>
+            <li>Patas delanteras (manos)</li>
+            <li>Cola</li>
+            <li>Mangas de brazo o pierna (opcional)</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>El parcial es una buena opción si:</h3>
+          <ul>
+            <li>Quieres un precio más bajo (los parciales suelen empezar en $1,500)</li>
+            <li>Planeas usar el traje en interiores o espacios con aire acondicionado</li>
+            <li>Seres nuevo en el fursuiting y no estás seguro si es lo tuyo</li>
+            <li>Quieres usar un parcial para fotos o visitas cortas a convenciones</li>
+            <li>Planeas agregar piezas con el tiempo a medida que crece tu presupuesto</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>Ventajas:</h3>
+          <ul>
+            <li>Más económico</li>
+            <li>Más fácil de llevar y moverse</li>
+            <li>Mejor flujo de aire y menos sobrecalentamiento</li>
+            <li>Puede expandirse después con más piezas</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>Inconvenientes:</h3>
+          <ul>
+            <li>No es un look de personaje completo</li>
+            <li>Menos adecuado para eventos largos o convenciones al aire libre</li>
+            <li>Puede verse menos inmersivo en fotos de cuerpo entero</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="full-suit">
+        <h2 id="full-suit">Fursuit Completo</h2>
+        <p class="muted">
+          Un fursuit completo cubre todo el cuerpo. Incluye la cabeza, las patas, las footpaws, la cola, las mangas de brazo y las mangas de pierna, todo junto. Te da una experiencia completa y totalmente inmersiva de tu personaje.
+        </p>
+
+        <div class="comparison-card full">
+          <h3>Lo que incluye un traje completo típico:</h3>
+          <ul>
+            <li>Cabeza esculpida (2D o 3D)</li>
+            <li>Patas delanteras (manos)</li>
+            <li>Footpaws (pies traseros)</li>
+            <li>Cola completa</li>
+            <li>Mangas de brazo y pierna</li>
+            <li>Cobertura completa de pelaje en el cuerpo</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>El completo es una buena opción si:</h3>
+          <ul>
+            <li>Quieres la experiencia completa de personaje</li>
+            <li>Planeas asistir a convenciones regularmente</li>
+            <li>Quieres fotos y videos completos sin huecos en el personaje</li>
+            <li>Te gusta bailar, actuar o usar el traje por períodos largos</li>
+            <li>Tienes el presupuesto y el tiempo para un proyecto importante</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>Ventajas:</h3>
+          <ul>
+            <li>Inmersión completa como tu personaje</li>
+            <li>Mejor para fotos y videos de cuerpo entero</li>
+            <li>Más cómodo para períodos largos si está bien ventilado</li>
+            <li>Más versátil para actuaciones, baile y eventos</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>Inconvenientes:</h3>
+          <ul>
+            <li>Mucho más costoso (un digitígrado completo puede superar los $9,000)</li>
+            <li>Más pesado y físicamente exigente</li>
+            <li>Requiere más mantenimiento y espacio de almacenamiento</li>
+            <li>Tiempos de espera de comisión más largos</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="comparison-summary">
+        <h2 id="comparison-summary">Resumen Rápido de Comparación</h2>
+
+        <div class="comparison-grid">
+          <div class="comparison-card partial">
+            <h3>Parcial</h3>
+            <p>Menor costo. Más fácil de usar. Ideal para empezar.</p>
+            <div class="tag-list">
+              <span class="tag partial">Económico</span>
+              <span class="tag partial">Para principiantes</span>
+              <span class="tag partial">Expandible</span>
+            </div>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>Completo</h3>
+            <p>Look completo. Mejor para eventos. Más inmersivo.</p>
+            <div class="tag-list">
+              <span class="tag full">Inmersión total</span>
+              <span class="tag full">Nivel profesional</span>
+              <span class="tag full">Versátil</span>
+            </div>
+          </div>
+
+          <hr class="divider-line">
+
+          <div class="comparison-card partial">
+            <h3>Precio Típico</h3>
+            <p class="muted">$1,500 – $4,500 según las piezas y la complejidad.</p>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>Precio Típico</h3>
+            <p class="muted">$3,000 – $9,000+ según sea plantígrado o digitígrado.</p>
+          </div>
+
+          <hr class="divider-line">
+
+          <div class="comparison-card partial">
+            <h3>Duración de Uso</h3>
+            <p class="muted">Normalmente 30–60 minutos por sesión.</p>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>Duración de Uso</h3>
+            <p class="muted">Puede llegar a 1.5–2 horas con descansos adecuados.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="decision-guide">
+        <h2 id="decision-guide">Cómo Decidir cuál Necesitas</h2>
+        <p class="muted">
+          No hay una respuesta correcta o incorrecta, pero aquí tienes algunas preguntas para hacerte:
+        </p>
+
+        <ol>
+          <li>¿Cuál es tu presupuesto?</li>
+          <li>¿Con qué frecuencia planeas usar el traje?</li>
+          <li>¿Dónde lo usarás (convenciones, sesiones de fotos, en casa)?</li>
+          <li>¿Eres principiante o ya has usado un traje antes?</li>
+          <li>¿Quieres invertir en un proyecto a largo plazo?</li>
+        </ol>
+
+        <p class="muted">
+          Si respondiste que tu presupuesto es limitado, eres nuevo en el fursuiting o simplemente estás probando, un parcial es un excelente punto de partida. Siempre puedes agregar más piezas después.
+        </p>
+
+        <p class="muted">
+          Si ya sabes que te encanta el fursuiting, tienes un presupuesto sólido y quieres una experiencia de personaje completa, un completo es el camino a seguir.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="faq">
+        <h2 id="faq">Preguntas Frecuentes</h2>
+
+        <div class="faq-item">
+          <h3>¿Puedo actualizar un parcial a un completo?</h3>
+          <p class="muted">
+            Sí. Muchas personas compran primero un parcial y agregan footpaws, mangas de pierna y mangas de brazo después. Algunos artistas también ofrecen paquetes de actualización.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Un completo siempre es más pesado que un parcial?</h3>
+          <p class="muted">
+            No necesariamente. Un completo plantígrado es generalmente más ligero que un digitígrado. Pero los completos siempre tienen más piezas, así que suelen ser más físicamente cansados de llevar.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Necesito un completo para disfrutar del fursuiting?</h3>
+          <p class="muted">
+            Absolutamente no. Los parciales los disfrutan miles de furries todos los días. Un parcial sigue siendo un look de personaje completo para las partes más visibles.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>¿Cuál se ve mejor en fotos?</h3>
+          <p class="muted">
+            Un completo da una imagen más completa, pero los parciales también se ven increíbles en la mayoría de las fotos, especialmente en primeros planos y fotos de medio cuerpo.
+          </p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="final-thoughts">
+        <h2 id="final-thoughts">Reflexiones Finales</h2>
+        <p class="muted">
+          Tanto los parciales como los completos son formas increíbles de dar vida a tu fursona. La mejor opción es la que se ajuste a tu presupuesto, tu nivel de experiencia y tus metas.
+        </p>
+        <p class="muted">
+          No hay prisa para decidir. Muchos furries comienzan con un parcial, se enamoran del fursuiting y luego invierten en un completo. Ese camino es completamente normal.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step">
+        <h2 id="next-step">¿Ya sabes qué tipo quieres?</h2>
+        <p class="muted">
+          Si ya decidiste por un parcial o un completo y quieres saber cuánto costará, consulta nuestra guía de precios.
+        </p>
+        <p>
+          <a class="cta-button" href="/es/howmuchdoesafursuitcost.html">¿Cuánto Cuesta un Fursuit? →</a>
+        </p>
+        <p class="small">
+          Un desglose completo de precios por pieza para que planifiques tu presupuesto.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step-refine">
+        <h2 id="next-step-refine">¿Listo para encargar tu fursuit?</h2>
+        <p class="muted">
+          Si ya sabes qué tipo de traje quieres y estás listo para encargar tu personaje, usa nuestro directorio de makers para encontrar el artista perfecto para tu proyecto.
+        </p>
+        <p>
+          <a class="cta-button" href="/es/search.html">Buscar Makers →</a>
+        </p>
+        <p class="small">
+          Explora artistas por estilo, rango de precios y disponibilidad.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"></site-sidebar>
+  <script src="scripts/bottom-bar.js" defer></script>
+</body>
+</html>
