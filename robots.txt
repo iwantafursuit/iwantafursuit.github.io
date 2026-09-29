@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Allow: /en/
+Allow: /es/
+Allow: /jp/
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+Allow: /scripts/
+
+Sitemap: https://iwantafursuit.github.io/sitemap.xml
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
