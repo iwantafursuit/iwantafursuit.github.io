@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ファーシートの値段は？ | シンプルガイド</title>
+  <meta
+    name="description"
+    content="ファーシートの値段、価格に影響する要因、パーシャルとフルの違い、カスタムファーシートを買う前に知っておくべきことを学びましょう。"
+  />
+  <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/css/tutorials.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      color: #0f172a;
+    }
+
+    main { display: block; width: 100%; }
+
+    .container {
+      max-width: var(--page-max-w);
+      margin: 36px auto;
+      padding: var(--page-pad);
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+      border: 1px solid rgba(15,23,42,0.04);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    h2 {
+      margin: 6px 0 8px 0;
+      font-size: 1.14rem;
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    ol {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    .notice {
+      display: inline-block;
+      padding: 10px 14px;
+      background: #fffbfb;
+      border-radius: 10px;
+      border: 1px solid rgba(255,43,138,0.08);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .alert {
+      border: 2px solid rgba(185,28,28,0.25);
+      background: linear-gradient(180deg, #fff5f5 0%, #fffafa 100%);
+    }
+
+    .alert h2 {
+      color: var(--red-alert);
+      text-align: center;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .price-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.95rem;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 10px 12px;
+      border: 1px solid rgba(15,23,42,0.08);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .price-table th {
+      background: #ffdfee;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .price-table tr:nth-child(even) {
+      background: #fff9fb;
+    }
+
+    .price-table .price-range {
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--accent);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -22px;
+      padding: 0 22px;
+    }
+
+    @media (max-width: 640px) {
+      .price-table th,
+      .price-table td {
+        padding: 8px 6px;
+        font-size: 0.85rem;
+      }
+    }
+
+    .factor-card {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,43,138,0.06);
+    }
+
+    .factor-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+  </style>
+
+  <script type="module" src="/scripts/site-sidebar.js"></script>
+
+</head>
+
+<body>
+  <main class="page-content tutorial-page" role="main" aria-labelledby="article-title">
+    <div class="container">
+      <article class="card" aria-describedby="article-desc">
+        <h1 id="article-title">ファーシートの値段はいくらか？</h1>
+
+        <p id="article-desc" class="lead">
+          ファーシートの値段は大きく異なり、初めて値段を見ると混乱するのは当然です。実は、ファーシートは手作りのカスタム作品であり、価格はその複雑さや材料など、多くの要因に左右されます。
+        </p>
+
+        <div class="notice">
+          このページでは、予算を現実的に立てて予期せぬコストを防ぐために、価格範囲をシンプルに説明しています。
+        </div>
+      </article>
+
+      <section class="card" aria-labelledby="price-by-piece">
+        <h2 id="price-by-piece">価格表（日本円）</h2>
+        <p class="muted">
+          価格は日本円（JPY）で表示されています。日本では「けもも」スタイル（大きなドーム形の目、小さな鼻、アニメ的な顔立ち）のファーシートが非常に人気で、仕上がりは非常に高品質です。
+        </p>
+
+        <div class="table-wrapper">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>部品 / 構成</th>
+                <th>価格帯（JPY）</th>
+                <th>USD 換算（目安）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>前足（パフ）</td>
+                <td class="price-range">¥25,000 – ¥120,000+</td>
+                <td>$150 – $800</td>
+              </tr>
+              <tr>
+                <td>尻尾</td>
+                <td class="price-range">¥12,000 – ¥75,000+</td>
+                <td>$75 – $500</td>
+              </tr>
+              <tr>
+                <td>後足（フィートパフ）</td>
+                <td class="price-range">¥40,000 – ¥100,000+</td>
+                <td>$250 – $700</td>
+              </tr>
+              <tr>
+                <td>ヘッド（頭）</td>
+                <td class="price-range">¥140,000 – ¥500,000+</td>
+                <td>$900 – $3,500</td>
+              </tr>
+              <tr>
+                <td>ハーフスーツ / ミニパーシャル（頭＋前足＋尻尾）</td>
+                <td class="price-range">¥230,000 – ¥500,000</td>
+                <td>$1,500 – $3,500</td>
+              </tr>
+              <tr>
+                <td>フルパーシャル（頭＋手足＋尻尾）</td>
+                <td class="price-range">¥300,000 – ¥680,000</td>
+                <td>$2,000 – $4,500</td>
+              </tr>
+              <tr>
+                <td>フルボディ・プラントigrade（全身、真っ直ぐな脚）</td>
+                <td class="price-range">¥450,000 – ¥1,000,000+</td>
+                <td>$3,000 – $6,500</td>
+              </tr>
+              <tr>
+                <td>フルボディ・ディジグリade（全身、指立ち）</td>
+                <td class="price-range">¥600,000 – ¥1,400,000+</td>
+                <td>$4,000 – $9,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="muted" style="margin-top: 14px;">
+          価格は市場の目安です。USD 換算は参考値です。最終的な費用は選ぶメーカー、キャラクターの複雑さ、および追加オプションによって決まります。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="japan-considerations">
+        <h2 id="japan-considerations">日本で購入する際のポイント</h2>
+
+        <div class="factor-card">
+          <h3>有名メーカーと個人クリエイター</h3>
+          <p class="muted">
+            個人クリエイターや新興スタジオの日本製メーカーは、ハーフスーツで約 ¥270,000、フルスーツで約 ¥600,000 から始められます。
+          </p>
+          <p class="muted">
+            一方、高需要または国際的に有名なケモコピ/けももスタジオは、フルスーツを ¥1,200,000 〜 ¥3,000,000+ で提供しています。
+          </p>
+        </div>
+
+        <div class="factor-card">
+          <h3>国際配送と税金</h3>
+          <p class="muted">
+            日本国外から commissioned を依頼する場合、EMS や宅配便による配送料に ¥15,000 〜 ¥40,000 が追加されます（箱の大きさによる）。さらに、あなたの国の関税がかかります。
+          </p>
+        </div>
+
+        <div class="factor-card">
+          <h3>サイズ測定（DTD）</h3>
+          <p class="muted">
+            日本製メーカーはサイズに非常にシビアです。フルボディの場合、ダクトテープダミー（あなたの体型の型）か、正確なセンチメートルのサイズを送る必要があります。
+          </p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="factors">
+        <h2 id="factors">価格が上がる要因</h2>
+
+        <div class="factor-card">
+          <h3>メーカーの経験レベル</h3>
+          <p class="muted">
+            初心者またはアマチュアメーカーは、約30%〜50%安く作ることがあります。            一方、高需要または国際的に有名なメーカーは、フルスーツで<strong>$8,000〜$15,000以上</strong>を請求することもあります。
+          </p>
+        </div>
+
+        <div class="factor-card">
+          <h3>キャラクターの複雑さ</h3>
+          <p class="muted">
+            色数、斑点、縞模様、角、翼、複雑な毛並みパターンが多いほど、縫製に時間がかかり、コストが増えます。
+          </p>
+        </div>
+
+        <div class="factor-card">
+          <h3>電子部品と機械的オプション</h3>
+          <p class="muted">
+            口元のファン、可動マンドル（動く口）、LEDライトアイ、着せ替え磁気まぶた、パフのライトアップなどは、追加パーツと配線が必要なため、コストが上がります。
+          </p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="budget-tips">
+        <h2 id="budget-tips">予算節約のヒント</h2>
+        <p class="muted">
+          ディジグリadeフルボディが高額の場合、まずパーシャルやプラントigradeから始めましょう。これらは複雑さが少なく、大幅にコストを抑えられます。
+        </p>
+        <p class="muted">
+          ポートフォリオをまだ作っている初心者アーティストを探すのも一つの方法です。品質を下げずに、比較的安く作ってくれることがあります。
+        </p>
+        <p class="muted">
+          ため込んで待機リストに入るのは普通です。ファーシートオーナーの多くは、注文する前に数ヶ月間お金を貯めています。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="quality-note">
+        <h2 id="quality-note">非常に安いスーツについて</h2>
+        <p class="muted">
+          非常に低価格のスーツを見つけた場合、本当に何が含まれるか確認するのは良いことです。非常に安いと、パーツ数が少ない、材料が安い、または職人品質が低い場合があります。
+        </p>
+        <p class="muted">
+          価格と品質のバランスが重要です。ファーシートは長く着て楽しむものです。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="final-thoughts">
+        <h2 id="final-thoughts">まとめ</h2>
+        <p class="muted">
+          ファーシートは大きな投資ですが、多くの人にとって価値があります。自分のキャラクターをコスプレや写真で着る経験は、唯一無二で思い出深いものです。
+        </p>
+        <p class="muted">
+          最も重要なのは、信頼できるアーティストを見つけ、注文前に合計コストを理解し、自分の予算に合ったスーツタイプを選ぶことです。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step">
+        <h2 id="next-step">キャラクターも予算ももう決まった？</h2>
+        <p class="muted">
+          キャラクターデザインが決まり、ファーシートの予算も揃ったなら、あとは良いメーカーを見つけるだけです。
+        </p>
+        <p>
+          <a class="cta-button" href="/jp/search.html">メーカー検索ページへ →</a>
+        </p>
+        <p class="small">
+          メイカーリストから、キャラクターを形作ってくれるアーティストを見つけましょう。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step-refine">
+        <h2 id="next-step-refine">キャラクターをまだ練りたい？</h2>
+        <p class="muted">
+          キャラクターデザインにまだ迷いがある、またはもっと良くしたい場合は、ゼロからファルソナを作る方法を学べます。
+        </p>
+        <p>
+          <a class="cta-button" href="/jp/fursonacreation.html">ファーソナ作成ガイドへ →</a>
+        </p>
+        <p class="small">
+          キャラクターコンセプトを理解すれば、スーツタイプと予算の選択をより良い判断ができます。
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"></site-sidebar>
+  <script src="scripts/bottom-bar.js" defer></script>
+</body>
+</html>

@@ -247,6 +247,119 @@
         }
     </style>
 
+    <style>
+        .no-maker-cta {
+            margin-top: 32px;
+            text-align: center;
+            padding: 24px 16px;
+        }
+        .no-maker-text {
+            margin: 0 0 16px 0;
+            font-size: 18px;
+            color: #0f1724;
+            font-weight: 600;
+        }
+        .pink-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #ff2b8a;
+            color: #fff;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(255, 43, 138, 0.3);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            cursor: pointer;
+        }
+        .pink-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 43, 138, 0.4);
+        }
+        @media (max-width:720px) {
+            .no-maker-text {
+                font-size: 15px;
+            }
+            .pink-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+        }
+        .no-maker-desc {
+            margin: 0;
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.5;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .confirm-popup {
+            position: fixed;
+            inset: 0;
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .confirm-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(2,6,23,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20000;
+            padding: 20px;
+        }
+        .confirm-dialog {
+            width: 100%;
+            max-width: 480px;
+            background: #fff0f6;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(2,6,23,0.35);
+            padding: 20px;
+            text-align: center;
+            color: #0f1724;
+        }
+        .confirm-dialog h3 {
+            margin: 0 0 14px 0;
+            font-size: 1.15rem;
+        }
+        .confirm-dialog p {
+            margin: 0 0 18px 0;
+            font-size: 0.95rem;
+        }
+        .confirm-dialog .pink-btn {
+            color: #fff;
+            text-decoration: none;
+        }
+        .confirm-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .btn-accept {
+            background: #ff2b8a;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn-cancel {
+            background: #e6e9ee;
+            color: #334155;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+
 
     <script type="module" src="/scripts/site-sidebar.js"></script>
 </head>
@@ -284,6 +397,12 @@
         </div>
 
         <div id="results" class="grid" aria-live="polite"></div>
+
+        <div class="no-maker-cta">
+            <p class="no-maker-text">お探しのメーカーが見つかりませんか？</p>
+            <p class="no-maker-desc">スタイル、予算、またはプロジェクトに合うメーカーが見つかりませんか？ご要望を教えていただければ、最適なクリエイターのご紹介が可能です。</p>
+            <button id="findMakerBtn" class="pink-btn" style="margin-top: 28px;">クリエイターを探す</button>
+        </div>
     </main>
 
     <script>
@@ -548,6 +667,20 @@
             document.getElementById('btnSearch').addEventListener('click', doSearch);
             document.getElementById('q').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
 
+            // Find Maker popup
+            document.getElementById('findMakerBtn').addEventListener('click', () => {
+                const popup = document.getElementById('findMakerPopup');
+                if (popup) popup.style.display = 'flex';
+            });
+            const popupBox = document.getElementById('findMakerPopup');
+            if (popupBox) {
+                popupBox.addEventListener('click', e => {
+                    if (e.target.classList.contains('confirm-overlay') || e.target.id === 'findMakerCancel') {
+                        popupBox.style.display = 'none';
+                    }
+                });
+            }
+
             loadMakers();
 
             initBottomBarWatcher();
@@ -615,6 +748,19 @@
             setTimeout(detectAndObserve, 1000);
         }
     </script>
+
+    <div id="findMakerPopup" class="confirm-popup" style="display:none;">
+        <div class="confirm-overlay">
+            <div class="confirm-dialog" role="dialog" aria-modal="true">
+                <h3>クリエイターを見つけましょう</h3>
+                <p class="find-maker-popup-text">@iwantafursuit公式のX DMにリダイレクトされます。「クリエイターを探して手伝ってください」と入力すると、最適なクリエイターをご紹介します。完全に無料で、ご安心ください。</p>
+                <div class="confirm-actions">
+                    <a href="https://twitter.com/messages/compose?recipient_id=1989883564847239169" class="btn-accept" target="_blank" rel="noopener noreferrer">DMを開く</a>
+                    <button class="btn-cancel" type="button" id="findMakerCancel">キャンセル</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="scripts/bottom-bar.js" defer></script>
 

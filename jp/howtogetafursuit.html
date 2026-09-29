@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ファーシートの commissioned | 完全ガイド</title>
+  <meta
+    name="description"
+    content="ファーシートのcommission方法：Xでメーカーのcommission状態を確認、reference sheetの準備、IwantaFursuitでメーカー探し、見積もりから配送までcommissionプロセス全体を理解しよう。"
+  />
+  <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/css/tutorials.css">
+
+  <style>
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      color: #0f172a;
+    }
+
+    main { display: block; width: 100%; }
+
+    .container {
+      max-width: var(--page-max-w);
+      margin: 36px auto;
+      padding: var(--page-pad);
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+      border: 1px solid rgba(15,23,42,0.04);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    h2 {
+      margin: 6px 0 8px 0;
+      font-size: 1.14rem;
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    ol {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    .notice {
+      display: inline-block;
+      padding: 10px 14px;
+      background: #fff8f0;
+      border-radius: 10px;
+      border: 1px solid rgba(255,43,138,0.08);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .alert {
+      border: 2px solid rgba(185,28,28,0.25);
+      background: linear-gradient(180deg, #fff5f5 0%, #fffafa 100%);
+    }
+
+    .alert h2 {
+      color: var(--red-alert);
+      text-align: center;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+  </style>
+
+  <script type="module" src="/scripts/site-sidebar.js"></script>
+
+</head>
+
+<body>
+  <main class="page-content tutorial-page" role="main" aria-labelledby="article-title">
+    <div class="container">
+      <article class="card" aria-describedby="article-desc">
+        <h1 id="article-title">ファーシートの commissioned 方法：完全ガイド</h1>
+
+        <p id="article-desc" class="lead">
+          ファーシートのcommissionは興奮するプロセスですが、単にメーカーにメッセージを送るだけではありません。このガイドでは、メーカーがcommissionを受け付けているかどうかの確認から、完成したsuitの受け取りまで、すべての手順を説明します。
+        </p>
+
+        <div class="notice">
+          このページは、ファーシートのcommissionが初めての方や、プロセスの仕組みを明確に理解したい方に向けて設計されています。
+        </div>
+      </article>
+
+      <section class="card" aria-labelledby="what-is-commission">
+        <h2 id="what-is-commission">1. ファーシートのcommissionとは？</h2>
+        <p class="muted">
+          ファーシートのcommission（注文）とは、クライアントが提供した仕様書やキャラクターに基づいて、メーカーがファーシートまたは個別のコンポーネントを制作するカスタムプロジェクトです。
+        </p>
+        <p class="muted">Commissionプロジェクトには以下が含まれます：</p>
+        <ul>
+          <li>ヘッド（Head）</li>
+          <li>パウル（Paws）</li>
+          <li>テール（Tail）</li>
+          <li>フェイツパウ（Feetpaws）</li>
+          <li>パーシャルスーツ</li>
+          <li>フルスーツ（Fullsuit）</li>
+          <li>追加アイテムとアクセサリー</li>
+        </ul>
+      </section>
+
+      <section class="card alert" aria-labelledby="check-x-first">
+        <h2 id="check-x-first">2. メーカーに連絡する前に</h2>
+        <p class="muted">
+          これはこのガイドで最も重要な部分です。メーカーに連絡する前に、必ず守るべき重要なルールが一つあります。
+        </p>
+        <p class="muted">
+          <strong>まず、メーカーが現在commissionを受け付けているかどうかを確認してください。</strong> ほとんどのファーシートのメーカーは、X（旧Twitter）に公開プロフィールを持っており、そこでcommissionが<strong>受付中（OPEN）</strong>か<strong>受付終了（CLOSED）</strong>かを明記しています。
+        </p>
+        <p class="muted">
+          メーカーがcommissionの<em>受付終了</em>を投稿しているのに、DMで見積もりを依頼すると、彼らにとって迷惑で不快なことになります。多くのメーカーは大きなフォロワー数を持っており、週に数百件のDMを受信しています。受付終了のメッセージでも、読むのにも応えるのにも時間がかかります。
+        </p>
+        <p class="muted">
+          メーカーのXプロフィールの説明欄には、この情報が通常記載されています。以下のような表記を探してください：
+        </p>
+        <ul>
+          <li>"Commissions: CLOSED"（受付終了）</li>
+          <li>"Commissions: OPEN"（受付中）</li>
+          <li>"Not accepting commissions at this time"（現在commissionを受け付けていません）</li>
+          <li>"DMs open for quotes"（見積もりのDMを受け付けています）</li>
+        </ul>
+        <p class="muted">
+          メーカーのXプロフィールやピン留め投稿でcommissionについて言及していない場合、一般にDMを送るのは問題ありません。不安な場合は、最新の投稿やストーリーでcommissionの告知がないか確認することもできます。
+        </p>
+        <p class="muted">
+          <strong>メーカーに連絡する前に、以下の準備をしておきましょう：</strong>
+        </p>
+        <ul>
+          <li>何をcommissionしたいかの明確な決定（ヘッド、パーシャル、フルスーツなど）</li>
+          <li>キャラクターのreference sheet</li>
+          <li>おおよその予算感</li>
+          <li>希望するアートのスタイルまたは構造の好み</li>
+          <li>期限（あれば）</li>
+          <li>特別な機能や要件のリスト</li>
+        </ul>
+        <p class="muted">
+          メーカーは正確な見積もりを出し、プロジェクトを引き受けることができるか判断するために、十分な情報を必要とします。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="prepare-ref">
+        <h2 id="prepare-ref">3. Reference Sheetの準備</h2>
+        <p class="muted">
+          Reference sheetには以下の要素を明確に表示する必要があります：
+        </p>
+        <ul>
+          <li>正面図</li>
+          <li>背面図</li>
+          <li>横断面（必要な場合）</li>
+          <li>カラーパレット</li>
+          <li>マーク</li>
+          <li>目のデザイン</li>
+          <li>テールのデザイン</li>
+          <li>髪またはたてがみ</li>
+          <li>特別な機能</li>
+          <li>一枚の画像では解釈しにくい詳細</li>
+        </ul>
+        <p class="muted">
+          一部のメーカーは、複雑なデザインのために、シェーディングや追加のビューなしのreference sheetを特に求めています。
+        </p>
+        <p class="muted">
+          <strong>重要な注意点：</strong> どのメーカーも同じreference sheetで作業できるとは限りません。Commissionプロジェクトの前に、それぞれのメーカーの具体的な要件を必ず確認してください。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="find-maker">
+        <h2 id="find-maker">4. 適切なメーカーを見つける</h2>
+        <p class="muted">
+          メーカーを探す際には、以下の要素を考慮してください：
+        </p>
+        <ul>
+          <li>アートのスタイルと美学</li>
+          <li>専門とする種（Species）</li>
+          <li>過去の作品のポートフォリオ</li>
+          <li>価格体系</li>
+          <li>現在の受託状況</li>
+          <li>地理的な位置</li>
+          <li>予想される制作期間</li>
+          <li>連絡方法の好み</li>
+          <li>利用条件（Terms of Service）</li>
+        </ul>
+        <p class="muted">
+          このウェブサイトの<strong>Search a Makerページ</strong>で、利用可能なファーシートのメーカーを閲覧できます。ディレクトリでは、スタイル、種、その他の条件でメーカーを検索・フィルターして、キャラクターに最も合うものを見つけることができます。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="check-terms">
+        <h2 id="check-terms">5. 注文前に利用条件を確認する</h2>
+        <p class="muted">
+          支払いを行う前に、以下のことを完全に理解してください：
+        </p>
+        <ul>
+          <li>返金ポリシー</li>
+          <li>デポジットの要件</li>
+          <li>残りの支払いスケジュール</li>
+          <li>期限と制作期間</li>
+          <li>修正・変更ポリシー</li>
+          <li>Work in Progress（WIP）ドキュメント</li>
+          <li>配送手続き</li>
+          <li>キャンセル条件</li>
+          <li>クライアントによる遅延に関するポリシー</li>
+          <li>メーカーによる遅延に関するポリシー</li>
+        </ul>
+        <p class="muted">
+          要件はメーカーによって大きく異なります。一部のメーカーは制作開始前に利用条件の正式な承認を要求しますが、他のメーカーはデポジットまたはキュー（待ち行列）ベースのシステムで運営しています。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="contact-maker">
+        <h2 id="contact-maker">6. メーカーに連絡して見積もりを依頼</h2>
+        <p class="muted">
+          最初のメッセージには以下の情報を含める必要があります：
+        </p>
+        <p class="muted">
+          <em>"こんにちは。キャラクターに基づいて[パーシャル/フルスーツ]をcommissionしたいと思っています。reference sheetを添付します。[スタイル]のsuitを探しており、予算は約[金額]です。現在commissionは受付中ですか？見積もり価格と期間を教えていただけますか？"</em>
+        </p>
+        <p class="muted">
+          さらに、以下を含めてください：
+        </p>
+        <ul>
+          <li>Commissionの種類</li>
+          <li>Reference sheet</li>
+          <li>希望するスタイル</li>
+          <li>特別な機能</li>
+          <li>予算（共有して良い場合）</li>
+          <li>期限（あれば）</li>
+          <li>測定や支払い計画に関する質問</li>
+        </ul>
+        <p class="muted">
+          メーカーのソーシャルメディアリンクや連絡先情報は、IwantaFursuitディレクトリのプロフィールページから確認できます。このウェブサイトは現在、X/Twitter、Instagramなどのメーカーのソーシャルリンクを提供しており、そこから直接連絡できます。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="discuss-price">
+        <h2 id="discuss-price">7. 価格と期間について話し合う</h2>
+        <p class="muted">
+          最終価格は以下の要因に依存する場合があります：
+        </p>
+        <ul>
+          <li>デザインの複雑さ</li>
+          <li>必要な材料</li>
+          <li> suitの種類</li>
+          <li>アートのスタイル</li>
+          <li>追加オプション</li>
+          <li>メーカーの価格体系</li>
+        </ul>
+        <p class="muted">
+          初期見積もりが最終価格とは限らないことに注意してください。メーカーは最終コストを確認する前に、完全なデザインをレビューする必要があります。
+        </p>
+        <p class="muted">
+          制作期間について、<strong>キュー時間（待ち行列時間）</strong>と<strong>制作時間</strong>を区別することが重要です。数ヶ月の期間が提示されていても、それは制作期間のみを指している場合があり、制作開始前に別のキューが存在する場合もあります。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="measurements">
+        <h2 id="measurements">8. 測定とダクトテープダミー（DTD）</h2>
+        <p class="muted">
+          メーカーは、プロジェクトに必要な測定を指定します。
+        </p>
+        <p class="muted">
+          一部のメーカーは、特定のコンポーネントやフルスーツにダクトテープダミー（DTD）を要求する場合があります。他のメーカーは測定または代替手法のみで作業します。DTDの要件は普遍的ではなく、特定のメーカーとプロジェクトに依存します。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="approve-design">
+        <h2 id="approve-design">9. デザインの承認と支払い</h2>
+        <p class="muted">
+          典型的なプロセスは以下の順序に従います：
+        </p>
+        <p class="muted" style="text-align:center; font-weight:600; font-size:1.05rem; color:var(--color-normal);">
+          見積もり → 利用条件の承認 → デポジットまたは支払い → デザイン承認 → 制作
+        </p>
+        <p class="muted">
+          ただし、すべてのメーカーが独自のプロセスで運営しています。一部のメーカーは段階的な支払い付きのデポジットを利用しますが、他のメーカーは異なる支払い構造を採用しています。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="during-production">
+        <h2 id="during-production">10. 制作中</h2>
+        <p class="muted">
+          Work in Progress（WIP）ドキュメントは、commissionプロセスの標準的な機能です。WIPにより、クライアントは進行状況をモニターし、フィードバックを提供できます。
+        </p>
+        <p class="muted">
+          WIPには以下の写真が含まれる場合があります：
+        </p>
+        <ul>
+          <li>基本構造</li>
+          <li>フォーム（スポンジ）の構造</li>
+          <li>目の取り付け</li>
+          <li>ファー（毛皮）の貼付</li>
+          <li>ボディの組み立て</li>
+          <li>最終仕上げのディテール</li>
+        </ul>
+        <p class="muted">
+          メーカーが修正の機会を提供している場合、明確かつ適切なタイミングでのフィードバックは、制作の後期段階の問題を防止できます。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="final-approval">
+        <h2 id="final-approval">11. 最終承認と配送</h2>
+        <p class="muted">
+          配送の前に、以下の手順を完了する必要があります：
+        </p>
+        <ul>
+          <li>最終写真の確認</li>
+          <li>すべてのディテールの確認</li>
+          <li>フィット感とサイズの確認</li>
+          <li>残りの支払いの完了</li>
+          <li>配送先の確認</li>
+          <li>追跡情報と配送保険の確認</li>
+        </ul>
+        <p class="muted">
+          到着時：
+        </p>
+        <p class="muted">
+          配送されたsuitを点検してください。配送による損害が発生した場合は、直ちに記録し、問題が確認された場合は、遅延なくメーカーまたは配送業者に連絡してください。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="checklist">
+        <h2 id="checklist">Commissionチェックリスト</h2>
+
+        <p class="muted" style="font-weight:600;">メーカーに連絡する前に：</p>
+        <ul>
+          <li>Reference sheetの準備完了</li>
+          <li>Commission種類を選択</li>
+          <li>予算を検討</li>
+          <li>希望スタイルを特定</li>
+          <li>特別な機能をリスト化</li>
+          <li>期限を考慮</li>
+        </ul>
+
+        <p class="muted" style="font-weight:600;">支払いの前に：</p>
+        <ul>
+          <li>利用条件をレビュー</li>
+          <li>総価格を理解</li>
+          <li>支払いスケジュールを理解</li>
+          <li>推定期間を理解</li>
+          <li>返金・キャンセルポリシーを理解</li>
+          <li>必要な測定を特定</li>
+        </ul>
+
+        <p class="muted" style="font-weight:600;">制作中：</p>
+        <ul>
+          <li>測定値を提供</li>
+          <li>DTDを必要に応じて提供</li>
+          <li>WIPを確認</li>
+          <li>変更を明確に伝達</li>
+          <li>最終デザインを承認</li>
+        </ul>
+
+        <p class="muted" style="font-weight:600;">配送前に：</p>
+        <ul>
+          <li>最終支払い完了</li>
+          <li>配送先確認</li>
+          <li>追跡情報を受信</li>
+          <li>到着時にsuitを点検</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="finding-maker">
+        <h2 id="finding-maker">あなたのメーカーを見つける</h2>
+        <p class="muted">
+          Commissionプロセスを開始する前に、利用可能なメーカーを探索したい場合があります。
+        </p>
+        <p class="muted">
+          ファーシートのメーカーをお探しですか？<strong>IwantaFursuit</strong>で、スタイル、種、その他の条件に基づいて利用可能なメーカーを探索してください。ディレクトリには、各メーカーのソーシャルメディアプロフィールへのリンクが提供されており、Xでcommission状態を確認し、直接連絡できます。
+        </p>
+        <p>
+          <a class="cta-button" href="/search.html">メーカーを探索 →</a>
+        </p>
+        <p class="small">
+          Commissionプロセスを理解したので、IwantaFursuitディレクトリを探索し、あなたのプロジェクトに合わせたスタイルと要件を持つメーカーを特定しましょう。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-steps">
+        <h2 id="next-steps">もっと学びたい？</h2>
+        <p class="muted">
+          ファーリーファンの世界が初めての方や、キャラクターのコンセプトをまだ構築中の方なら、次のステップはファーリーとは何か、そして自分自身のファーソナを作成する方法を理解することです。
+        </p>
+        <p>
+          <a class="cta-button" href="whatisafurry.html">ファーリーとは？ →</a>
+          &nbsp;&nbsp;
+          <a class="cta-button" href="fursonacreation.html">ファーソナを作成する →</a>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"></site-sidebar>
+  <script src="scripts/bottom-bar.js" defer></script>
+</body>
+</html>

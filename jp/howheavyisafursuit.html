@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ファーシートはどれくらい重い？ | シンプルガイド</title>
+  <meta
+    name="description"
+    content="ファーシートの重さ、スーツタイプ・パーツごとの重量範囲、重量を増やす材料、電子部品、そして汗が重量に与える影響について学びます。"
+  />
+  <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/css/tutorials.css">
+
+
+  <style>
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      color: #0f172a;
+    }
+
+
+    main { display: block; width: 100%; }
+
+    .container {
+      max-width: var(--page-max-w);
+      margin: 36px auto;
+      padding: var(--page-pad);
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+      border: 1px solid rgba(15,23,42,0.04);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    h2 {
+      margin: 6px 0 8px 0;
+      font-size: 1.14rem;
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    ol {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    .notice {
+      display: inline-block;
+      padding: 10px 14px;
+      background: #fffbfb;
+      border-radius: 10px;
+      border: 1px solid rgba(255,43,138,0.08);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .alert {
+      border: 2px solid rgba(185,28,28,0.25);
+      background: linear-gradient(180deg, #fff5f5 0%, #fffafa 100%);
+    }
+
+    .alert h2 {
+      color: var(--red-alert);
+      text-align: center;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .price-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 0.95rem;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 10px 12px;
+      border: 1px solid rgba(15,23,42,0.08);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .price-table th {
+      background: #ffdfee;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .price-table tr:nth-child(even) {
+      background: #fff9fb;
+    }
+
+    .price-table .price-range {
+      font-weight: 700;
+      white-space: nowrap;
+      color: var(--accent);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -22px;
+      padding: 0 22px;
+    }
+
+    @media (max-width: 640px) {
+      .price-table th,
+      .price-table td {
+        padding: 8px 6px;
+        font-size: 0.85rem;
+      }
+    }
+
+    .factor-card {
+      background: #fff9fb;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,43,138,0.06);
+    }
+
+    .factor-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+  </style>
+
+  <script type="module" src="/scripts/site-sidebar.js"></script>
+
+</head>
+
+<body>
+  <main class="page-content tutorial-page" role="main" aria-labelledby="article-title">
+    <div class="container">
+      <article class="card" aria-describedby="article-desc">
+        <h1 id="article-title">ファーシートの重さ</h1>
+
+        <p id="article-desc" class="lead">
+          完全なファーシートの重さは通常 4kg～8kg ですが、正確な重さはスーツの大きさ、デザイン、仕様に左右されます。ファーシートの重さを知ることで、コンベンションでの準備や快適さの計画、 commissioned 前に何を期待すべきかが分かります。
+        </p>
+
+        <div class="notice">
+          このページでは、パーシャルから複雑なディギグレードまで、重量範囲をシンプルに解説します。
+        </div>
+      </article>
+
+      <section class="card" aria-labelledby="weight-by-suit">
+        <h2 id="weight-by-suit">スーツタイプ別の重さ</h2>
+        <p class="muted">
+          フォーシートの総重量は、着用するスーツのタイプに大きく依存します。代表的な範囲は以下の通りです。
+        </p>
+
+        <div class="table-wrapper">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>スーツタイプ</th>
+                <th>重量範囲</th>
+                <th>通常含まれるもの</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>パーシャル</td>
+                <td class="price-range">2kg – 4kg</td>
+                <td>ヘッド、パックス、フィートパックス、テール。ボディスーツは含まれません。</td>
+              </tr>
+              <tr>
+                <td>標準フルセット</td>
+                <td class="price-range">4kg – 7kg</td>
+                <td>直線脚（プランティグレード）の全身スーツ。</td>
+              </tr>
+              <tr>
+                <td>ディギグレード / 大型フルセット</td>
+                <td class="price-range">7kg – 10kg 以上</td>
+                <td>屈曲脚（ディギグレード）、大きな hips、体積を再現するための厚いパディング付きフルセット。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="muted" style="margin-top: 14px;">
+          ディギグレードスーツは、太ももやふくらはぎの体積を動物の曲がった脚に見せるために厚いパッドやポリエステル繊維を多用するため、重量が大幅に増えます。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="piece-weights">
+        <h2 id="piece-weights">パーツ別の重量</h2>
+        <p class="muted">
+          フォーシートの重量はパーツごとに寄与します。各パーツの重量目安は以下の通りです。
+        </p>
+
+        <div class="table-wrapper">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th>パーツ</th>
+                <th>重量目安</th>
+                <th>主な素材</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ヘッド</td>
+                <td class="price-range">0.8kg – 2kg</td>
+                <td>ポリウレタンフォーム / 3Dプリント樹脂、合成毛皮、メッシュアイ、裏打ちマウス。</td>
+              </tr>
+              <tr>
+                <td>ボディ（ボディスーツ）</td>
+                <td class="price-range">2.5kg – 4.5kg</td>
+                <td>高密度ラグシーシャッグ、裏地、脚・腕のパディング。</td>
+              </tr>
+              <tr>
+                <td>テール</td>
+                <td class="price-range">0.3kg – 2kg</td>
+                <td>パッド繊維。大型テールは 4～5kg に達することもあります。</td>
+              </tr>
+              <tr>
+                <td>フィートパックス＆パックス</td>
+                <td class="price-range">0.8kg – 1.5kg</td>
+                <td>スニーカーベース、EVAゴムソール、フォーム、合成毛皮。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="factors-weight">
+        <h2 id="factors-weight">重量に大きく影響する要素</h2>
+
+        <div class="factor-card">
+          <h3>パディング・中材</h3>
+          <p class="muted">
+            プランティグレード（人間のように直線脚）はパッドが少なく軽量です。一方、ディギグレードは厚いフォーム構造を含み、重量が増え、熱もこもりやすくなります。
+          </p>
+        </div>
+
+        <div class="factor-card">
+          <h3>合成毛皮のタイプ</h3>
+          <p class="muted">
+            密度が高く毛が長い（ロングパイル）合成毛皮は、ミンキーやフリースなどの短い毛布よりも重さが増します。
+          </p>
+        </div>
+
+        <div class="factor-card">
+          <h3>電子部品・アクセサリー</h3>
+          <p class="muted">
+            ヘッドファン、パワーバンク、LED 照明、モーター付きテールなどを追加すると、スーツの重量に 0.5kg～1.5kg が直接加算されます。
+          </p>
+        </div>
+
+        <div class="factor-card">
+          <h3>湿度（汗）</h3>
+          <p class="muted">
+            着用中にスーツは着用者の汗を吸収します。連続使用すると、0.5kg～1.5kg の水分で重量が増えることがあります。
+          </p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="practical-tips">
+        <h2 id="practical-tips">実用的なアドバイス</h2>
+
+        <ul>
+          <li>ディギグレードフルセットを長時間着用する場合、休憩を計画してください。重く、熱をこもらせやすいためです。</li>
+          <li>より軽量なオプションが欲しい場合、パーシャルを検討するとよいでしょう。</li>
+          <li>大型テールや電子部品が多いスーツは、同じ素材でも明らかに重くなります。</li>
+          <li>使用後は汗による吸収で、スーツが明らかに重く感じるようになります。</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="final-thoughts">
+        <h2 id="final-thoughts">まとめ</h2>
+        <p class="muted">
+          フォーシートは重いですが、着用を前提に作られています。多くの着用者は時間とともに慣れ、コンベンションやイベントでの過ごし方を学んでいきます。
+        </p>
+        <p class="muted">
+          重さを知ることで、適切なスーツタイプを選べ、長時間イベントに備え、 commissioned 後に何を期待すべきかが分かります。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step">
+        <h2 id="next-step">重量が分かったら、次に進む</h2>
+        <p class="muted">
+          キャラクターのデザインが分かり、スーツの重量も分かっているなら、それを作ってくれるクリエイターを探せばよいでしょう。
+        </p>
+        <p>
+          <a class="cta-button" href="/jp/search.html">クリエイターを検索する →</a>
+        </p>
+        <p class="small">
+          クリエイター一覧を使って、あなたのキャラクターに命を吹き込んでくれるアーティストを見つけましょう。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step-refine">
+        <h2 id="next-step-refine">ファーソナをさらに磨きたい？</h2>
+        <p class="muted">
+          キャラクターデザインについてまだ迷っている場合や、より良くしたい場合は、ゼロから堅牢なファーソナを作る方法を学べます。
+        </p>
+        <p>
+          <a class="cta-button" href="/jp/fursonacreation.html">ファーソナ作成ガイドへ →</a>
+        </p>
+        <p class="small">
+          キャラクターのコンセプトを理解すると、スーツのタイプや重さの選択でより良い判断が下せます。
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"></site-sidebar>
+  <script src="scripts/bottom-bar.js" defer></script>
+</body>
+</html>

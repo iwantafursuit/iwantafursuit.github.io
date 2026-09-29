@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>パーシャルvsフル：何が違うの？</title>
+  <meta
+    name="description"
+    content="パーシャルとフルファーシートの違い、それぞれを選ぶべきタイミング、快適性のヒント、自分に合ったタイプはどうやって選ぶかを解説します。"
+  />
+  <link rel="icon" type="image/png" href="/assets/favicon32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/assets/favicon16x16.png" sizes="16x16" />
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="stylesheet" href="/css/tutorials.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #fff;
+      color: #0f172a;
+    }
+
+    main { display: block; width: 100%; }
+
+    .container {
+      max-width: var(--page-max-w);
+      margin: 36px auto;
+      padding: var(--page-pad);
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+      border: 1px solid rgba(15,23,42,0.04);
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    h2 {
+      margin: 6px 0 8px 0;
+      font-size: 1.14rem;
+    }
+
+    p.lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    ul {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    ol {
+      margin: 6px 0 12px 20px;
+      color: var(--muted);
+    }
+
+    .notice {
+      display: inline-block;
+      padding: 10px 14px;
+      background: #fffbfb;
+      border-radius: 10px;
+      border: 1px solid rgba(255,43,138,0.08);
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 640px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .comparison-card {
+        padding: 14px;
+      }
+
+      .comparison-card h3 {
+        font-size: 0.98rem;
+      }
+
+      .comparison-card p,
+      .comparison-card ul {
+        font-size: 0.92rem;
+      }
+
+      .tag {
+        padding: 4px 8px;
+        font-size: 0.78rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 16px 16px;
+      }
+
+      .comparison-card {
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .comparison-card h3 {
+        font-size: 0.94rem;
+      }
+
+      .comparison-card p,
+      .comparison-card ul {
+        font-size: 0.88rem;
+      }
+
+      .tag {
+        padding: 3px 7px;
+        font-size: 0.74rem;
+      }
+
+      .divider-line {
+        margin: 3px 0;
+      }
+    }
+
+    .comparison-card {
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid rgba(15,23,42,0.06);
+    }
+
+    .comparison-card.partial {
+      background: linear-gradient(180deg, #fff5ff 0%, #fff9fb 100%);
+      border-color: rgba(255,43,138,0.12);
+    }
+
+    .comparison-card.full {
+      background: linear-gradient(180deg, #f0f7ff 0%, #f5faff 100%);
+      border-color: rgba(59,130,246,0.12);
+    }
+
+    .comparison-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.05rem;
+    }
+
+    .comparison-card.partial h3 {
+      color: var(--accent);
+    }
+
+    .comparison-card.full h3 {
+      color: #2563eb;
+    }
+
+    .comparison-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .comparison-card ul {
+      margin-top: 8px;
+    }
+
+    .divider-line {
+      grid-column: 1 / -1;
+      border: none;
+      border-top: 1px solid rgba(15,23,42,0.06);
+      margin: 4px 0;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .tag.partial {
+      background: #fff0f6;
+      color: #d91a6e;
+    }
+
+    .tag.full {
+      background: #eef2ff;
+      color: #4338ca;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .small {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .faq-item {
+      margin-bottom: 16px;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 6px 0;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+  </style>
+
+  <script type="module" src="/scripts/site-sidebar.js"></script>
+
+</head>
+
+<body>
+  <main class="page-content tutorial-page" role="main" aria-labelledby="article-title">
+    <div class="container">
+      <article class="card" aria-describedby="article-desc">
+        <h1 id="article-title">パーシャルvsフル：何が違うの？</h1>
+
+        <p id="article-desc" class="lead">
+          ファーシートを作る計画を立てるとき、最初にぶつかる疑問は「パーシャルとフル、どちらを選ぶべきか」です。答えは、あなたの予算、快適さのレベル、そしてどの用途で着るかによって変わります。この記事では、両方の選択肢を整理しているので、迷わず決められるようになります。
+        </p>
+
+        <div class="notice">
+          <strong>パーシャル</strong>は主な見せ場（頭、前足、尻尾）を覆い、<strong>フル</strong>は脚や腕も含めた全身を覆います。それぞれにメリットがあります。
+        </div>
+      </article>
+
+      <section class="card" aria-labelledby="partial-suit">
+        <h2 id="partial-suit">パーシャル（半体）ファーシート</h2>
+        <p class="muted">
+          パーシャルは、fursonaの姿で最も目に見える部分をカバーします。通常は頭、前足、尻尾を含み、腕や脚のスリーブを含むこともあります。
+        </p>
+
+        <div class="comparison-card partial">
+          <h3>一般的なパーシャルに含まれるもの：</h3>
+          <ul>
+            <li>造形ヘッド（2Dまたは3D）</li>
+            <li>前足（手）</li>
+            <li>尻尾</li>
+            <li>腕スリーブまたは脚スリーブ（オプション）</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>パーシャルがおすすめな人：</h3>
+          <ul>
+            <li>低価格で始めたい（パーシャルはだいたい$1,500から）</li>
+            <li>室内またはエアコンの効いた空間で着る予定がある</li>
+            <li>ファーシートの初心者で、自分に合うか不安な人</li>
+            <li>写真撮影や短いコンベンション訪問向けにパーシャルを使いたい</li>
+            <li>予算が伸びたら後から足せるようにしたい</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>メリット：</h3>
+          <ul>
+            <li>安価</li>
+            <li>着やすく動きやすい</li>
+            <li>通気性がよく、熱がこもりにくい</li>
+            <li>後からピースを追加して拡張できる</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card partial" style="margin-top: 12px;">
+          <h3>デメリット：</h3>
+          <ul>
+            <li>キャラクターの見た目としては不完全</li>
+            <li>長時間のイベントや野外コンベンションには不向き</li>
+            <li>全身ショットでは没入感が劣る</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="full-suit">
+        <h2 id="full-suit">フル（全身）ファーシート</h2>
+        <p class="muted">
+          フルは全身を覆います。頭、前足、footpaws（後足）、尻尾、腕スリーブ、脚スリーブがすべて揃います。キャラクターに完全没入する体験が得られます。
+        </p>
+
+        <div class="comparison-card full">
+          <h3>一般的なフルに含まれるもの：</h3>
+          <ul>
+            <li>造形ヘッド（2Dまたは3D）</li>
+            <li>前足（手）</li>
+            <li>footpaws（後足）</li>
+            <li>尻尾</li>
+            <li>腕スリーブと脚スリーブ</li>
+            <li>全身のファー素材</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>フルがおすすめな人：</h3>
+          <ul>
+            <li>キャラクターの完全没入体験が欲しい</li>
+            <li>コンベンションに定期的に参加する予定がある</li>
+            <li>キャラクターの隙がない全身写真や動画が欲しい</li>
+            <li>ダンスやパフォーマンス、長時間着用を楽しみたい</li>
+            <li>予算と時間のある大きなプロジェクトに取り組みたい</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>メリット：</h3>
+          <ul>
+            <li>キャラクターとしての完全没入</li>
+            <li>全身写真や動画に最適</li>
+            <li>換気さえしっかりすれば長時間着用も快適</li>
+            <li>パフォーマンス、ダンス、イベントでの幅が広い</li>
+          </ul>
+        </div>
+
+        <div class="comparison-card full" style="margin-top: 12px;">
+          <h3>デメリット：</h3>
+          <ul>
+            <li>はるかに高額（フルディジグリは$9,000を超えることも）</li>
+            <li>重く、体力的にきつい</li>
+            <li>メンテナンスと保管スペースがより必要</li>
+            <li> commissionsの待ち時間が長い</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="comparison-summary">
+        <h2 id="comparison-summary">かんたん比較まとめ</h2>
+
+        <div class="comparison-grid">
+          <div class="comparison-card partial">
+            <h3>パーシャル</h3>
+            <p>低コスト。着やすい。始めやすい。</p>
+            <div class="tag-list">
+              <span class="tag partial">コスト抑えられる</span>
+              <span class="tag partial">初心者向け</span>
+              <span class="tag partial">後から追加可能</span>
+            </div>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>フル</h3>
+            <p>完全な見た目。イベント向き。没入感抜群。</p>
+            <div class="tag-list">
+              <span class="tag full">完全没入</span>
+              <span class="tag full">プロ級</span>
+              <span class="tag full">用途が広い</span>
+            </div>
+          </div>
+
+          <hr class="divider-line">
+
+          <div class="comparison-card partial">
+            <h3>相場価格</h3>
+            <p class="muted">$1,500～$4,500（ピースと複雑さによる）</p>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>相場価格</h3>
+            <p class="muted">$3,000～$9,000+（プラントigradeかディジグリadeかによる）</p>
+          </div>
+
+          <hr class="divider-line">
+
+          <div class="comparison-card partial">
+            <h3>着用時間</h3>
+            <p class="muted">1回に30～60分程度。</p>
+          </div>
+
+          <div class="comparison-card full">
+            <h3>着用時間</h3>
+            <p class="muted">適切な休憩があれば1.5～2時間に届く。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="decision-guide">
+        <h2 id="decision-guide">どちらを選ぶべきか判断する方法</h2>
+        <p class="muted">
+          正解はありませんが、自分に以下のような問いかけてみましょう：
+        </p>
+
+        <ol>
+          <li>予算はいくらくらいあるか？</li>
+          <li>どのくらいの頻度で着る予定か？</li>
+          <li>どこで着るか（コンベンション、写真撮影、自宅で）？</li>
+          <li>はじめての人か、過去に着た経験があるか？</li>
+          <li>長期的なプロジェクトに投資したいか？</li>
+        </ol>
+
+        <p class="muted">
+          予算が限られている、ファーシートの経験がない、あるいは試しに始めたい、という場合、パーシャルがスタート地点として最適です。後からピースを追加することはいつでも可能です。
+        </p>
+
+        <p class="muted">
+          すでにファーシートに夢中になっていて、しっかりした予算があり、完全没入したいなら、フルが正解です。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="faq">
+        <h2 id="faq">よくある質問</h2>
+
+        <div class="faq-item">
+          <h3>パーシャルからフルにアップグレードできますか？</h3>
+          <p class="muted">
+            できます。まずパーシャルを買って、後にfootpaws、脚スリーブ、腕スリーブを追加する人は多いです。アップグレードパッケージを扱っているアーティストもいます。
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>フルはパーシャルより必ず重いのか？</h3>
+          <p class="muted">
+            必ずしもそうとは限りません。プラントigradeのフルはディジグリadeのフルより一般的に軽量です。しかし、フルはピース数が多い分、体力的にきついです。
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>フルがないとファーシートは楽しめないのか？</h3>
+          <p class="muted">
+            絶対にそんなことはありません。パーシャルは毎日何千人ものfurriesに愛されています。パーシャルでも、最も目立つ部分は完全にカバーされています。
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <h3>写真ではどちらの方が映えるか？</h3>
+          <p class="muted">
+            フルの方が全身のイメージは充実しますが、パーシャルでも多くの写真、特にアップや半身ショットでは非常に美しく見えます。
+          </p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="final-thoughts">
+        <h2 id="final-thoughts">最後に</h2>
+        <p class="muted">
+          パーシャルもフルも、fursonaを形にする素晴らしい方法です。最も良い選択は、あなたの予算、経験、目標に合う方です。
+        </p>
+        <p class="muted">
+          急いで決める必要はありません。多くのfurriesはパーシャルから始めて、その魅力にはまり、後にフルに投資しています。その道筋は完全に普通のことです。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step">
+        <h2 id="next-step">どんなタイプか決まっている？</h2>
+        <p class="muted">
+          パーシャルかフルか決まり、費用を知りたい場合は、価格ガイドをご覧ください。
+        </p>
+        <p>
+          <a class="cta-button" href="/jp/howmuchdoesafursuitcost.html">ファーシートの値段ガイド →</a>
+        </p>
+        <p class="small">
+          ピースごとの価格を詳しく解説し、予算を計画するのに役立ちます。
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next-step-refine">
+        <h2 id="next-step-refine">ファーシートを発注する準備はできましたか？</h2>
+        <p class="muted">
+          どんなタイプのシートが欲しいか決まり、あなたのキャラクターを commissions する準備ができたら、makerリストを使って、あなたのプロジェクトにぴったりのアーティストを見つけましょう。
+        </p>
+        <p>
+          <a class="cta-button" href="/jp/search.html">クリエーターを検索 →</a>
+        </p>
+        <p class="small">
+          スタイル、価格帯、空き状況でアーティストを絞り込んで検索できます。
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0"></site-sidebar>
+  <script src="scripts/bottom-bar.js" defer></script>
+</body>
+</html>
