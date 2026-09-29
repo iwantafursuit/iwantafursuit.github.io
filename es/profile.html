@@ -1,4 +1,4 @@
-Ôªø<!doctype html>
+<!doctype html>
 <html lang="es">
 <head>
 
@@ -340,6 +340,7 @@
     </style>
 
     <script type="module" src="/scripts/site-sidebar.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8232569132678992" crossorigin="anonymous"></script>
 </head>
 <body>
     <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
@@ -355,7 +356,7 @@
 
     <div class="page-wrap">
         <main class="content">
-            <a href="search.html" class="back-link">‚Üê Volver</a>
+            <a href="search.html" class="back-link">? Volver</a>
             <div id="content"></div>
         </main>
     </div>
@@ -504,8 +505,8 @@
                 contentEl.innerHTML = `
                     <div class="error-container">
                         <h2>ID de Maker no especificado</h2>
-                        <p>Por favor, aseg√∫rate de que la direcci√≥n web es correcta y contiene la identificaci√≥n del Fursuit Maker que deseas buscar.</p>
-                        <p>Este sitio web es un directorio dedicado a la promoci√≥n de Fursuit Makers talentosos de todo el mundo, ayudando a los entusiastas a encontrar el artista perfecto para su proyecto. Puedes volver a la p√°gina principal del directorio para buscar a otros creadores.</p>
+                        <p>Por favor, aseg˙rate de que la direcciÛn web es correcta y contiene la identificaciÛn del Fursuit Maker que deseas buscar.</p>
+                        <p>Este sitio web es un directorio dedicado a la promociÛn de Fursuit Makers talentosos de todo el mundo, ayudando a los entusiastas a encontrar el artista perfecto para su proyecto. Puedes volver a la p·gina principal del directorio para buscar a otros creadores.</p>
                     </div>
                 `;
                             return;
@@ -520,8 +521,8 @@
                     contentEl.innerHTML = `
                         <div class="error-container">
                             <h2>Maker no encontrado</h2>
-                            <p>Lamentamos informarte que el perfil de creador que est√°s buscando no se encuentra en nuestro directorio o ha sido retirado recientemente.</p>
-                            <p>Nuestra base de datos se actualiza constantemente para ofrecer la informaci√≥n m√°s precisa sobre los Fursuit Makers de la comunidad. Si crees que esto es un error, por favor, ponte en contacto con nosotros.</p>
+                            <p>Lamentamos informarte que el perfil de creador que est·s buscando no se encuentra en nuestro directorio o ha sido retirado recientemente.</p>
+                            <p>Nuestra base de datos se actualiza constantemente para ofrecer la informaciÛn m·s precisa sobre los Fursuit Makers de la comunidad. Si crees que esto es un error, por favor, ponte en contacto con nosotros.</p>
                             <p>Mientras tanto, te invitamos a explorar la lista de otros makers destacados. Recuerda que este sitio es una plataforma para conectar a fans con artistas, promoviendo la diversidad y la calidad en el arte del fursuiting.</p>
                         </div>
                     `;
@@ -537,7 +538,7 @@
                     for (const [key, url] of Object.entries(m.contact)) {
                         contactHtml += `<div class="contact-item"><span class="contact-key">${capitalize(key)}:</span><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)}</a></div>`;
                     }
-                } else contactHtml = '<p>No hay informaci√≥n de contacto.</p>';
+                } else contactHtml = '<p>No hay informaciÛn de contacto.</p>';
 
                 const thumbsHtml = currentImages.map((img, idx) =>
                     `<img src="${img}" class="thumb ${idx === 0 ? 'active' : ''}" onclick="setIndex(${idx})" loading="lazy" alt="Miniatura ${idx + 1}">`
@@ -545,7 +546,7 @@
 
                 contentEl.innerHTML = `
                                       <h1>${escapeHtml(m.name)}</h1>
-                                      <div class="location">üìç <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
+                                      <div class="location">?? <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
                                       <p class="short-bio">${escapeHtml(m.bio)}</p>
                                       ${currentImages.length ? `
                                         <div class="gallery-container">
@@ -560,16 +561,16 @@
                                           </div>
                                           <div class="thumbnails" role="list">${thumbsHtml}</div>
                                         </div>
-                                      ` : '<p>Sin im√°genes disponibles.</p>'}
-                                      <h3>Informaci√≥n</h3>
+                                      ` : '<p>Sin im·genes disponibles.</p>'}
+                                      <h3>InformaciÛn</h3>
                                       <div class="long-info">${escapeHtml(m.info)}</div>
                                       <h3>Contacto</h3>
                                       <div class="contact-section">${contactHtml}</div>
                                       <div class="editor-notes">
                                         <hr>
                                         <h4>Acerca de los Fursuit Makers y este Directorio</h4>
-                                        <p>Esta p√°gina est√° dedicada a mostrar el trabajo y la informaci√≥n de contacto de **${escapeHtml(m.name)}**, un talentoso Fursuit Maker. La comunidad de fursuiters es maravillosa, y estos artesanos son el coraz√≥n de la misma, transformando dise√±os en personajes tangibles. Te animamos a explorar la galer√≠a de este maker para ver la calidad y el estilo de sus creaciones.</p>
-                                        <p>La informaci√≥n de contacto proporcionada es directamente la que el maker ha facilitado. Siempre recomendamos a los interesados realizar una investigaci√≥n exhaustiva y leer rese√±as antes de encargar un fursuit. Nuestra misi√≥n es ser un directorio que facilita la conexi√≥n, pero no somos responsables de las transacciones o la calidad final del trabajo.</p>
+                                        <p>Esta p·gina est· dedicada a mostrar el trabajo y la informaciÛn de contacto de **${escapeHtml(m.name)}**, un talentoso Fursuit Maker. La comunidad de fursuiters es maravillosa, y estos artesanos son el corazÛn de la misma, transformando diseÒos en personajes tangibles. Te animamos a explorar la galerÌa de este maker para ver la calidad y el estilo de sus creaciones.</p>
+                                        <p>La informaciÛn de contacto proporcionada es directamente la que el maker ha facilitado. Siempre recomendamos a los interesados realizar una investigaciÛn exhaustiva y leer reseÒas antes de encargar un fursuit. Nuestra misiÛn es ser un directorio que facilita la conexiÛn, pero no somos responsables de las transacciones o la calidad final del trabajo.</p>
                                         <p>Si eres un Fursuit Maker y deseas aparecer o actualizar tu perfil, por favor, puedes pulsar el boton de "Add me" en la barra lateral".</p>
                                     </div>
                                     `;
