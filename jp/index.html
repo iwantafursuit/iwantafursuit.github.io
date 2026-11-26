@@ -1,11 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="ja">
 <head>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>I Want a Fursuit - あなたのメーカーを見つけよう</title>
-    <meta name="description" content="ファースーツメーカーのディレクトリ：国で検索し、メーカーなら登録しましょう。" />
+    <title>ファースーツの制作者を探し、依頼を準備する | I Want a Fursuit</title>
+    <meta name="description" content="I Want a Fursuit は、ファースーツの制作者を探すためのディレクトリと購入ガイドです。名前、国、スタイルから作例を探し、見積もりを依頼する前に工房の最新の条件を確認できます。">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
 
@@ -303,6 +303,28 @@
             }
         }
     </style>
+<link rel="stylesheet" href="/css/editorial.css">
+<script src="/scripts/site-config.js" defer></script>
+<script src="/scripts/site-privacy.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- site-seo -->
+<link rel="canonical" href="https://iwantafursuit.github.io/jp/">
+<link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/">
+<link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/">
+<link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/">
+<link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/">
+<meta property="og:title" content="ファースーツの制作者を探し、依頼を準備する | I Want a Fursuit">
+<meta property="og:url" content="https://iwantafursuit.github.io/jp/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:image:alt" content="I Want a Fursuit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ファースーツの制作者を探し、依頼を準備する | I Want a Fursuit">
+<meta name="twitter:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:description" content="I Want a Fursuit は、ファースーツの制作者を探すためのディレクトリと購入ガイドです。名前、国、スタイルから作例を探し、見積もりを依頼する前に工房の最新の条件を確認できます。">
+<meta name="twitter:description" content="I Want a Fursuit は、ファースーツの制作者を探すためのディレクトリと購入ガイドです。名前、国、スタイルから作例を探し、見積もりを依頼する前に工房の最新の条件を確認できます。">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "I Want a Fursuit", "url": "https://iwantafursuit.github.io/jp/", "inLanguage": "ja"}</script>
+<!-- /site-seo -->
 </head>
 <body>
     <div class="wrap">
@@ -311,11 +333,13 @@
         </aside>
 
         <main class="center">
-            <div class="logo"><img src="/assets/logo/logo.png" alt="サイトのロゴ"></div>
+            <div class="logo"><img src="/assets/logo/logo.png" width="903" height="358" alt="サイトのロゴ"></div>
 
-            <div class="search-row" role="search">
-                <input id="q" type="search" placeholder="メーカーを検索..." aria-label="メーカーを検索" />
-                <select id="country" aria-label="国で絞り込む">
+            <h1 class="home-site-title">ファースーツの制作者を探し、依頼を準備する</h1>
+            <p>I Want a Fursuit は、制作者の作例を探し、購入を準備するためのサイトです。名前、国、スタイルで検索し、見積もりを依頼する前に工房の最新の条件を確認してください。</p>
+            <form class="search-row" role="search" action="search.html" data-site-search>
+                <input id="q" name="q" type="search" placeholder="メーカーを検索..." aria-label="メーカーを検索" />
+                <select id="country" name="country" aria-label="国で絞り込む">
                     <option value="any">全世界</option>
                     <option value="es">スペイン</option>
                     <option value="us">アメリカ合衆国</option>
@@ -323,23 +347,21 @@
                     <option value="ko">韓国</option>
                 </select>
                 <button id="searchBtn">検索</button>
-            </div>
+            </form>
 
-            <button id="exploreBtn" class="explore-btn" aria-label="メーカーを探索">探索</button>
+            <button id="exploreBtn" type="button" class="explore-btn" aria-label="メーカーを探索">探索</button>
 
             <div class="maker-cta">
                 <div class="label" style="font-size:14px; font-weight:600;">私はメーカーです</div>
-                <button class="register-btn" id="registerBtn">私を追加</button>
+                <button class="register-btn" id="registerBtn" type="button" data-site-event="external_form_open">私を追加</button>
             </div>
 
             <div class="maker-cta tiny">
                 <div class="tiny">あなたはメーカーですか？「私を追加」ボタンから追加をリクエストしてください！</div>
             </div>
 
-            <div class="explain" id="explain">
-                <strong>このウェブサイトは何ですか？</strong>
-                <p>このサイトは、ファースーツメーカー（クリエイター、スタジオ、アーティスト）を集めたディレクトリです。メーカーは「私を追加」から追加をリクエストできます。</p>
-            </div>
+            <section class="home-resources site-reading"><h2>必要なパーツを決める</h2><p>頭部、手、しっぽが必要なら、単品で頼めるか、パーシャルセットに含まれるかを確認します。全身タイプでは、胴体、足、詰め物の範囲を聞きましょう。作例を見ながら、サイズ調整や構造について質問をまとめます。</p><h2>同じ条件で見積もりを比べる</h2><p>同じ設定画とパーツ一覧を各工房に送り、総額、前金、配送先、制作時期の目安を聞きましょう。何が含まれるかを書き留めると、追加項目が異なる見積もりも比較できます。</p><a href="/jp/guides.html">ガイド</a> · <a href="/jp/editorial-policy.html">編集方針</a></section>
+        <nav class="home-languages" aria-label="Languages"><a href="/" lang="en">English</a><a href="/es/" lang="es">Español</a><a href="/jp/" lang="ja">日本語</a></nav>
         </main>
 
         <aside class="side-column" aria-hidden="true">
@@ -350,10 +372,6 @@
     <script src="scripts/bottom-bar.js" defer></script>
 
     <script>
-        const fallbackImages = [
-            'assets/left-1.jpg', 'assets/left-2.jpg', 'assets/left-3.jpg', 'assets/left-4.jpg',
-            'assets/right-1.jpg', 'assets/right-2.jpg', 'assets/right-3.jpg', 'assets/right-4.jpg'
-        ];
 
         const sideSlotCols = 2;
         const sideSlotRows = 2;
@@ -373,17 +391,17 @@
 
             let makers = [];
             try {
-                const r = await fetch('/makers.json?ts=' + Date.now());
+                const r = await fetch('/makers.json');
                 makers = await r.json();
             } catch (e) { }
 
             const pool = [];
             makers.forEach(m => {
                 if (m.images && m.images.length) {
-                    m.images.forEach(img => pool.push({ src: img, id: m.id, name: m.name }));
+                    (m.thumbnails || m.images).forEach(img => pool.push({ src: img, id: m.id, name: m.name }));
                 }
             });
-            if (pool.length === 0) { fallbackImages.forEach((p, i) => pool.push({ src: p, id: 'fallback' + i, name: 'アーティスト' })); }
+            if (!pool.length) return;
 
             const initialChosen = pickRandom(pool, Math.min(pool.length, totalSlots));
             while (initialChosen.length < totalSlots) { initialChosen.push(pool[Math.floor(Math.random() * pool.length)]); }
@@ -398,6 +416,9 @@
                         slot.dataset.pos = r === 0 ? 'up' : 'down';
 
                         const img = document.createElement('img');
+                        img.loading = "lazy";
+                        img.decoding = "async";
+                        img.alt = "";
                         img.src = item.src;
                         img.classList.add('visible');
                         img.title = item.name || '';
@@ -507,6 +528,7 @@
 
         function scheduleNextGlobalTick() {
             if (globalTimeout) clearTimeout(globalTimeout);
+            if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
             globalTimeout = setTimeout(globalTick, TICK_MS);
         }
 
@@ -530,14 +552,6 @@
 
         setupSideSlots();
 
-        document.getElementById('searchBtn').addEventListener('click', function () {
-            const q = encodeURIComponent(document.getElementById('q').value.trim());
-            const country = encodeURIComponent(document.getElementById('country').value);
-            const params = new URLSearchParams();
-            if (q) params.set('q', q);
-            if (country && country !== 'any') params.set('country', country);
-            location.href = 'search.html' + (params.toString() ? ('?' + params.toString()) : '');
-        });
 
         document.getElementById('exploreBtn').addEventListener('click', function () {
             location.href = 'search.html';
@@ -553,6 +567,7 @@
 
     
 
+<footer class="site-links" aria-label="サイト情報"><a href="/jp/">ホーム</a> <a href="/jp/search.html">制作者一覧</a> <a href="/jp/guides.html">ガイド</a> <a href="/jp/about.html">サイトについて</a> <a href="/jp/contact.html">お問い合わせ</a> <a href="/jp/editorial-policy.html">編集方針</a> <a href="/jp/privacy.html">プライバシー</a> <a href="/jp/cookies.html">Cookie</a> <a href="/jp/terms.html">利用条件</a> <a href="/jp/legal.html">免責事項</a> <button type="button" data-ad-preferences hidden></button></footer>
 </body>
 
 

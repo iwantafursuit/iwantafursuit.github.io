@@ -366,6 +366,7 @@ template.innerHTML = `
 const LOCALE_NAV = {
   en: {
     nav: [
+      { href: "/guides.html", label: "Guides" },
       { href: "/search.html", label: "Search Makers" },
       { href: "https://forms.gle/6boFuotq8T9DGy4v6", label: "Add me", external: true },
       { href: "/cleaning.html", label: "Fursuit Cleaning" },
@@ -385,6 +386,7 @@ const LOCALE_NAV = {
   },
   es: {
     nav: [
+      { href: "/es/guides.html", label: "Guías" },
       { href: "/es/search.html", label: "Buscar Creadores" },
       { href: "https://forms.gle/6boFuotq8T9DGy4v6", label: "Añadirme", external: true },
       { href: "/es/cleaning.html", label: "Limpieza de Fursuit" },
@@ -404,6 +406,7 @@ const LOCALE_NAV = {
   },
   ja: {
     nav: [
+      { href: "/jp/guides.html", label: "ガイド" },
       { href: "/jp/search.html", label: "クリエーターを検索" },
       { href: "https://forms.gle/6boFuotq8T9DGy4v6", label: "追加する", external: true },
       { href: "/jp/cleaning.html", label: "ファーシートのクリーニング" },

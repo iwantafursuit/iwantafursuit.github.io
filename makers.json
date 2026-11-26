@@ -4,17 +4,41 @@
     "highlight": false,
     "name": "BINARI FURSUIT",
     "country": "ko",
-    "countryname": "Korea",
+    "countryname": "South Korea",
     "money": "ask",
     "bio": "Imagination becomes reality\n",
     "info": "Can?\n\n[ O ]\n\n→ Toony, Kemono style is accepted. \n→ Fursona or animal characters. \n→ YouTube, Streaming OK\n\n[ X ]\n\n→ Design without permission from the original creator (Pokemon, Digimon, etc.); similar design\n→ Difficult patterns and designs, hair\n→ Real style and materials such as resin eye, kimono, reptiles\n→ Copyright characters, additional props or costumes\n→ commercial use",
-    "styles": [ "full-suit", "heads", "Toon", "Kemono" ],
-    "images": [ "/assets/makers/BINARI_FURSUIT/2.jpg", "/assets/makers/BINARI_FURSUIT/4.jpg", "/assets/makers/BINARI_FURSUIT/3.jpg", "/assets/makers/BINARI_FURSUIT/1.jpg", "/assets/makers/BINARI_FURSUIT/5.jpg", "/assets/makers/BINARI_FURSUIT/6.jpg", "/assets/makers/BINARI_FURSUIT/7.jpg", "/assets/makers/BINARI_FURSUIT/8.jpg" ],
+    "styles": [
+      "full-suit",
+      "heads",
+      "Toon",
+      "Kemono"
+    ],
+    "images": [
+      "/assets/makers/BINARI_FURSUIT/2.jpg",
+      "/assets/makers/BINARI_FURSUIT/4.jpg",
+      "/assets/makers/BINARI_FURSUIT/3.jpg",
+      "/assets/makers/BINARI_FURSUIT/1.jpg",
+      "/assets/makers/BINARI_FURSUIT/5.jpg",
+      "/assets/makers/BINARI_FURSUIT/6.jpg",
+      "/assets/makers/BINARI_FURSUIT/7.jpg",
+      "/assets/makers/BINARI_FURSUIT/8.jpg"
+    ],
     "contact": {
       "x": "https://x.com/Binari2019",
       "web": "https://binari2019.imweb.me/index"
     },
-    "rating": "any"
+    "rating": "any",
+    "thumbnails": [
+      "/assets/maker-thumbnails/BINARI_FURSUIT/2.webp",
+      "/assets/maker-thumbnails/BINARI_FURSUIT/4.webp",
+      "/assets/maker-thumbnails/BINARI_FURSUIT/3.webp",
+      "/assets/maker-thumbnails/BINARI_FURSUIT/1.webp",
+      "/assets/maker-thumbnails/BINARI_FURSUIT/5.webp",
+      "/assets/maker-thumbnails/BINARI_FURSUIT/6.webp",
+      "/assets/maker-thumbnails/BINARI_FURSUIT/7.webp",
+      "/assets/maker-thumbnails/BINARI_FURSUIT/8.webp"
+    ]
   },
   {
     "id": "2",
@@ -25,13 +49,27 @@
     "money": "ask",
     "bio": "Yay u (somehow) found me!!!>w<",
     "info": "Hello everyone, I've started making fur suit back in 2018 I love making them, cosplay, miniature and craft in general I hope I guess for now all I can do is hope for a fun and crafty future ;)",
-    "styles": [ "full-suit", "heads" ],
-    "images": [ "/assets/makers/TEM123456/2.jpg", "/assets/makers/TEM123456/3.jpg", "/assets/makers/TEM123456/1.jpg", "/assets/makers/TEM123456/4.jpg" ],
+    "styles": [
+      "full-suit",
+      "heads"
+    ],
+    "images": [
+      "/assets/makers/TEM123456/2.jpg",
+      "/assets/makers/TEM123456/3.jpg",
+      "/assets/makers/TEM123456/1.jpg",
+      "/assets/makers/TEM123456/4.jpg"
+    ],
     "contact": {
       "x": "https://x.com/us_rat18915",
       "web": "https://linktr.ee/TEM123456__OpaliteComet"
     },
-    "rating": "any"
+    "rating": "any",
+    "thumbnails": [
+      "/assets/maker-thumbnails/TEM123456/2.webp",
+      "/assets/maker-thumbnails/TEM123456/3.webp",
+      "/assets/maker-thumbnails/TEM123456/1.webp",
+      "/assets/maker-thumbnails/TEM123456/4.webp"
+    ]
   },
   {
     "id": "3",
@@ -42,15 +80,41 @@
     "money": "ask",
     "bio": "Protogen and Cyber Species Fursuit maker",
     "info": "Protogen and Cyber species fursuit maker.\nYou MUST be 18+ to commission me. ",
-    "styles": [ "partial", "heads", "protogen", "Cyber" ],
-    "images": [ "/assets/makers/FurBitten_Studios/2.jpg", "/assets/makers/FurBitten_Studios/1.jpg", "/assets/makers/FurBitten_Studios/3.jpg", "/assets/makers/FurBitten_Studios/4.jpg", "/assets/makers/FurBitten_Studios/5.jpg" ],
+    "styles": [
+      "partial",
+      "heads",
+      "protogen",
+      "Cyber"
+    ],
+    "images": [
+      "/assets/makers/FurBitten_Studios/2.jpg",
+      "/assets/makers/FurBitten_Studios/1.jpg",
+      "/assets/makers/FurBitten_Studios/3.jpg",
+      "/assets/makers/FurBitten_Studios/4.jpg",
+      "/assets/makers/FurBitten_Studios/5.jpg"
+    ],
     "contact": {
       "x": "https://x.com/furbittenStudio",
       "instagram": "https://www.instagram.com/furbitten_studios/",
       "web": "https://www.furbittenstudios.com/",
       "linktr": "https://linktr.ee/FurBittenStudios"
     },
-    "rating": "any"
+    "rating": "any",
+    "thumbnails": [
+      "/assets/maker-thumbnails/FurBitten_Studios/2.webp",
+      "/assets/maker-thumbnails/FurBitten_Studios/1.webp",
+      "/assets/maker-thumbnails/FurBitten_Studios/3.webp",
+      "/assets/maker-thumbnails/FurBitten_Studios/4.webp",
+      "/assets/maker-thumbnails/FurBitten_Studios/5.webp"
+    ],
+    "commissionSource": "https://www.furbittenstudios.com/commissions",
+    "sourceChecked": "2026-11-26",
+    "region": "Missouri",
+    "buyingNote": {
+      "en": "The studio distinguishes head-only and partial builds. Ask which electronics, accessories and repairs are included in your quote.",
+      "es": "El taller distingue entre cabeza y parcial. Pregunta qué electrónica, accesorios y reparaciones cubre el presupuesto.",
+      "ja": "工房の仕様では頭部のみとパーシャルを区別しています。電子部品、付属品、修理の範囲を見積もり時にご確認ください。"
+    }
   },
   {
     "id": "4",
@@ -61,11 +125,21 @@
     "money": "ask",
     "bio": "Hey there! I’m fish! I’m you friendly neighbor furry artist!",
     "info": "",
-    "styles": [ "partial", "heads" ],
-    "images": [ "/assets/makers/Lordoffishes/1.jpg", "/assets/makers/Lordoffishes/2.jpg" ],
+    "styles": [
+      "partial",
+      "heads"
+    ],
+    "images": [
+      "/assets/makers/Lordoffishes/1.jpg",
+      "/assets/makers/Lordoffishes/2.jpg"
+    ],
     "contact": {
       "instagram": "https://www.instagram.com/lordoffishes/"
     },
-    "rating": "any"
+    "rating": "any",
+    "thumbnails": [
+      "/assets/maker-thumbnails/Lordoffishes/1.webp",
+      "/assets/maker-thumbnails/Lordoffishes/2.webp"
+    ]
   }
 ]

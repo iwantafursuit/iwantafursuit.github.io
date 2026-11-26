@@ -6,7 +6,8 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>??????????</title>
+    <title>制作者のプロフィール | I Want a Fursuit</title>
+<meta name="description" content="作例、スタイル、連絡先を掲載しています。受付状況と条件は工房にご確認ください。">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
     
@@ -342,25 +343,43 @@
     </style>
 
     <script type="module" src="/scripts/site-sidebar.js"></script>
+<link rel="stylesheet" href="/css/editorial.css">
+<script src="/scripts/site-config.js" defer></script>
+<script src="/scripts/site-privacy.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- site-seo -->
+<link rel="canonical" href="https://iwantafursuit.github.io/jp/profile.html">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="制作者のプロフィール | I Want a Fursuit">
+<meta property="og:url" content="https://iwantafursuit.github.io/jp/profile.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:image:alt" content="I Want a Fursuit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="制作者のプロフィール | I Want a Fursuit">
+<meta name="twitter:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:description" content="作例、スタイル、連絡先を掲載しています。受付状況と条件は工房にご確認ください。">
+<meta name="twitter:description" content="作例、スタイル、連絡先を掲載しています。受付状況と条件は工房にご確認ください。">
+<!-- /site-seo -->
 </head>
 <body>
     <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
 
-        <a href="search.html">???????</a>
-        <a href="https://forms.gle/6boFuotq8T9DGy4v6">????</a>
-        <a href="cleaning.html">???????????????</a>
-        <a href="fursonacreation.html">????????</a>
-        <a href="fursonanamecreation.html">??????</a>
-        <a href="about.html">??????????</a>
+        <a href="search.html">制作者を検索</a>
+        <a href="https://forms.gle/6boFuotq8T9DGy4v6">掲載を申請</a>
+        <a href="cleaning.html">お手入れ</a>
+        <a href="fursonacreation.html">ファーソナを作る</a>
+        <a href="fursonanamecreation.html">ファーソナの名前</a>
+        <a href="about.html">サイトについて</a>
 
     </site-sidebar>
 
-    <div class="page-wrap">
-        <main class="content">
-            <a href="search.html" class="back-link">? ??</a>
-            <div id="content"></div>
-        </main>
-    </div>
+    <main class="page-wrap">
+        <div class="content">
+            <a href="search.html" class="back-link">制作者一覧に戻る</a>
+            <div id="content"><h1>制作者のプロフィール</h1><p>読み込み中…</p><noscript><p><a href="/jp/guides.html">ガイド</a></p></noscript></div>
+        </div>
+    </main>
 
     <script>
         function getParam(name) { return new URLSearchParams(location.search).get(name); }
@@ -388,7 +407,7 @@
             const imgSrc = currentImages[index] || '';
             overlayEl = document.createElement('div');
             overlayEl.className = 'overlay';
-            overlayEl.innerHTML = `<img src="${escapeHtml(imgSrc)}" alt="?????">`;
+            overlayEl.innerHTML = `<img src="${escapeHtml(imgSrc)}" alt="ポートフォリオの画像">`;
             document.body.appendChild(overlayEl);
             document.body.style.overflow = 'hidden';
             history.pushState({ overlay: true }, '', '#photo' + index);
@@ -451,13 +470,10 @@
             overlay.className = 'confirm-overlay';
             overlay.innerHTML = `
                                                 <div class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
-                                                    <p id="confirm-title">
-                                                    <p>??????????????????????????????????????????????????????????????????????????????
-                                                    <p>???????????????????????????????????????????????????????????????????????????
-                                                    <p>?<strong>I Want a Fursuit!</strong>??????????????????????????????????????????!</p>
+                                                    <p id="confirm-title">外部サイトを開きます。取引条件と連絡先を確認してください。</p>
                                                     <div class="confirm-actions">
-                                                        <button class="btn-accept" type="button">??</button>
-                                                        <button class="btn-cancel" type="button">?????</button>
+                                                        <button class="btn-accept" type="button">開く</button>
+                                                        <button class="btn-cancel" type="button">キャンセル</button>
                                                     </div>
                                                 </div>
                                         `;
@@ -499,87 +515,98 @@
             });
         }
 
+        function activateImage(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                event.currentTarget.click();
+            }
+        }
+
         async function load() {
             const id = getParam('id');
             const contentEl = document.getElementById('content');
             if (!id) {
-                contentEl.innerHTML = `
-            <div class="error-container">
-                <h2>????ID??????????</h2>
-                <p>?????????????????????????????�?????ID???????????????????</p>
-                <p>????????????????????????�????????????????????????????????????????????????????????????????????????????????????????</p>
-            </div>
-        `;
-                return;
+                    contentEl.innerHTML = '<h1>制作者のプロフィール</h1><p>このアドレスのプロフィールが見つかりません。制作者一覧かお問い合わせをご利用ください。</p><p><a href="search.html">制作者を検索</a></p>';
+                    return;
             }
 
 
             try {
                 const r = await fetch('/makers.json');
+                if (!r.ok) throw new Error('Directory HTTP ' + r.status);
                 const makers = await r.json();
                 const m = makers.find(x => x.id === id);
                 if (!m) {
-                    contentEl.innerHTML = `
-                <div class="error-container">
-                    <h2>????????????</h2>
-                    <p>????????????????????????????????????????????????????</p>
-                    <p>????????????????????????�???????????????????????????????????????????????????????????????</p>
-                    <p>?????????????????????????????????????????????????????????????????????????????????????????????????????????????????</p>
-                </div>
-            `;
+                    contentEl.innerHTML = '<h1>制作者のプロフィール</h1><p>このアドレスのプロフィールが見つかりません。制作者一覧かお問い合わせをご利用ください。</p><p><a href="search.html">制作者を検索</a></p>';
                     return;
                 }
 
-                const makerStyles = m.styles ? m.styles : "Fursuit Maker"; 
+                const makerStyles = (m.styles || []).join(', '); 
                 document.title = `${m.name} - ${makerStyles}`;
 
                 currentImages = m.images || [];
                 let contactHtml = '';
                 if (m.contact) {
                     for (const [key, url] of Object.entries(m.contact)) {
-                        contactHtml += `<div class="contact-item"><span class="contact-key">${capitalize(key)}:</span><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)}</a></div>`;
+                        if (typeof url !== 'string' || !/^https:\/\//i.test(url)) continue;
+                        contactHtml += `<div class="contact-item"><span class="contact-key">${escapeHtml(capitalize(key))}:</span><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(url)}</a></div>`;
                     }
-                } else contactHtml = '<p>????????????</p>';
+                } else contactHtml = '<p>連絡先の情報はありません。</p>';
 
                 const thumbsHtml = currentImages.map((img, idx) =>
-                    `<img src="${img}" class="thumb ${idx === 0 ? 'active' : ''}" onclick="setIndex(${idx})" loading="lazy" alt="????? ${idx + 1}">`
+                    `<img src="${escapeHtml(m.thumbnails?.[idx] || img)}" class="thumb ${idx === 0 ? 'active' : ''}" tabindex="0" role="button" loading="lazy" alt="ポートフォリオの画像 ${idx + 1}">`
                 ).join('');
 
                 contentEl.innerHTML = `
                                     <h1>${escapeHtml(m.name)}</h1>
-                                    <div class="location">?? <span>${escapeHtml(m.countryname || '')}${m.country ? ', ' + escapeHtml(m.country) : ''}</span></div>
+                                    <div class="location"><span>${escapeHtml(m.countryname || '')}${m.region ? ' · ' + escapeHtml(m.region) : ''}</span></div>
                                     <p class="short-bio">${escapeHtml(m.bio)}</p>
                                     ${currentImages.length ? `
                                         <div class="gallery-container">
                                             <div class="main-view" aria-live="polite">
-                                                <button class="nav-btn left" onclick="prevImage()" aria-label="????" title="??">
+                                                <button class="nav-btn left" data-site-event="tool_interaction" onclick="prevImage()" aria-label="前の画像" title="前へ">
                                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                                 </button>
-                                                <img id="mainImage" src="${currentImages[0]}" alt="?????">
-                                                <button class="nav-btn right" onclick="nextImage()" aria-label="????" title="??">
+                                                <img id="mainImage" src="${escapeHtml(currentImages[0])}" tabindex="0" role="button" alt="ポートフォリオの画像">
+                                                <button class="nav-btn right" data-site-event="tool_interaction" onclick="nextImage()" aria-label="次の画像" title="次へ">
                                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                                 </button>
                                             </div>
-                                            <div class="thumbnails" role="list">${thumbsHtml}</div>
+                                            <div class="thumbnails">${thumbsHtml}</div>
                                         </div>
-                                    ` : '<p>???????????</p>'}
-                                    <h3>??</h3>
-                                    <div class="long-info">${escapeHtml(m.info)}</div>
-                                    <h3>???</h3>
+                                    ` : '<p>掲載画像はありません。</p>'}
+                                    <h2>制作者の紹介</h2>
+                                    <div class="long-info">${escapeHtml(m.info || '')}</div>
+                                    <h2>連絡先</h2>
                                     <div class="contact-section">${contactHtml}</div>
-                                    <div class="editor-notes">
-                                        <hr>
-                                        <h4>??????�?????????????????</h4>
-                                        <p>?????????????????�???????**${escapeHtml(m.name)}**????????????????????????????�??????????????????????????????????????????????????????????????????????????????????????????</p>
-                                        <p>?????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????</p>
-                                        <p>??????????�??????????????????????????????????????????????????????????</p>
-                                    </div>
+                                    
                                     `;
 
+                contentEl.insertAdjacentHTML('beforeend', `<section class="site-reading">
+                    <h2>掲載されているスタイルとパーツ</h2><p>${escapeHtml(makerStyles)}</p>
+                    <h2>依頼前に確認すること</h2><p>現在の受付状況、書面の見積もり、含まれるパーツ、納品・修理の条件を確認してください。 現在の価格は制作者にお問い合わせください。</p>
+                    <p><a href="/jp/guides.html">ガイド</a> · <a href="/jp/contact.html">お問い合わせ</a></p>
+                </section>`);
+                if (/^https:\/\//i.test(m.commissionSource || '')) {
+                    const buyerDetails = contentEl.querySelector('.site-reading');
+                    const detail = document.createElement('p');
+                    const source = document.createElement('a');
+                    source.href = m.commissionSource;
+                    source.textContent = '依頼の仕様と基本料金';
+                    detail.textContent = (m.buyingNote?.ja || '') + ' ';
+                    detail.append(source, document.createTextNode(' · 公開情報の確認日 ' + m.sourceChecked));
+                    buyerDetails.append(detail);
+                }
+                contentEl.dataset.makerLoaded = '';
+                window.dispatchEvent(new Event('iwaf:maker-view'));
                 const mainImg = document.getElementById('mainImage');
-                if (mainImg) mainImg.addEventListener('click', () => openOverlay(currentIndex));
+                if (mainImg) {
+                    mainImg.addEventListener('click', () => openOverlay(currentIndex));
+                    mainImg.addEventListener('keydown', activateImage);
+                }
 
                 document.querySelectorAll('.thumb').forEach((el, idx) => {
+                    el.addEventListener('keydown', activateImage);
                     el.addEventListener('click', () => {
                         setIndex(idx);
                         el.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
@@ -593,7 +620,7 @@
                 adjustForBottomBar();
             } catch (e) {
                 console.error(e);
-                contentEl.innerHTML = '<p>?????????????????????</p>';
+                contentEl.innerHTML = '<p>一覧を読み込めませんでした。</p>';
             }
         }
 
@@ -609,6 +636,7 @@
 
     
 
+<footer class="site-links" aria-label="サイト情報"><a href="/jp/">ホーム</a> <a href="/jp/search.html">制作者一覧</a> <a href="/jp/guides.html">ガイド</a> <a href="/jp/about.html">サイトについて</a> <a href="/jp/contact.html">お問い合わせ</a> <a href="/jp/editorial-policy.html">編集方針</a> <a href="/jp/privacy.html">プライバシー</a> <a href="/jp/cookies.html">Cookie</a> <a href="/jp/terms.html">利用条件</a> <a href="/jp/legal.html">免責事項</a> <button type="button" data-ad-preferences hidden></button></footer>
 </body>
 
 

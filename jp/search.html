@@ -5,8 +5,8 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>ファースーツメーカーを探す｜プロトゲン・トゥーン対応</title>
-    <meta name="description" content="プロトゲン対応のファースーツメーカーを検索。スタイル比較、実例チェック、理想のメーカー探しに最適。" />
+    <title>ファースーツの制作者を探す | I Want a Fursuit</title>
+    <meta name="description" content="制作者名やスタイルで検索し、国で絞り込めます。価格や受付状況は各工房に確認してください。">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
     <style>
@@ -362,6 +362,24 @@
 
 
     <script type="module" src="/scripts/site-sidebar.js"></script>
+<link rel="stylesheet" href="/css/editorial.css">
+<script src="/scripts/site-config.js" defer></script>
+<script src="/scripts/site-privacy.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- site-seo -->
+<link rel="canonical" href="https://iwantafursuit.github.io/jp/search.html">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="ファースーツの制作者を探す | I Want a Fursuit">
+<meta property="og:url" content="https://iwantafursuit.github.io/jp/search.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:image:alt" content="I Want a Fursuit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ファースーツの制作者を探す | I Want a Fursuit">
+<meta name="twitter:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:description" content="制作者名やスタイルで検索し、国で絞り込めます。価格や受付状況は各工房に確認してください。">
+<meta name="twitter:description" content="制作者名やスタイルで検索し、国で絞り込めます。価格や受付状況は各工房に確認してください。">
+<!-- /site-seo -->
 </head>
 
 <body>
@@ -369,7 +387,7 @@
     <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
 
         <a href="search.html">メーカーを検索</a>
-        <a href="https://forms.gle/6boFuotq8T9DGy4v6">私を追加</a>
+        <a data-site-event="external_form_open" href="https://forms.gle/6boFuotq8T9DGy4v6">私を追加</a>
         <a href="cleaning.html">ファースーツの洗い方とお手入れ</a>
         <a href="fursonacreation.html">ファーソナガイド</a>
         <a href="fursonanamecreation.html">名前の決め方</a>
@@ -377,28 +395,30 @@
 
     </site-sidebar>
 
-    <main class="main">
+    <main class="main" aria-labelledby="directory-title">
         <header>
-            <h2>メーカーを探す</h2>
-            <div style="margin-left:auto" class="small" id="count">0 件の結果</div>
+            <h1 id="directory-title">ファースーツの制作者を探す</h1>
+            <div style="margin-left:auto" class="small" role="status" id="count">読み込み中…</div>
         </header>
 
-        <div class="controls">
-            <input id="q" type="search" placeholder="名前/スタイル/キーワードで検索..." />
-            <select id="country">
+        <p>制作者名やスタイルで検索し、国で絞り込めます。価格や受付状況は各工房に確認してください。</p>
+        <div class="controls" role="search">
+            <input id="q" aria-label="制作者名またはスタイルで検索" type="search" placeholder="名前/スタイル/キーワードで検索..." />
+            <select id="country" aria-label="国">
                 <option value="any">すべての国</option>
                 <option value="es">スペイン</option>
                 <option value="us">アメリカ合衆国</option>
                 <option value="de">ドイツ</option>
                 <option value="ko">韓国</option>
             </select>
+            <select id="style" aria-label="スタイルまたはパーツ"><option value="">すべてのスタイルとパーツ</option></select>
             <button id="btnSearch">検索</button>
             <div style="flex:1"></div>
         </div>
 
-        <div id="results" class="grid" aria-live="polite"></div>
+        <div id="results" class="grid" aria-live="polite"><noscript><p><a href="/jp/guides.html">ガイド</a></p></noscript></div>
 
-        <div class="no-maker-cta">
+        <div class="no-maker-cta"><p><a class="site-inline-link" href="/jp/highlight.html">制作者向けの掲載強調</a></p>
             <p class="no-maker-text">お探しのメーカーが見つかりませんか？</p>
             <p class="no-maker-desc">スタイル、予算、またはプロジェクトに合うメーカーが見つかりませんか？ご要望を教えていただければ、最適なクリエイターのご紹介が可能です。</p>
             <button id="findMakerBtn" class="pink-btn" style="margin-top: 28px;">クリエイターを探す</button>
@@ -414,18 +434,24 @@
         const initialQ = params.get('q') || '';
         const initialCountry = params.get('country') || 'any';
 
+        const styleFilter = document.getElementById('style');
         let makers = [];
 
         async function loadMakers() {
             try {
-                const r = await fetch('/makers.json?ts=' + Date.now());
+                const r = await fetch('/makers.json');
                 // Translating error message: No se pudo cargar makers.json: -> makers.jsonをロードできませんでした:
                 if (!r.ok) throw new Error('makers.jsonをロードできませんでした: ' + r.status);
                 makers = await r.json();
+                const styles = [...new Set(makers.flatMap(maker => maker.styles || []))].sort();
+                for (const style of styles) styleFilter.append(new Option(style, style));
+                const initialStyle = params.get('style');
+                if (styles.includes(initialStyle)) styleFilter.value = initialStyle;
             } catch (e) {
                 // Translating error message: Error cargando makers.json -> makers.jsonのロードエラー
                 console.error('makers.jsonのロードエラー', e);
-                makers = [];
+                document.getElementById('count').textContent = '一覧を読み込めませんでした。ページを再読み込みしてください。';
+                return;
             }
 
             doSearch();
@@ -434,7 +460,9 @@
         function doSearch() {
             const q = document.getElementById('q').value.trim().toLowerCase();
             const country = document.getElementById('country').value;
-            let res = makers.filter(m => {
+            const style = styleFilter.value;
+            const res = makers.filter(m => {
+                if (style && !(m.styles || []).includes(style)) return false;
                 if (country !== 'any' && m.country !== country) return false;
                 if (!q) return true;
                 if ((m.name || '').toLowerCase().includes(q)) return true;
@@ -443,64 +471,24 @@
                 return false;
             });
 
-            const resWithFake = insertFakeProfiles(res);
-
-            renderResults(resWithFake);
+            renderResults(res);
 
             const newParams = new URLSearchParams();
+            if (style) newParams.set('style', style);
             if (q) newParams.set('q', q);
             if (country && country !== 'any') newParams.set('country', country);
             history.replaceState({}, '', location.pathname + (newParams.toString() ? '?' + newParams.toString() : ''));
         }
 
 
-        const TRANSPARENT_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-
-        function makeFakeProfile() {
-            return {
-                id: 'highlight-' + Math.random().toString(36).slice(2, 9),
-                // Translating text: ✨ Destaca tu perfil aqui -> ✨ ここであなたのプロフィールをハイライト
-                name: '✨ ここであなたのプロフィールをハイライト',
-                // Translating text: Haz que como makers aparezcas arriba y brille tu perfil por 30 dias -> あなたのプロフィールを30日間上位に表示し、輝かせましょう
-                bio: 'あなたのプロフィールを30日間上位に表示し、輝かせましょう',
-                images: [TRANSPARENT_GIF],
-
-                fake: true,
-                highlight: true
-            };
-        }
-
-        function insertFakeProfiles(list) {
-            const out = [];
-            const firstPosOneBased = 5;
-            let fakeInserted = false;
-
-            for (let i = 0; i < list.length; i++) {
-                const count = i + 1;
-                if (count === firstPosOneBased || (count > firstPosOneBased && ((count - firstPosOneBased) % 20 === 0))) {
-                    out.push(makeFakeProfile());
-                    fakeInserted = true;
-                }
-                out.push(list[i]);
-            }
-
-
-            if (!fakeInserted) {
-                out.push(makeFakeProfile());
-            }
-
-
-            return out;
-        }
-
         function renderResults(list) {
             const cont = document.getElementById('results');
             // Translating text: ' resultados' -> ' 件の結果'
             cont.innerHTML = '';
-            document.getElementById('count').textContent = list.length + ' 件の結果';
+            document.getElementById('count').textContent = list.length + ' 件';
             if (list.length === 0) {
                 // Translating text: No hay resultados. Prueba con otros términos. -> 結果がありません。他の用語をお試しください。
-                cont.innerHTML = '<p class="small">結果がありません。他の用語をお試しください。</p>';
+                cont.textContent = '一致する制作者がいません。検索語を消すか、別の国を選んでください。';
                 return;
             }
 
@@ -521,7 +509,8 @@
                 const imgEl = document.createElement('img');
                 imgEl.alt = m.name || '';
                 imgEl.loading = 'lazy';
-                const images = (m.images && m.images.length) ? m.images.slice() : ['/assets/placeholder.jpg'];
+                imgEl.decoding = 'async';
+                const images = m.thumbnails?.length ? m.thumbnails : m.images?.length ? m.images : ['/assets/logo/logo.png'];
 
                 imgEl.src = images[0];
                 imgWrap.appendChild(imgEl);
@@ -546,39 +535,27 @@
                     meta.appendChild(pCountry);
                 }
 
+                const pStyles = document.createElement('p');
+                pStyles.className = 'small';
+                pStyles.textContent = (m.styles || []).join(' · ');
+                meta.appendChild(pStyles);
+
                 const pBio = document.createElement('p');
-                pBio.innerHTML = escapeHtml((m.bio || '').slice(0, 120)) + ((m.bio || '').length > 120 ? '...' : '');
+                pBio.textContent = (m.bio || '').slice(0, 120) + ((m.bio || '').length > 120 ? '...' : '');
                 meta.appendChild(pBio);
 
 
                 const a = document.createElement('a');
-                if (m.fake) {
-                    a.href = 'highlight.html';
-                    // Translating text: Quiero destacar mi perfil ✨ -> プロフィールをハイライトしたい ✨
-                    a.textContent = 'プロフィールをハイライトしたい ✨';
-                } else {
-                    a.href = `profile.html?id=${encodeURIComponent(m.id)}`;
-                    // Translating text: Ver perfil -> プロフィールを見る
-                    a.textContent = 'プロフィールを見る';
-                }
+                a.href = `profile.html?id=${encodeURIComponent(m.id)}`;
+                a.textContent = 'プロフィールを見る';
                 meta.appendChild(a);
 
-                card.appendChild(imgWrap);
-                card.appendChild(meta);
+                card.append(imgWrap, meta);
                 cont.appendChild(card);
 
+                imgWrap.addEventListener('click', () => location.assign(a.href));
 
-                if (m.fake) {
-                    imgWrap.addEventListener('click', () => {
-                        location.href = 'highlight.html';
-                    });
-                } else {
-                    imgWrap.addEventListener('click', () => {
-                        location.href = `profile.html?id=${encodeURIComponent(m.id)}`;
-                    });
-                }
-
-                if (images.length > 1) {
+                if (images.length > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
                     startRotationForCard({ imgEl, overlay, images });
                 }
             });
@@ -629,6 +606,7 @@
             });
 
             function tick() {
+                if (!imgEl.isConnected) return;
                 if (state.paused) {
                     state.nextTickAt = Date.now() + chooseRandomInterval();
                     state.timeoutId = setTimeout(tick, chooseRandomInterval());
@@ -662,10 +640,14 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('q').value = initialQ;
-            document.getElementById('country').value = initialCountry;
+            const countryFilter = document.getElementById('country');
+            if ([...countryFilter.options].some(option => option.value === initialCountry)) countryFilter.value = initialCountry;
+            const applyFilter = () => { window.dispatchEvent(new Event('iwaf:filter')); doSearch(); };
+            countryFilter.addEventListener('change', applyFilter);
+            styleFilter.addEventListener('change', applyFilter);
 
-            document.getElementById('btnSearch').addEventListener('click', doSearch);
-            document.getElementById('q').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+            document.getElementById('btnSearch').addEventListener('click', () => { window.dispatchEvent(new Event('iwaf:search')); doSearch(); });
+            document.getElementById('q').addEventListener('keydown', e => { if (e.key === 'Enter') { window.dispatchEvent(new Event('iwaf:search')); doSearch(); } });
 
             // Find Maker popup
             document.getElementById('findMakerBtn').addEventListener('click', () => {
@@ -764,6 +746,7 @@
 
     <script src="scripts/bottom-bar.js" defer></script>
 
+<footer class="site-links" aria-label="サイト情報"><a href="/jp/">ホーム</a> <a href="/jp/search.html">制作者一覧</a> <a href="/jp/guides.html">ガイド</a> <a href="/jp/about.html">サイトについて</a> <a href="/jp/contact.html">お問い合わせ</a> <a href="/jp/editorial-policy.html">編集方針</a> <a href="/jp/privacy.html">プライバシー</a> <a href="/jp/cookies.html">Cookie</a> <a href="/jp/terms.html">利用条件</a> <a href="/jp/legal.html">免責事項</a> <button type="button" data-ad-preferences hidden></button></footer>
 </body>
 
 </html>

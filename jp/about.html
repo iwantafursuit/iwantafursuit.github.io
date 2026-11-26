@@ -1,240 +1,37 @@
 <!doctype html>
 <html lang="ja">
 <head>
-
-    
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>I Want a Fursuit????</title>
-    <meta name="description" content="?????????(????)???????:??????????????????????????????????????????????????????" />
-    <link rel="icon" type="image/png" href="/assets/favicon.png">
-
-    
-
-    <style>
-        :root {
-            --sidebar-w: 220px;
-            --sidebar-mobile-w: 70px;
-            --bottom-bar-h: 64px;
-            --page-max-w: 800px;
-            --page-pad: 20px;
-            --radius: 12px;
-            --muted: #6b7280;
-            --accent: #ff2b8a;
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        }
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            background: #fff;
-            color: #0f172a;
-        }
-
-            html.site-sidebar-collapsed {
-                --sidebar-w: var(--sidebar-collapsed-w);
-            }
-
-        site-sidebar:not(:defined) {
-            display: none;
-        }
-
-        site-sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: var(--sidebar-w);
-            z-index: 60;
-        }
-
-        body {
-            padding-left: var(--sidebar-w);
-            padding-bottom: calc(var(--bottom-bar-h) + 12px);
-            box-sizing: border-box;
-            transition: padding-left 0.3s ease;
-        }
-
-
-        main {
-            display: block;
-            width: 100%;
-        }
-
-        .container {
-            max-width: var(--page-max-w);
-            margin: 40px auto;
-            padding: var(--page-pad);
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: 0 6px 18px rgba(15,23,42,0.05);
-            border: 1px solid rgba(15,23,42,0.04);
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            margin: 0 0 12px 0;
-            font-size: 1.6rem;
-            color: var(--accent);
-        }
-
-        h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
-        }
-
-        p.lead {
-            margin: 0 0 16px 0;
-            color: var(--muted);
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        .muted {
-            color: var(--muted);
-            font-size: 0.98rem;
-            line-height: 1.5;
-        }
-
-
-        ul {
-            margin: 12px 0 20px 0;
-            padding: 0;
-            color: var(--muted);
-            list-style-position: inside;
-            text-align: left;
-            display: inline-block;
-        }
-
-        a.link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-list {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .inline-note {
-            font-size: 0.9rem;
-            color: var(--muted);
-            background: #f9fafb;
-            padding: 8px 12px;
-            border-radius: 8px;
-            display: inline-block;
-        }
-
-
-
-
-        @media (max-width: 720px) {
-            body {
-                padding-left: var(--sidebar-mobile-w);
-            }
-
-            .container {
-                margin-top: 20px;
-                padding: 15px;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I Want a Fursuit について | I Want a Fursuit</title>
+<meta name="description" content="制作者を探し、ファースーツの依頼を準備するためのサイトです。ディレクトリで国やスタイルから作例を探し、ガイドでサイズ、素材、見積もりやお手入れについて確認できます。">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="stylesheet" href="/css/editorial.css">
+<script src="/scripts/site-config.js" defer></script>
+<script src="/scripts/site-privacy.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- site-seo -->
+<link rel="canonical" href="https://iwantafursuit.github.io/jp/about.html">
+<link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/about.html">
+<link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/about.html">
+<link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/about.html">
+<link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/about.html">
+<meta property="og:title" content="I Want a Fursuit について | I Want a Fursuit">
+<meta property="og:url" content="https://iwantafursuit.github.io/jp/about.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:image:alt" content="I Want a Fursuit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="I Want a Fursuit について | I Want a Fursuit">
+<meta name="twitter:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:description" content="制作者を探し、ファースーツの依頼を準備するためのサイトです。ディレクトリで国やスタイルから作例を探し、ガイドでサイズ、素材、見積もりやお手入れについて確認できます。">
+<meta name="twitter:description" content="制作者を探し、ファースーツの依頼を準備するためのサイトです。ディレクトリで国やスタイルから作例を探し、ガイドでサイズ、素材、見積もりやお手入れについて確認できます。">
+<!-- /site-seo -->
 </head>
-<body>
-
-    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
-        <a href="search.html">???????</a>
-        <a href="https://forms.gle/6boFuotq8T9DGy4v6">????</a>
-        <a href="cleaning.html">???????????????</a>
-        <a href="fursonacreation.html">????????</a>
-        <a href="fursonanamecreation.html">??????</a>
-        <a href="about.html">??????????</a>
-    </site-sidebar>
-
-    <main role="main" aria-labelledby="about-title">
-        <div class="container">
-
-            <article class="card" aria-describedby="about-desc">
-                <h1 id="about-title">??????????</h1>
-                <p id="about-desc" class="lead">
-                    ????????????????????????????????????????????
-                    ?????????????????????????????????????????????
-                </p>
-
-                <p class="muted">
-                    ??????????????????????????????????????????????
-                    ??????????????????????????????
-                </p>
-            </article>
-
-            <section class="card" aria-labelledby="como-funciona">
-                <h2 id="como-funciona">???(??)</h2>
-                <ul>
-                    <li>????????????????????</li>
-                    <li>???????????????????????????????</li>
-                    <li>????????????????????????????</li>
-                </ul>
-                <p class="inline-note">??????????????????????????????</p>
-            </section>
-
-            <section class="card" aria-labelledby="seguridad">
-                <h2 id="seguridad">?????????</h2>
-                <p class="muted">
-                    ??????????????????????????????????????????????????????????????????????
-                </p>
-            </section>
-
-            <section class="card" aria-labelledby="contacto">
-                <h2 id="contacto">???????????</h2>
-                <p class="muted">
-                    ????????????!DM??????????????????????????
-                </p>
-
-                <div class="contact-list">
-                    <a class="link" href="https://x.com/FursuitComision" target="_blank" rel="noopener noreferrer">X(?Twitter)? @FursuitComision</a>
-                </div>
-            </section>
-
-            <section class="card" aria-labelledby="aviso">
-                <h2 id="aviso">??????</h2>
-                <p class="muted">
-                    ????????????????????????????????????????????????????
-                </p>
-            </section>
-
-            <section class="card" aria-labelledby="gracias">
-                <h2 id="gracias">??</h2>
-                <p class="muted">
-                    ???????????????????????????????
-                    <br>
-                    ???????????????????<strong style="color: var(--accent);">???? (Add me)</strong>????????????
-                </p>
-            </section>
-
-        </div>
-    </main>
-
-    <script type="module" src="/scripts/site-sidebar.js"></script>
-    <script src="scripts/bottom-bar.js" defer></script>
-
-    
-
-
+<body style="background:#fff4f8">
+<main class="site-reading"><h1>I Want a Fursuit について</h1><p>制作者を探し、ファースーツの依頼を準備するためのサイトです。ディレクトリで国やスタイルから作例を探し、ガイドでサイズ、素材、見積もりやお手入れについて確認できます。</p>
+<h2>ディレクトリの使い方</h2><p>依頼の内容や支払いは制作者と直接取り決めます。受付状況、仕様変更、納期、修理については工房の最新の条件をご確認ください。</p>
+<p><a href="https://x.com/FursuitComision">@FursuitComision (X)</a> · <a href="https://forms.gle/6boFuotq8T9DGy4v6" data-site-event="external_form_open">Google Forms</a></p></main>
+<footer class="site-links" aria-label="サイト情報"><a href="/jp/">ホーム</a> <a href="/jp/search.html">制作者一覧</a> <a href="/jp/guides.html">ガイド</a> <a href="/jp/about.html">サイトについて</a> <a href="/jp/contact.html">お問い合わせ</a> <a href="/jp/editorial-policy.html">編集方針</a> <a href="/jp/privacy.html">プライバシー</a> <a href="/jp/cookies.html">Cookie</a> <a href="/jp/terms.html">利用条件</a> <a href="/jp/legal.html">免責事項</a> <button type="button" data-ad-preferences hidden></button></footer>
 </body>
-
-
 </html>
