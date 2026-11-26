@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 
@@ -6,8 +6,8 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>I Want a Fursuit - 🐾 Secure Fursuit Maker Database 🐾</title>
-    <meta name="description" content="Stop gambling with your dream suit. Scammers are everywhere, but we’ve done the homework for you. Explore our global directory of strictly verified makers no fakes, no stolen galleries, just pure talent you can trust." />
+    <title>Find a maker and plan your first fursuit | I Want a Fursuit</title>
+    <meta name="description" content="I Want a Fursuit helps first-time buyers and returning suiters research fursuit makers and prepare for a custom order. Use the directory to find portfolios by name, country or style, then check each maker’s current terms before requesting a quote.">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
 
@@ -479,6 +479,28 @@
             }
         }
     </style>
+<link rel="stylesheet" href="/css/editorial.css">
+<script src="/scripts/site-config.js" defer></script>
+<script src="/scripts/site-privacy.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- site-seo -->
+<link rel="canonical" href="https://iwantafursuit.github.io/">
+<link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/">
+<link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/">
+<link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/">
+<link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/">
+<meta property="og:title" content="Find a maker and plan your first fursuit | I Want a Fursuit">
+<meta property="og:url" content="https://iwantafursuit.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:image:alt" content="I Want a Fursuit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Find a maker and plan your first fursuit | I Want a Fursuit">
+<meta name="twitter:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:description" content="I Want a Fursuit helps first-time buyers and returning suiters research fursuit makers and prepare for a custom order. Use the directory to find portfolios by name, country or style, then check each maker’s current terms before requesting a quote.">
+<meta name="twitter:description" content="I Want a Fursuit helps first-time buyers and returning suiters research fursuit makers and prepare for a custom order. Use the directory to find portfolios by name, country or style, then check each maker’s current terms before requesting a quote.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "I Want a Fursuit", "url": "https://iwantafursuit.github.io/", "inLanguage": "en"}</script>
+<!-- /site-seo -->
 </head>
 <body>
     <div class="wrap">
@@ -487,15 +509,13 @@
         </aside>
 
         <main class="center">
-            <div class="logo"><img src="/assets/logo/logo.png" alt="Site Logo"></div>
+            <div class="logo"><img src="/assets/logo/logo.png" width="903" height="358" alt="Site Logo"></div>
 
-            <div class="label" id="label">
-                <p style="color:#ff2b8a;">A safe place to commission a fursuit</p>
-            </div>
+            <h1 class="home-site-title">Find a maker and plan your first fursuit</h1><p>I Want a Fursuit helps first-time buyers and returning suiters research fursuit makers and prepare for a custom order. Use the directory to find portfolios by name, country or style, then check each maker’s current terms before requesting a quote.</p>
 
-            <div class="search-row" role="search">
-                <input id="q" type="search" placeholder="Search makers..." aria-label="Search makers" />
-                <select id="country" aria-label="Filter by country">
+            <form class="search-row" role="search" action="search.html" data-site-search>
+                <input id="q" name="q" type="search" placeholder="Search makers..." aria-label="Search makers" />
+                <select id="country" name="country" aria-label="Filter by country">
                     <option value="any">Worldwide</option>
                     <option value="es">Spain</option>
                     <option value="us">United States</option>
@@ -503,25 +523,23 @@
                     <option value="ko">Korea</option>
                 </select>
                 <button id="searchBtn">Search</button>
-            </div>
+            </form>
 
             <div class="mobile-featured" id="mobileFeatured" aria-label="Featured makers"></div>
 
-            <button id="exploreBtn" class="explore-btn" aria-label="Explore makers">Explore Makers</button>
+            <button id="exploreBtn" type="button" class="explore-btn" aria-label="Explore makers">Explore Makers</button>
 
             <div class="maker-cta">
                 <div class="label" style="font-size:14px; font-weight:600;">I am a Maker</div>
-                <button class="register-btn" id="registerBtn">Add me</button>
+                <button class="register-btn" id="registerBtn" type="button" data-site-event="external_form_open">Add me</button>
             </div>
 
             <div class="maker-cta tiny">
                 <div class="tiny">Are you a maker? Ask me to add you using the "Add me" button!</div>
             </div>
 
-            <div class="explain" id="explain">
-                <strong>What is this website about?</strong>
-                <p>IWantaFursuit is a searchable fursuit maker database designed to help people discover fursuit creators, studios, and artists more easily. Browse makers by style, species, or country, compare portfolios, and find the right artist for your custom fursuit commission. Makers can request to be added through the “Add Me” button.</p>
-            </div>
+            <section class="home-resources site-reading"><h2>Start with the pieces you need</h2><p>List the parts you expect to wear together. For a head, paws and tail, check whether the maker lists those pieces individually or as a partial. For a fullsuit, ask what the body, feet and any padding include. A portfolio is a starting point for questions about fit and construction.</p><h2>Compare quotes on the same terms</h2><p>Send each maker the same reference sheet and parts list. Ask for the total cost, what is due up front, the shipping destination and an estimated production window. Record what is included so two quotes with different extras can be compared fairly.</p><a href="/en/guides.html">Guides</a> · <a href="/en/editorial-policy.html">Editorial policy</a></section>
+        <nav class="home-languages" aria-label="Languages"><a href="/" lang="en">English</a><a href="/es/" lang="es">Español</a><a href="/jp/" lang="ja">日本語</a></nav>
         </main>
 
         <aside class="side-column" aria-hidden="true">
@@ -532,10 +550,6 @@
     <script src="scripts/bottom-bar.js" defer></script>
 
     <script>
-        const fallbackImages = [
-            'assets/left-1.jpg', 'assets/assets/left-2.jpg', 'assets/left-3.jpg', 'assets/left-4.jpg',
-            'assets/right-1.jpg', 'assets/right-2.jpg', 'assets/right-3.jpg', 'assets/right-4.jpg'
-        ];
 
         const sideSlotCols = 2;
         const sideSlotRows = 2;
@@ -552,20 +566,18 @@
 
             let makers = [];
             try {
-                const r = await fetch('/makers.json?ts=' + Date.now());
+                const r = await fetch('/makers.json');
                 makers = await r.json();
             } catch (e) { }
 
             const pool = [];
             makers.forEach(m => {
                 if (m.images && m.images.length) {
-                    m.images.forEach(img => pool.push({ src: img, id: m.id, name: m.name }));
+                    (m.thumbnails || m.images).forEach(img => pool.push({ src: img, id: m.id, name: m.name }));
                 }
             });
 
-            if (pool.length === 0) {
-                fallbackImages.forEach((p, i) => pool.push({ src: p, id: 'fallback' + i, name: 'Artist' }));
-            }
+
 
             imagePoolCache = pool;
             return pool;
@@ -582,6 +594,7 @@
             mobileCards = [];
 
             const pool = await getImagePool();
+            if (!pool.length) return;
             const chosen = pickRandom(pool, Math.min(4, pool.length));
 
             while (chosen.length < 4) {
@@ -593,6 +606,8 @@
                 card.className = 'mobile-feature-card';
 
                 const img = document.createElement('img');
+                img.decoding = "async";
+                img.loading = "lazy";
                 img.src = item.src;
                 img.alt = item.name || 'Maker image';
 
@@ -673,7 +688,7 @@
 
         function scheduleNextMobileTick() {
             if (mobileTimeout) clearTimeout(mobileTimeout);
-            mobileTimeout = setTimeout(mobileTick, TICK_MS);
+            if (!matchMedia("(prefers-reduced-motion: reduce)").matches) mobileTimeout = setTimeout(mobileTick, TICK_MS);
         }
 
         async function setupSideSlots() {
@@ -685,6 +700,7 @@
             if (globalTimeout) { clearTimeout(globalTimeout); globalTimeout = null; }
 
             const pool = await getImagePool();
+            if (!pool.length) return;
 
             const initialChosen = pickRandom(pool, Math.min(pool.length, totalSlots));
             while (initialChosen.length < totalSlots) {
@@ -701,6 +717,8 @@
                         slot.dataset.pos = r === 0 ? 'up' : 'down';
 
                         const img = document.createElement('img');
+                        img.decoding = "async";
+                        img.loading = "lazy";
                         img.src = item.src;
                         img.classList.add('visible');
                         img.title = item.name || '';
@@ -822,6 +840,7 @@
 
         function scheduleNextGlobalTick() {
             if (globalTimeout) clearTimeout(globalTimeout);
+            if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
             globalTimeout = setTimeout(globalTick, TICK_MS);
         }
 
@@ -847,14 +866,6 @@
         setupSideSlots();
         setupMobileFeatured();
 
-        document.getElementById('searchBtn').addEventListener('click', function () {
-            const q = encodeURIComponent(document.getElementById('q').value.trim());
-            const country = encodeURIComponent(document.getElementById('country').value);
-            const params = new URLSearchParams();
-            if (q) params.set('q', q);
-            if (country && country !== 'any') params.set('country', country);
-            location.href = 'search.html' + (params.toString() ? ('?' + params.toString()) : '');
-        });
 
         document.getElementById('exploreBtn').addEventListener('click', function () {
             location.href = 'search.html';
@@ -868,43 +879,6 @@
             if (globalTimeout) clearTimeout(globalTimeout);
         });
     </script>
-
-    <div id="cookie-banner" aria-hidden="true" style="display:none;">
-        <div class="cb-inner">
-            <div class="cb-text">
-                <strong>We use cookies</strong>
-                <p>We use necessary cookies and marketing cookies (ads). We need your explicit consent to show ads.</p>
-                <div class="cb-actions">
-                    <button id="cb-accept-all" class="btn">Accept all</button>
-                    <button id="cb-reject-all" class="btn ghost">Reject</button>
-                    <button id="cb-manage" class="btn ghost">Manage</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="cookie-panel" aria-hidden="true" style="display:none;">
-        <div class="cp-inner">
-            <h3>Cookie Preferences</h3>
-            <p>Check what you accept. Only checked cookies will be activated.</p>
-            <div class="cp-row">
-                <label><input type="checkbox" data-cookie="necessary" disabled checked> Necessary (always active)</label>
-            </div>
-            <div class="cp-row">
-                <label><input type="checkbox" data-cookie="preferences"> Preferences</label>
-            </div>
-            <div class="cp-row">
-                <label><input type="checkbox" data-cookie="statistics"> Statistics</label>
-            </div>
-            <div class="cp-row">
-                <label><input type="checkbox" data-cookie="marketing"> Marketing / Ads</label>
-            </div>
-            <div class="cp-actions">
-                <button id="cp-save" class="btn">Save</button>
-                <button id="cp-cancel" class="btn ghost">Cancel</button>
-            </div>
-        </div>
-    </div>
 
     <section class="card faq-section" aria-labelledby="faq-title">
     <h2 id="faq-title" style="text-align:center;">Frequently Asked Questions</h2>
@@ -1063,106 +1037,11 @@
         }
     </style>
 
-    <style>
-        #cookie-banner {
-            position: fixed;
-            left: 16px;
-            right: 16px;
-            bottom: 16px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-            z-index: 9999;
-            max-width: 980px;
-            margin: 0 auto;
-        }
-
-        .cb-inner {
-            padding: 14px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .cb-text p {
-            margin: 6px 0 10px 0;
-            color: #444;
-            font-size: 14px;
-        }
-
-        .cb-actions {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 0;
-            background: #0f172a;
-            color: white;
-            cursor: pointer;
-        }
-
-            .btn.ghost {
-                background: transparent;
-                border: 1px solid #bbb;
-                color: #111;
-            }
-
-        #cookie-panel {
-            position: fixed;
-            right: 16px;
-            bottom: 90px;
-            z-index: 9999;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 12px;
-            width: 320px;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
-        }
-
-        .cp-inner h3 {
-            margin: 0 0 8px 0;
-        }
-
-        .cp-row {
-            margin: 8px 0;
-            font-size: 14px;
-        }
-
-        .cp-actions {
-            display: flex;
-            gap: 8px;
-            justify-content: flex-end;
-            margin-top: 8px;
-        }
-
-        .ad-slot {
-            min-height: 60px;
-            margin: 18px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .ad-placeholder {
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-            border: 2px dashed #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-        }
-    </style>
+    
 
     
 
+<footer class="site-links" aria-label="Site information"><a href="/en/">Home</a> <a href="/en/search.html">Maker directory</a> <a href="/en/guides.html">Guides</a> <a href="/en/about.html">About</a> <a href="/en/contact.html">Contact</a> <a href="/en/editorial-policy.html">Editorial policy</a> <a href="/en/privacy.html">Privacy</a> <a href="/en/cookies.html">Cookies</a> <a href="/en/terms.html">Terms</a> <a href="/en/legal.html">Disclaimer</a> <button type="button" data-ad-preferences hidden></button></footer>
 </body>
 
 </html>

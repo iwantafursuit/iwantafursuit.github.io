@@ -5,8 +5,8 @@
     
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Encuentra tu Fursuit Maker – Protogen, Toon y Kemono</title>
-    <meta name="description" content="Descubre fursuit makers verificados, incluidos especialistas en protogen. Compara estilos, ejemplos y encuentra al maker ideal." />
+    <title>Busca makers de fursuits | I Want a Fursuit</title>
+    <meta name="description" content="Busca por nombre o estilo. Usa el filtro de país para acotar las fichas actuales y confirma con cada taller el precio y la disponibilidad.">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
     <style>
@@ -363,6 +363,24 @@
 
 
     <script type="module" src="/scripts/site-sidebar.js"></script>
+<link rel="stylesheet" href="/css/editorial.css">
+<script src="/scripts/site-config.js" defer></script>
+<script src="/scripts/site-privacy.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- site-seo -->
+<link rel="canonical" href="https://iwantafursuit.github.io/es/search.html">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="Busca makers de fursuits | I Want a Fursuit">
+<meta property="og:url" content="https://iwantafursuit.github.io/es/search.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:image:alt" content="I Want a Fursuit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Busca makers de fursuits | I Want a Fursuit">
+<meta name="twitter:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:description" content="Busca por nombre o estilo. Usa el filtro de país para acotar las fichas actuales y confirma con cada taller el precio y la disponibilidad.">
+<meta name="twitter:description" content="Busca por nombre o estilo. Usa el filtro de país para acotar las fichas actuales y confirma con cada taller el precio y la disponibilidad.">
+<!-- /site-seo -->
 </head>
 
 <body>
@@ -370,7 +388,7 @@
     <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
 
         <a href="search.html">Buscar makers</a>
-        <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
+        <a data-site-event="external_form_open" href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
         <a href="cleaning.html">Limpieza de Fursuit</a>
         <a href="fursonacreation.html">Crea tu Fursona</a>
         <a href="fursonanamecreation.html"> Nombra tu Fursona</a>
@@ -378,28 +396,30 @@
 
     </site-sidebar>
 
-    <main class="main">
+    <main class="main" aria-labelledby="directory-title">
         <header>
-            <h2>Buscar makers</h2>
-            <div style="margin-left:auto" class="small" id="count">0 resultados</div>
+            <h1 id="directory-title">Busca makers de fursuits</h1>
+            <div style="margin-left:auto" class="small" role="status" id="count">Cargando makers…</div>
         </header>
 
-        <div class="controls">
-            <input id="q" type="search" placeholder="Buscar por nombre/estilo/palabras..." />
-            <select id="country">
+        <p>Busca por nombre o estilo. Usa el filtro de país para acotar las fichas actuales y confirma con cada taller el precio y la disponibilidad.</p>
+        <div class="controls" role="search">
+            <input id="q" aria-label="Busca por nombre o estilo" type="search" placeholder="Buscar por nombre/estilo/palabras..." />
+            <select id="country" aria-label="País">
                 <option value="any">Cualquier país</option>
                 <option value="es">España</option>
                 <option value="us">Estados Unidos</option>
                 <option value="de">Alemania</option>
-                <option value="ko">Korea</option>
+                <option value="ko">Corea del Sur</option>
             </select>
+            <select id="style" aria-label="Estilo o pieza"><option value="">Cualquier estilo o pieza</option></select>
             <button id="btnSearch">Buscar</button>
             <div style="flex:1"></div>
         </div>
 
-        <div id="results" class="grid" aria-live="polite"></div>
+        <div id="results" class="grid" aria-live="polite"><noscript><p><a href="/es/guides.html">Guías</a></p></noscript></div>
 
-        <div class="no-maker-cta">
+        <div class="no-maker-cta"><p><a class="site-inline-link" href="/es/highlight.html">Destacados para makers</a></p>
             <p class="no-maker-text">¿No encontraste al maker correcto?</p>
             <p class="no-maker-desc">¿No encuentras un maker que se adapte a tu estilo, presupuesto o proyecto? Dinos qué buscas y te ayudaremos a encontrar makers que puedan encajar con lo que necesitas.</p>
             <button id="findMakerBtn" class="pink-btn" style="margin-top: 28px;">Ayúdame a Encontrar un Maker</button>
@@ -415,16 +435,22 @@
         const initialQ = params.get('q') || '';
         const initialCountry = params.get('country') || 'any';
 
+        const styleFilter = document.getElementById('style');
         let makers = [];
 
         async function loadMakers() {
             try {
-                const r = await fetch('/makers.json?ts=' + Date.now());
+                const r = await fetch('/makers.json');
                 if (!r.ok) throw new Error('No se pudo cargar makers.json: ' + r.status);
                 makers = await r.json();
+                const styles = [...new Set(makers.flatMap(maker => maker.styles || []))].sort();
+                for (const style of styles) styleFilter.append(new Option(style, style));
+                const initialStyle = params.get('style');
+                if (styles.includes(initialStyle)) styleFilter.value = initialStyle;
             } catch (e) {
                 console.error('Error cargando makers.json', e);
-                makers = [];
+                document.getElementById('count').textContent = 'No se pudo cargar el directorio. Recarga la página para reintentar.';
+                return;
             }
 
             doSearch();
@@ -433,7 +459,9 @@
         function doSearch() {
             const q = document.getElementById('q').value.trim().toLowerCase();
             const country = document.getElementById('country').value;
-            let res = makers.filter(m => {
+            const style = styleFilter.value;
+            const res = makers.filter(m => {
+                if (style && !(m.styles || []).includes(style)) return false;
                 if (country !== 'any' && m.country !== country) return false;
                 if (!q) return true;
                 if ((m.name || '').toLowerCase().includes(q)) return true;
@@ -442,60 +470,22 @@
                 return false;
             });
 
-            const resWithFake = insertFakeProfiles(res);
-
-            renderResults(resWithFake);
+            renderResults(res);
 
             const newParams = new URLSearchParams();
+            if (style) newParams.set('style', style);
             if (q) newParams.set('q', q);
             if (country && country !== 'any') newParams.set('country', country);
             history.replaceState({}, '', location.pathname + (newParams.toString() ? '?' + newParams.toString() : ''));
         }
 
         
-        const TRANSPARENT_GIF = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-
-        function makeFakeProfile() {
-            return {
-                id: 'highlight-' + Math.random().toString(36).slice(2, 9),
-                name: '✨ Destaca tu perfil aqui',
-                bio: 'Haz que como makers aparezcas arriba y brille tu perfil por 30 dias',
-                images: [TRANSPARENT_GIF],
-                
-                fake: true,
-                highlight: true
-            };
-        }
-
-        function insertFakeProfiles(list) {
-            const out = [];
-            const firstPosOneBased = 5;
-            let fakeInserted = false;
-
-            for (let i = 0; i < list.length; i++) {
-                const count = i + 1;
-                if (count === firstPosOneBased || (count > firstPosOneBased && ((count - firstPosOneBased) % 20 === 0))) {
-                    out.push(makeFakeProfile());
-                    fakeInserted = true;
-                }
-                out.push(list[i]);
-            }
-
-            
-            if (!fakeInserted) {
-                out.push(makeFakeProfile());
-            }
-
-            
-            return out;
-        }
-
         function renderResults(list) {
             const cont = document.getElementById('results');
             cont.innerHTML = '';
             document.getElementById('count').textContent = list.length + ' resultados';
             if (list.length === 0) {
-                cont.innerHTML = '<p class="small">No hay resultados. Prueba con otros términos.</p>';
+                cont.textContent = 'Ningún maker coincide. Borra la búsqueda o selecciona otro país.';
                 return;
             }
 
@@ -516,7 +506,8 @@
                 const imgEl = document.createElement('img');
                 imgEl.alt = m.name || '';
                 imgEl.loading = 'lazy';
-                const images = (m.images && m.images.length) ? m.images.slice() : ['/assets/placeholder.jpg'];
+                imgEl.decoding = 'async';
+                const images = m.thumbnails?.length ? m.thumbnails : m.images?.length ? m.images : ['/assets/logo/logo.png'];
 
                 imgEl.src = images[0];
                 imgWrap.appendChild(imgEl);
@@ -541,19 +532,20 @@
                     meta.appendChild(pCountry);
                 }
 
+                const pStyles = document.createElement('p');
+                pStyles.className = 'small';
+                pStyles.textContent = (m.styles || []).join(' · ');
+                meta.appendChild(pStyles);
+
                 const pBio = document.createElement('p');
-                pBio.innerHTML = escapeHtml((m.bio || '').slice(0, 120)) + ((m.bio || '').length > 120 ? '...' : '');
+                pBio.textContent = (m.bio || '').slice(0, 120) + ((m.bio || '').length > 120 ? '...' : '');
                 meta.appendChild(pBio);
 
                 
                 const a = document.createElement('a');
-                if (m.fake) {
-                    a.href = 'highlight.html'; 
-                    a.textContent = 'Quiero destacar mi perfil ✨';
-                } else {
-                    a.href = `profile.html?id=${encodeURIComponent(m.id)}`;
-                    a.textContent = 'Ver perfil';
-                }
+                a.href = `profile.html?id=${encodeURIComponent(m.id)}`;
+                a.textContent = 'Ver ficha';
+
                 meta.appendChild(a);
 
                 card.appendChild(imgWrap);
@@ -561,17 +553,9 @@
                 cont.appendChild(card);
 
                 
-                if (m.fake) {
-                    imgWrap.addEventListener('click', () => {
-                        location.href = 'highlight.html';
-                    });
-                } else {
-                    imgWrap.addEventListener('click', () => {
-                        location.href = `profile.html?id=${encodeURIComponent(m.id)}`;
-                    });
-                }
+                imgWrap.addEventListener('click', () => location.assign(a.href));
 
-                if (images.length > 1) {
+                if (images.length > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
                     startRotationForCard({ imgEl, overlay, images });
                 }
             });
@@ -622,6 +606,7 @@
             });
 
             function tick() {
+                if (!imgEl.isConnected) return;
                 if (state.paused) {
                     state.nextTickAt = Date.now() + chooseRandomInterval();
                     state.timeoutId = setTimeout(tick, chooseRandomInterval());
@@ -655,10 +640,14 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('q').value = initialQ;
-            document.getElementById('country').value = initialCountry;
+            const countryFilter = document.getElementById('country');
+            if ([...countryFilter.options].some(option => option.value === initialCountry)) countryFilter.value = initialCountry;
+            const applyFilter = () => { window.dispatchEvent(new Event('iwaf:filter')); doSearch(); };
+            countryFilter.addEventListener('change', applyFilter);
+            styleFilter.addEventListener('change', applyFilter);
 
-            document.getElementById('btnSearch').addEventListener('click', doSearch);
-            document.getElementById('q').addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+            document.getElementById('btnSearch').addEventListener('click', () => { window.dispatchEvent(new Event('iwaf:search')); doSearch(); });
+            document.getElementById('q').addEventListener('keydown', e => { if (e.key === 'Enter') { window.dispatchEvent(new Event('iwaf:search')); doSearch(); } });
 
             // Find Maker popup
             document.getElementById('findMakerBtn').addEventListener('click', () => {
@@ -757,6 +746,7 @@
 
     <script src="scripts/bottom-bar.js" defer></script>
 
+<footer class="site-links" aria-label="Información del sitio"><a href="/es/">Inicio</a> <a href="/es/search.html">Directorio de makers</a> <a href="/es/guides.html">Guías</a> <a href="/es/about.html">Acerca del sitio</a> <a href="/es/contact.html">Contacto</a> <a href="/es/editorial-policy.html">Política editorial</a> <a href="/es/privacy.html">Privacidad</a> <a href="/es/cookies.html">Cookies</a> <a href="/es/terms.html">Condiciones</a> <a href="/es/legal.html">Aviso legal</a> <button type="button" data-ad-preferences hidden></button></footer>
 </body>
 </html>
 

@@ -1,238 +1,38 @@
 <!doctype html>
 <html lang="es">
 <head>
-
-    
-
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Sobre I Want a Fursuit</title>
-    <meta name="description" content="Directorio de fursuit makers: encuentra makers y sus trabajos sin perderte entre redes. Reporta bugs y sugiere mejoras." />
-
-
-
-    <style>
-        :root {
-            --sidebar-w: 220px;
-            --sidebar-mobile-w: 70px;
-            --bottom-bar-h: 64px;
-            --page-max-w: 800px;
-            --page-pad: 20px;
-            --radius: 12px;
-            --muted: #6b7280;
-            --accent: #ff2b8a;
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-        }
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            background: #fff;
-            color: #0f172a;
-        }
-
-            html.site-sidebar-collapsed {
-                --sidebar-w: var(--sidebar-collapsed-w);
-            }
-
-        site-sidebar:not(:defined) {
-            display: none;
-        }
-
-        site-sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: var(--sidebar-w);
-            z-index: 60;
-        }
-
-        body {
-            padding-left: var(--sidebar-w);
-            padding-bottom: calc(var(--bottom-bar-h) + 12px);
-            box-sizing: border-box;
-            transition: padding-left 0.3s ease;
-        }
-
-
-        main {
-            display: block;
-            width: 100%;
-        }
-
-        .container {
-            max-width: var(--page-max-w);
-            margin: 40px auto;
-            padding: var(--page-pad);
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: 0 6px 18px rgba(15,23,42,0.05);
-            border: 1px solid rgba(15,23,42,0.04);
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h1 {
-            margin: 0 0 12px 0;
-            font-size: 1.6rem;
-            color: var(--accent);
-        }
-
-        h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
-        }
-
-        p.lead {
-            margin: 0 0 16px 0;
-            color: var(--muted);
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        .muted {
-            color: var(--muted);
-            font-size: 0.98rem;
-            line-height: 1.5;
-        }
-
-
-        ul {
-            margin: 12px 0 20px 0;
-            padding: 0;
-            color: var(--muted);
-            list-style-position: inside;
-            text-align: left;
-            display: inline-block;
-        }
-
-        a.link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .contact-list {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .inline-note {
-            font-size: 0.9rem;
-            color: var(--muted);
-            background: #f9fafb;
-            padding: 8px 12px;
-            border-radius: 8px;
-            display: inline-block;
-        }
-
-
-
-
-        @media (max-width: 720px) {
-            body {
-                padding-left: var(--sidebar-mobile-w);
-            }
-
-            .container {
-                margin-top: 20px;
-                padding: 15px;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sobre I Want a Fursuit | I Want a Fursuit</title>
+<meta name="description" content="I Want a Fursuit ayuda a encontrar makers y preparar un encargo. El directorio agrupa fichas por país y estilo y enlaza a los portafolios. Las guías tratan el ajuste, los materiales, los presupuestos y el cuidado del traje.">
+<link rel="icon" href="/assets/favicon.png">
+<link rel="stylesheet" href="/css/editorial.css">
+<script src="/scripts/site-config.js" defer></script>
+<script src="/scripts/site-privacy.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- site-seo -->
+<link rel="canonical" href="https://iwantafursuit.github.io/es/about.html">
+<link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/about.html">
+<link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/about.html">
+<link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/about.html">
+<link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/about.html">
+<meta property="og:title" content="Sobre I Want a Fursuit | I Want a Fursuit">
+<meta property="og:url" content="https://iwantafursuit.github.io/es/about.html">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:image:alt" content="I Want a Fursuit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sobre I Want a Fursuit | I Want a Fursuit">
+<meta name="twitter:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:description" content="I Want a Fursuit ayuda a encontrar makers y preparar un encargo. El directorio agrupa fichas por país y estilo y enlaza a los portafolios. Las guías tratan el ajuste, los materiales, los presupuestos y el cuidado del traje.">
+<meta name="twitter:description" content="I Want a Fursuit ayuda a encontrar makers y preparar un encargo. El directorio agrupa fichas por país y estilo y enlaza a los portafolios. Las guías tratan el ajuste, los materiales, los presupuestos y el cuidado del traje.">
+<!-- /site-seo -->
 </head>
-<body>
-
-    <site-sidebar collapsible logo-src="/assets/logo/logo.png" bg="#ffe6f0">
-        <a href="search.html">Buscar makers</a>
-        <a href="https://forms.gle/6boFuotq8T9DGy4v6">Add me</a>
-        <a href="cleaning.html">Limpieza de Fursuit</a>
-        <a href="fursonacreation.html">Crea tu Fursona</a>
-        <a href="fursonanamecreation.html"> Nombra tu Fursona</a>
-        <a href="about.html">Sobre el Sitio Web</a>
-    </site-sidebar>
-
-    <main role="main" aria-labelledby="about-title">
-        <div class="container">
-
-            <article class="card" aria-describedby="about-desc">
-                <h1 id="about-title">Sobre el proyecto</h1>
-                <p id="about-desc" class="lead">
-                    Esta web busca reunir a los fursuit makers en un solo sitio para que cualquiera que quiera
-                    encargarse un fursuit pueda ver de forma r�pida y clara qui�nes son y qu� trabajos hacen.
-                </p>
-
-                <p class="muted">
-                    En resumen: un directorio sencillo y visual para que compradores y curiosos encuentren makers
-                    que de otro modo podr�an quedar ocultos por usar otras redes.
-                </p>
-            </article>
-
-            <section class="card" aria-labelledby="como-funciona">
-                <h2 id="como-funciona">C�mo funciona (r�pido)</h2>
-                <ul>
-                    <li>Los makers se apuntan rellenando un formulario.</li>
-                    <li>Reviso la ficha para evitar perfiles falsos o scams.</li>
-                    <li>En el futuro a�adiremos m�s herramientas de seguridad.</li>
-                </ul>
-                <p class="inline-note">Si tu ficha est� en orden, aparecer� en la b�squeda.</p>
-            </section>
-
-            <section class="card" aria-labelledby="seguridad">
-                <h2 id="seguridad">Seguridad y verificaci�n</h2>
-                <p class="muted">
-                    Ahora mismo la verificaci�n es manual. M�s adelante se a�adir�n badges, rese�as y un sistema de "verificado" para reducir fraudes y aumentar la confianza.
-                </p>
-            </section>
-
-            <section class="card" aria-labelledby="contacto">
-                <h2 id="contacto">�Has visto un bug?</h2>
-                <p class="muted">
-                    �Perfecto, d�melo! Reporta fallos o sugiere mejoras por DM.
-                </p>
-
-                <div class="contact-list">
-                    <a class="link" href="https://x.com/FursuitComision" target="_blank" rel="noopener noreferrer">@FursuitComision en X</a>
-                </div>
-            </section>
-
-            <section class="card" aria-labelledby="aviso">
-                <h2 id="aviso">Aviso corto</h2>
-                <p class="muted">
-                    La web est� en desarrollo. Algunas cosas pueden cambiar o estar en pruebas. ??
-                </p>
-            </section>
-
-            <section class="card" aria-labelledby="gracias">
-                <h2 id="gracias">Gracias</h2>
-                <p class="muted">
-                    Gracias por ayudar a que la comunidad tenga m�s visibilidad.
-                    <br>
-                    Si quieres aparecer, pulsa <strong style="color: var(--accent);">Add me</strong> en la barra lateral.
-                </p>
-            </section>
-
-        </div>
-    </main>
-
-    <script type="module" src="/scripts/site-sidebar.js"></script>
-    <script src="scripts/bottom-bar.js" defer></script>
-
-
-
-
+<body style="background:#fff4f8">
+<main class="site-reading"><h1>Sobre I Want a Fursuit</h1><p>I Want a Fursuit ayuda a encontrar makers y preparar un encargo. El directorio agrupa fichas por país y estilo y enlaza a los portafolios. Las guías tratan el ajuste, los materiales, los presupuestos y el cuidado del traje.</p>
+<h2>Cómo usar el directorio</h2><p>El comprador acuerda el trabajo y el pago directamente con el taller. Confirma disponibilidad y condiciones, y pregunta por cambios, retrasos, devoluciones y reparaciones.</p>
+<h2>Propón una ficha</h2><p>Envía enlaces oficiales, ejemplos que puedas compartir y los tipos de trabajo que aceptas. La política editorial explica cómo se revisan las fichas.</p>
+<p><a href="https://x.com/FursuitComision">@FursuitComision (X)</a> · <a href="https://forms.gle/6boFuotq8T9DGy4v6" data-site-event="external_form_open">Google Forms</a></p></main>
+<footer class="site-links" aria-label="Información del sitio"><a href="/es/">Inicio</a> <a href="/es/search.html">Directorio de makers</a> <a href="/es/guides.html">Guías</a> <a href="/es/about.html">Acerca del sitio</a> <a href="/es/contact.html">Contacto</a> <a href="/es/editorial-policy.html">Política editorial</a> <a href="/es/privacy.html">Privacidad</a> <a href="/es/cookies.html">Cookies</a> <a href="/es/terms.html">Condiciones</a> <a href="/es/legal.html">Aviso legal</a> <button type="button" data-ad-preferences hidden></button></footer>
 </body>
-
 </html>

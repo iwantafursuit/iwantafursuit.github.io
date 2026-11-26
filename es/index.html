@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
 <head>
 
@@ -6,8 +6,8 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>I Want a Fursuit - encuentra tu maker</title>
-    <meta name="description" content="Directorio de fursuit makers: busca por país, regístrate si eres maker." />
+    <title>Encuentra un maker y prepara tu primer fursuit | I Want a Fursuit</title>
+    <meta name="description" content="I Want a Fursuit reúne un directorio de makers y guías para compradores. Busca por nombre, país o estilo, revisa las muestras de trabajo y consulta las condiciones vigentes del taller antes de pedir presupuesto.">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
 
 
@@ -305,6 +305,28 @@
             }
         }
     </style>
+<link rel="stylesheet" href="/css/editorial.css">
+<script src="/scripts/site-config.js" defer></script>
+<script src="/scripts/site-privacy.js" defer></script>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- site-seo -->
+<link rel="canonical" href="https://iwantafursuit.github.io/es/">
+<link rel="alternate" hreflang="en" href="https://iwantafursuit.github.io/">
+<link rel="alternate" hreflang="es" href="https://iwantafursuit.github.io/es/">
+<link rel="alternate" hreflang="ja" href="https://iwantafursuit.github.io/jp/">
+<link rel="alternate" hreflang="x-default" href="https://iwantafursuit.github.io/">
+<meta property="og:title" content="Encuentra un maker y prepara tu primer fursuit | I Want a Fursuit">
+<meta property="og:url" content="https://iwantafursuit.github.io/es/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:image:alt" content="I Want a Fursuit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Encuentra un maker y prepara tu primer fursuit | I Want a Fursuit">
+<meta name="twitter:image" content="https://iwantafursuit.github.io/assets/logo/logo.png">
+<meta property="og:description" content="I Want a Fursuit reúne un directorio de makers y guías para compradores. Busca por nombre, país o estilo, revisa las muestras de trabajo y consulta las condiciones vigentes del taller antes de pedir presupuesto.">
+<meta name="twitter:description" content="I Want a Fursuit reúne un directorio de makers y guías para compradores. Busca por nombre, país o estilo, revisa las muestras de trabajo y consulta las condiciones vigentes del taller antes de pedir presupuesto.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "I Want a Fursuit", "url": "https://iwantafursuit.github.io/es/", "inLanguage": "es"}</script>
+<!-- /site-seo -->
 </head>
 <body>
     <div class="wrap">
@@ -313,11 +335,13 @@
         </aside>
 
         <main class="center">
-            <div class="logo"><img src="/assets/logo/logo.png" alt="Logo del sitio"></div>
+            <div class="logo"><img src="/assets/logo/logo.png" width="903" height="358" alt="Logo del sitio"></div>
 
-            <div class="search-row" role="search">
-                <input id="q" type="search" placeholder="Busca makers..." aria-label="Buscar makers" />
-                <select id="country" aria-label="Filtrar por país">
+            <h1 class="home-site-title">Encuentra un maker y prepara tu primer fursuit</h1>
+            <p>I Want a Fursuit reúne portafolios de makers y guías para preparar un encargo. Busca por nombre, país o estilo y confirma las condiciones vigentes de cada taller antes de pedir presupuesto.</p>
+            <form class="search-row" role="search" action="search.html" data-site-search>
+                <input id="q" name="q" type="search" placeholder="Busca makers..." aria-label="Buscar makers" />
+                <select id="country" name="country" aria-label="Filtrar por país">
                     <option value="any">Todo el mundo</option>
                     <option value="es">España</option>
                     <option value="us">Estados Unidos</option>
@@ -325,23 +349,21 @@
                     <option value="ko">Korea</option>
                 </select>
                 <button id="searchBtn">Buscar</button>
-            </div>
+            </form>
 
-            <button id="exploreBtn" class="explore-btn" aria-label="Explorar makers">Explorar</button>
+            <button id="exploreBtn" type="button" class="explore-btn" aria-label="Explorar makers">Explorar</button>
 
             <div class="maker-cta">
                 <div class="label" style="font-size:14px; font-weight:600;">Soy Maker</div>
-                <button class="register-btn" id="registerBtn">Add me</button>
+                <button class="register-btn" id="registerBtn" type="button" data-site-event="external_form_open">Add me</button>
             </div>
 
             <div class="maker-cta tiny">
                 <div class="tiny">¿Eres maker? ¡Pídeme que te añada al botón de "Add me"!</div>
             </div>
 
-            <div class="explain" id="explain">
-                <strong>¿De qué trata la web?</strong>
-                <p>Este sitio es un directorio pensado para reunir a makers de fursuits: creadores, talleres y artistas. Los makers pueden pedir que se les añada mediante "Add me".</p>
-            </div>
+            <section class="home-resources site-reading"><h2>Define las piezas que vas a usar</h2><p>Haz una lista de las piezas que necesitas. Si quieres cabeza, patas y cola, pregunta si se venden por separado o como parcial. Para un traje completo, confirma qué incluye el cuerpo y si lleva pies o relleno. Usa la galería para concretar tus preguntas sobre el ajuste y la construcción.</p><h2>Compara presupuestos equivalentes</h2><p>Envía a cada taller la misma referencia y lista de piezas. Pide el coste total, el anticipo, el destino del envío y una estimación del plazo. Apunta qué incluye cada propuesta para comparar costes con los mismos criterios.</p><a href="/es/guides.html">Guías</a> · <a href="/es/editorial-policy.html">Política editorial</a></section>
+        <nav class="home-languages" aria-label="Languages"><a href="/" lang="en">English</a><a href="/es/" lang="es">Español</a><a href="/jp/" lang="ja">日本語</a></nav>
         </main>
 
         <aside class="side-column" aria-hidden="true">
@@ -352,10 +374,6 @@
     <script src="scripts/bottom-bar.js" defer></script>
 
     <script>
-        const fallbackImages = [
-            'assets/left-1.jpg', 'assets/left-2.jpg', 'assets/left-3.jpg', 'assets/left-4.jpg',
-            'assets/right-1.jpg', 'assets/right-2.jpg', 'assets/right-3.jpg', 'assets/right-4.jpg'
-        ];
 
         const sideSlotCols = 2;
         const sideSlotRows = 2;
@@ -375,17 +393,17 @@
 
             let makers = [];
             try {
-                const r = await fetch('/makers.json?ts=' + Date.now());
+                const r = await fetch('/makers.json');
                 makers = await r.json();
             } catch (e) { }
 
             const pool = [];
             makers.forEach(m => {
                 if (m.images && m.images.length) {
-                    m.images.forEach(img => pool.push({ src: img, id: m.id, name: m.name }));
+                    (m.thumbnails || m.images).forEach(img => pool.push({ src: img, id: m.id, name: m.name }));
                 }
             });
-            if (pool.length === 0) { fallbackImages.forEach((p, i) => pool.push({ src: p, id: 'fallback' + i, name: 'Artista' })); }
+            if (!pool.length) return;
 
             const initialChosen = pickRandom(pool, Math.min(pool.length, totalSlots));
             while (initialChosen.length < totalSlots) { initialChosen.push(pool[Math.floor(Math.random() * pool.length)]); }
@@ -400,6 +418,9 @@
                         slot.dataset.pos = r === 0 ? 'up' : 'down';
 
                         const img = document.createElement('img');
+                        img.loading = "lazy";
+                        img.decoding = "async";
+                        img.alt = "";
                         img.src = item.src;
                         img.classList.add('visible');
                         img.title = item.name || '';
@@ -509,6 +530,7 @@
 
         function scheduleNextGlobalTick() {
             if (globalTimeout) clearTimeout(globalTimeout);
+            if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
             globalTimeout = setTimeout(globalTick, TICK_MS);
         }
 
@@ -532,14 +554,6 @@
 
         setupSideSlots();
 
-        document.getElementById('searchBtn').addEventListener('click', function () {
-            const q = encodeURIComponent(document.getElementById('q').value.trim());
-            const country = encodeURIComponent(document.getElementById('country').value);
-            const params = new URLSearchParams();
-            if (q) params.set('q', q);
-            if (country && country !== 'any') params.set('country', country);
-            location.href = 'search.html' + (params.toString() ? ('?' + params.toString()) : '');
-        });
 
         document.getElementById('exploreBtn').addEventListener('click', function () {
             location.href = 'search.html';
@@ -555,6 +569,7 @@
 
     
 
+<footer class="site-links" aria-label="Información del sitio"><a href="/es/">Inicio</a> <a href="/es/search.html">Directorio de makers</a> <a href="/es/guides.html">Guías</a> <a href="/es/about.html">Acerca del sitio</a> <a href="/es/contact.html">Contacto</a> <a href="/es/editorial-policy.html">Política editorial</a> <a href="/es/privacy.html">Privacidad</a> <a href="/es/cookies.html">Cookies</a> <a href="/es/terms.html">Condiciones</a> <a href="/es/legal.html">Aviso legal</a> <button type="button" data-ad-preferences hidden></button></footer>
 </body>
 
 </html>
